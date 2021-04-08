@@ -32,8 +32,8 @@ namespace EgyptExcavation
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDbContext<egyptexcavationContext>(options =>
-            //    options.UseSqlServer(Configuration["ConnectionStrings:EgyptExcavationConnection"]));
+            services.AddDbContext<egyptexcavationContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:EgyptExcavationConnection"]));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

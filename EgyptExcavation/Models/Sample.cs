@@ -15,13 +15,13 @@ namespace EgyptExcavation.Models
         public string Description { get; set; }
         public string Category { get; set; }
         public string Notes { get; set; }
-        public byte[] HairTaken { get; set; }
-        public byte[] SoftTissueTaken { get; set; }
-        public byte[] BoneTaken { get; set; }
-        public byte[] ToothTaken { get; set; }
-        public byte[] TextileTaken { get; set; }
+        public bool? HairTaken { get; set; }
+        public bool? SoftTissueTaken { get; set; }
+        public bool? BoneTaken { get; set; }
+        public bool? ToothTaken { get; set; }
+        public bool? TextileTaken { get; set; }
         public string DescriptionOfTaken { get; set; }
-        public byte[] SampleTaken { get; set; }
+        public bool? SampleTaken { get; set; }
         public int? Foci { get; set; }
         public int? C14sample2017 { get; set; }
         public string LocationDescription { get; set; }

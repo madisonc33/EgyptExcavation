@@ -11,7 +11,7 @@ namespace EgyptExcavation.Models
     {
         public int CranialId { get; set; }
         public double? MaxCranialLength { get; set; }
-        public byte[] SkullTrauma { get; set; }
+        public bool? SkullTrauma { get; set; }
         public double? MaxCranialBreadth { get; set; }
         public double? BasionBergmaHeight { get; set; }
         public double? BasionNasion { get; set; }
@@ -22,14 +22,14 @@ namespace EgyptExcavation.Models
         public double? InterorbitalBreadth { get; set; }
         public int? YearOnSkull { get; set; }
         public string MonthOnSkull { get; set; }
-        public byte[] SkullAtMagazine { get; set; }
-        public byte[] CribraOrbitalia { get; set; }
-        public byte[] PoroticHyperostosis { get; set; }
+        public bool? SkullAtMagazine { get; set; }
+        public bool? CribraOrbitalia { get; set; }
+        public bool? PoroticHyperostosis { get; set; }
         public string PoroticHyperostosisLoc { get; set; }
-        public byte[] MetopicSuture { get; set; }
-        public byte[] ButtonOsteoma { get; set; }
+        public bool? MetopicSuture { get; set; }
+        public bool? ButtonOsteoma { get; set; }
         public string OsteologyUnknownComment { get; set; }
-        public byte[] Tmjoa { get; set; }
+        public bool? Tmjoa { get; set; }
         public int? DateOnSkull { get; set; }
         public string CranialSuture { get; set; }
         public string GenderKey { get; set; }

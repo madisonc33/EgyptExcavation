@@ -86,10 +86,6 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.BoneId).HasColumnName("BoneID");
 
-                entity.Property(e => e.BoneTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.BurialPreservation)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -112,33 +108,13 @@ namespace EgyptExcavation.Models
                     .HasMaxLength(1)
                     .IsUnicode(false);
 
-                entity.Property(e => e.HairTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.PreservationIndex)
                     .HasMaxLength(5)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SampleTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.SequenceDna)
                     .HasColumnName("SequenceDNA")
                     .IsUnicode(false);
-
-                entity.Property(e => e.SoftTissueTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.TextileTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.ToothTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e.WrappingKey)
                     .HasMaxLength(1)
@@ -167,14 +143,6 @@ namespace EgyptExcavation.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PostcrainiaAtMagazine)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.PostcrainiaTrauma)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.PubicSymphysis)
                     .HasMaxLength(5)
                     .IsUnicode(false);
@@ -185,10 +153,6 @@ namespace EgyptExcavation.Models
                 entity.Property(e => e.BurialId)
                     .HasColumnName("BurialID")
                     .ValueGeneratedNever();
-
-                entity.Property(e => e.ArtifactFound)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e.ArtifactsDescription)
                     .HasMaxLength(150)
@@ -216,7 +180,7 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.FaceBundleKey)
                     .HasMaxLength(1)
-                    .IsFixedLength();
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Goods)
                     .HasMaxLength(1)
@@ -225,14 +189,6 @@ namespace EgyptExcavation.Models
                 entity.Property(e => e.LocId).HasColumnName("LocID");
 
                 entity.Property(e => e.OrientationId).HasColumnName("OrientationID");
-
-                entity.Property(e => e.PreviouslySampled)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.ToBeConfirmed)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
             });
 
             modelBuilder.Entity<BurialAdultChildCode>(entity =>
@@ -269,27 +225,15 @@ namespace EgyptExcavation.Models
                     .HasColumnName("CranialID")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.ButtonOsteoma)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.CranialSuture)
                     .HasMaxLength(20)
                     .IsUnicode(false);
-
-                entity.Property(e => e.CribraOrbitalia)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e.GefunctionTotal).HasColumnName("GEFunctionTotal");
 
                 entity.Property(e => e.GenderKey)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.MetopicSuture)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e.MonthOnSkull)
                     .HasMaxLength(15)
@@ -299,26 +243,11 @@ namespace EgyptExcavation.Models
                     .HasMaxLength(2)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PoroticHyperostosis)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.PoroticHyperostosisLoc)
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SkullAtMagazine)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.SkullTrauma)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.Tmjoa)
-                    .HasColumnName("TMJOA")
-                    .HasMaxLength(1)
-                    .IsFixedLength();
+                entity.Property(e => e.Tmjoa).HasColumnName("TMJOA");
             });
 
             modelBuilder.Entity<Excavation>(entity =>
@@ -327,10 +256,7 @@ namespace EgyptExcavation.Models
                     .HasColumnName("ExcavationID")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.Byusample)
-                    .HasColumnName("BYUSample")
-                    .HasMaxLength(1)
-                    .IsFixedLength();
+                entity.Property(e => e.Byusample).HasColumnName("BYUSample");
 
                 entity.Property(e => e.ExcMonth)
                     .HasMaxLength(5)
@@ -442,14 +368,14 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<PhysicalOrientation>(entity =>
             {
                 entity.HasKey(e => e.OrientationId)
-                    .HasName("PK__Physical__8B50BCC3415922D6");
+                    .HasName("PK__Physical__8B50BCC3997DE2FA");
 
                 entity.Property(e => e.OrientationId)
                     .HasColumnName("OrientationID")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.HeadDirection)
-                    .HasMaxLength(1)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.StoFeet).HasColumnName("SToFeet");
@@ -473,10 +399,6 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.BodyId).HasColumnName("BodyID");
 
-                entity.Property(e => e.BoneTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.C14sample2017).HasColumnName("C14Sample2017");
 
                 entity.Property(e => e.Category)
@@ -493,10 +415,6 @@ namespace EgyptExcavation.Models
                     .HasMaxLength(1000)
                     .IsUnicode(false);
 
-                entity.Property(e => e.HairTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
                 entity.Property(e => e.LocationDescription)
                     .HasMaxLength(100)
                     .IsUnicode(false);
@@ -504,22 +422,6 @@ namespace EgyptExcavation.Models
                 entity.Property(e => e.Notes).IsUnicode(false);
 
                 entity.Property(e => e.Questions).IsUnicode(false);
-
-                entity.Property(e => e.SampleTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.SoftTissueTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.TextileTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
-
-                entity.Property(e => e.ToothTaken)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e._14calDate).HasColumnName("14CalDate");
             });
@@ -547,10 +449,6 @@ namespace EgyptExcavation.Models
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.BodyId).HasColumnName("BodyID");
-
-                entity.Property(e => e.LinearHypoplasiaEnamel)
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.Property(e => e.PathologyAnomoly)
                     .HasMaxLength(200)
