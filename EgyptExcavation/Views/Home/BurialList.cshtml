@@ -4,6 +4,8 @@
 @{
 }
 
+@Model BurialList
+
 <p>
     A paginated list of all the burials with a brief summary of the info.
     The ability to filter the results by the relevant criteria.
@@ -15,3 +17,9 @@
     <li>Which age or gender is most likely buried with dice?</li>
     <li>What is the average thread count of textile wrapping a mummy at a certain depth?</li>
 </ul>
+
+
+@foreach (b in Model.Burials)
+{
+    <partial name="BurialSummary" model="b" />
+}
