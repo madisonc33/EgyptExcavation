@@ -12,6 +12,7 @@ using EgyptExcavation.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using EgyptExcavation.Models;
 
 namespace EgyptExcavation
 {
@@ -30,6 +31,10 @@ namespace EgyptExcavation
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<egyptexcavationContext>(options =>
+                options.UseSqlServer(Configuration["ConnectionStrings:EgyptExcavationConnection"]));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
