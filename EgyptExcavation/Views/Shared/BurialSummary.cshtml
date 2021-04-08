@@ -5,4 +5,138 @@
 }
 
 @*we will have to change this*@
-@model Burials
+@*@model Burials*@
+
+<div class="card">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">First</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Second</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">Third</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">fourth</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="fifth-tab" data-toggle="tab" href="#fifth" role="tab" aria-controls="fifth" aria-selected="false">fifth</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="sixth-tab" data-toggle="tab" href="#sixth" role="tab" aria-controls="sixth" aria-selected="false">sixth</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+                <h4>my first tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <ul class="list-group">
+                                <li class="list-group-item">Location: Location.full location key</li>
+                                <li class="list-group-item">Subplot: Location.Subplot</li>
+                                <li class="list-group-item">Depth: PhysicalOrientation.BurialDepth</li>
+                                <li class="list-group-item">Head Direction: Physicalorientation.HeadDirection</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm">
+                            <ul class="list-group">
+                                <li class="list-group-item">Burial Number: Burial.BurialNum</li>
+                                <li class="list-group-item">Year Excavated: Excavation.ExcYear</li>
+                                <li class="list-group-item">Body Length: PhysicalOrientation.LengthOfRemainsInMeters</li>
+                                <li class="list-group-item">Face Bundle: FaceBundleCode.Description</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm">
+                            <p>cool image maybe, with a default if there isnt a unique one.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+                <h4>my second tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>column one</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column two</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
+                <h4>my third tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>column one</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column two</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="fourth-tab">
+                <h4>my fourth tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>column one</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column two</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="fifth" role="tabpanel" aria-labelledby="fifth-tab">
+                <h4>my fifth tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>column one</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column two</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="sixth" role="tabpanel" aria-labelledby="sixth-tab">
+                <h4>my sixth tab content</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>column one</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column two</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>column three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
