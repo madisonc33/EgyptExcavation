@@ -24,10 +24,27 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult Index()
         {
-            var person = context.MyStudd;
-          
+           return View();
+        }
 
-           return View(person);
+        public IActionResult BurialList()
+        {
+            return View();
+        }
+
+        public IActionResult BurialDetails()
+        {
+            return View();
+        }
+
+        public IActionResult EditFieldNotes()
+        {
+            return View();
+        }
+
+        public IActionResult EditMummyInfo()
+        {
+            return View();
         }
 
         public IActionResult Privacy()

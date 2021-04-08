@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace EgyptExcavation.Models
 {
-    public partial class MyStudd
+    public partial class FaceBundleCode
     {
-        public string Id { get; set; }
+        public string FaceBundleKey { get; set; }
         public string Description { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace EgyptExcavation.Models
         public int? LocId { get; set; }
         public int? BodyId { get; set; }
         public int? ExcavationId { get; set; }
-        public byte[] FaceBundle { get; set; }
+        public byte[] FaceBundleKey { get; set; }
         public byte[] ArtifactFound { get; set; }
         public string ArtifactsDescription { get; set; }
         public string Cluster { get; set; }

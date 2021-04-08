@@ -27,11 +27,11 @@ namespace EgyptExcavation.Models
         public virtual DbSet<BurialWrappingCode> BurialWrappingCode { get; set; }
         public virtual DbSet<Cranial> Cranial { get; set; }
         public virtual DbSet<Excavation> Excavation { get; set; }
+        public virtual DbSet<FaceBundleCode> FaceBundleCode { get; set; }
         public virtual DbSet<Files> Files { get; set; }
         public virtual DbSet<GenderCodeSingle> GenderCodeSingle { get; set; }
         public virtual DbSet<HairColorCode> HairColorCode { get; set; }
         public virtual DbSet<Location> Location { get; set; }
-        public virtual DbSet<MyStudd> MyStudd { get; set; }
         public virtual DbSet<PhysicalOrientation> PhysicalOrientation { get; set; }
         public virtual DbSet<Sample> Sample { get; set; }
         public virtual DbSet<Storage> Storage { get; set; }
@@ -41,7 +41,7 @@ namespace EgyptExcavation.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=database-1.ck5snpiu0zac.us-east-1.rds.amazonaws.com,1433;Initial Catalog=egyptexcavation;User Id=admin;Password=intex2DBAdmin;");
             }
         }
@@ -51,7 +51,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<AgeCode>(entity =>
             {
                 entity.HasKey(e => e.AgeKey)
-                    .HasName("PK__AgeCode__28D1FD27A6625BE0");
+                    .HasName("PK__AgeCode__28D1FD2777024E13");
 
                 entity.Property(e => e.AgeKey)
                     .HasMaxLength(1)
@@ -238,7 +238,7 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.ExcavationId).HasColumnName("ExcavationID");
 
-                entity.Property(e => e.FaceBundle)
+                entity.Property(e => e.FaceBundleKey)
                     .HasMaxLength(1)
                     .IsFixedLength();
 
@@ -262,7 +262,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<BurialAdultChildCode>(entity =>
             {
                 entity.HasKey(e => e.AdultChildKey)
-                    .HasName("PK__BurialAd__CBD31B9AA797EF4B");
+                    .HasName("PK__BurialAd__CBD31B9A701A4D06");
 
                 entity.Property(e => e.AdultChildKey)
                     .HasMaxLength(1)
@@ -276,7 +276,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<BurialWrappingCode>(entity =>
             {
                 entity.HasKey(e => e.WrappingKey)
-                    .HasName("PK__BurialWr__60655CBA9181FAD7");
+                    .HasName("PK__BurialWr__60655CBA3497319F");
 
                 entity.Property(e => e.WrappingKey)
                     .HasMaxLength(1)
@@ -293,11 +293,11 @@ namespace EgyptExcavation.Models
                     .HasColumnName("CranialID")
                     .ValueGeneratedNever();
 
+                entity.Property(e => e.BasionBergmaHeight).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.BasionNasion).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.BasionProsithanLength).HasColumnType("decimal(18, 0)");
-
-                entity.Property(e => e.BasonBergmaHeight).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.BizgoymaticDiameter).HasColumnType("decimal(18, 0)");
 
@@ -389,10 +389,24 @@ namespace EgyptExcavation.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<FaceBundleCode>(entity =>
+            {
+                entity.HasKey(e => e.FaceBundleKey)
+                    .HasName("PK__FaceBund__E34323E82EF6AFB5");
+
+                entity.Property(e => e.FaceBundleKey)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Files>(entity =>
             {
                 entity.HasKey(e => e.FileId)
-                    .HasName("PK__Files__6F0F989FF420B6A5");
+                    .HasName("PK__Files__6F0F989FFE48E1F8");
 
                 entity.Property(e => e.FileId)
                     .HasColumnName("FileID")
@@ -412,7 +426,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<GenderCodeSingle>(entity =>
             {
                 entity.HasKey(e => e.GenderKey)
-                    .HasName("PK__GenderCo__44C092CD001988F5");
+                    .HasName("PK__GenderCo__44C092CD25B0DE42");
 
                 entity.Property(e => e.GenderKey)
                     .HasMaxLength(1)
@@ -426,7 +440,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<HairColorCode>(entity =>
             {
                 entity.HasKey(e => e.HairColorKey)
-                    .HasName("PK__HairColo__43619190DECEE264");
+                    .HasName("PK__HairColo__4361919042D087D4");
 
                 entity.Property(e => e.HairColorKey)
                     .HasMaxLength(1)
@@ -440,7 +454,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<Location>(entity =>
             {
                 entity.HasKey(e => e.LocId)
-                    .HasName("PK__Location__6A46DEE98D7C19CF");
+                    .HasName("PK__Location__6A46DEE9A066F30C");
 
                 entity.Property(e => e.LocId)
                     .HasColumnName("LocID")
@@ -465,22 +479,10 @@ namespace EgyptExcavation.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<MyStudd>(entity =>
-            {
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Description)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<PhysicalOrientation>(entity =>
             {
                 entity.HasKey(e => e.OrientationId)
-                    .HasName("PK__Physical__8B50BCC3BE0C7D95");
+                    .HasName("PK__Physical__8B50BCC32E1D30A9");
 
                 entity.Property(e => e.OrientationId)
                     .HasColumnName("OrientationID")
@@ -577,7 +579,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<Storage>(entity =>
             {
                 entity.HasKey(e => e.RackId)
-                    .HasName("PK__Storage__0363D94862719E11");
+                    .HasName("PK__Storage__0363D948196F27E8");
 
                 entity.Property(e => e.RackId)
                     .HasColumnName("RackID")

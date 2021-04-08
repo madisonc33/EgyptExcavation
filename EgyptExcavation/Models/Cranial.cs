@@ -13,7 +13,7 @@ namespace EgyptExcavation.Models
         public decimal? MaxCranialLength { get; set; }
         public byte[] SkullTrauma { get; set; }
         public decimal? MaxCranialBreadth { get; set; }
-        public decimal? BasonBergmaHeight { get; set; }
+        public decimal? BasionBergmaHeight { get; set; }
         public decimal? BasionNasion { get; set; }
         public decimal? BasionProsithanLength { get; set; }
         public decimal? BizgoymaticDiameter { get; set; }
