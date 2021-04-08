@@ -56,11 +56,17 @@ namespace EgyptExcavation.Controllers
             {
                 var bur = context.Burial.SingleOrDefault(x => x.BurialId == b.BurialId);
 
-                context.Entry(bur).Property(x => x.quoteText).CurrentValue = q.quoteText;
-                context.Entry(bur).Property(x => x.Author).CurrentValue = q.Author;
-                context.Entry(bur).Property(x => x.quoteDate).CurrentValue = q.quoteDate;
-                context.Entry(bur).Property(x => x.Subject).CurrentValue = q.Subject;
-                context.Entry(bur).Property(x => x.Citation).CurrentValue = q.Citation;
+                context.Entry(bur).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
+                context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
+                context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
+                context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
+                context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
+
+
 
 
                 context.SaveChanges();
