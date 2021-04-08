@@ -65,8 +65,8 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
                 context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
                 context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-
-
+                context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
+                context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
 
 
                 context.SaveChanges();
@@ -76,7 +76,6 @@ namespace EgyptExcavation.Controllers
             else
                 return View();
         }
-
 
 
         [HttpPost]

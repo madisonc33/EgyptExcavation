@@ -1,10 +1,101 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Enter A Quote";
+
 }
 
 <p>
     A page linked from the single burial page where a researcher can enter/edit field notes.
 </p>
+
+EditFieldNotes2
+
+@{
+
+}
+
+@model Burial
+
+<div class="text-center">
+    <h1 class="display-4">Enter FieldNotes</h1>
+</div>
+
+
+<form asp-action="EditFieldNotes2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="BurialNum">Burial Number:</label>
+        <input asp-for="BurialNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ArtifactFound">Artifact Found:</label>
+        <input asp-for="ArtifactFound" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ArtifactsDescription">Description of Artifact:</label>
+        <input asp-for="ArtifactsDescription" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Cluster">Cluster</label>
+        <input asp-for="Cluster" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Goods">Goods</label>
+        <input asp-for="Goods" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BiologicalInitials">Biological Initials</label>
+        <input asp-for="BiologicalInitials" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BiologicalClusterNum">Biological Cluster Number</label>
+        <input asp-for="BiologicalClusterNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PreviouslySampled">Has The Burial Been Previously Sampled?</label>
+        <input asp-for="PreviouslySampled" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BiologicalNotes">Biological Notes</label>
+        <input asp-for="BiologicalNotes" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ToBeConfirmed">To Be Confirmed?</label>
+        <input asp-for="ToBeConfirmed" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BurialSituation">What is the Burial Situation?</label>
+        <input asp-for="BurialSituation" />
+        <br />
+    </div>
+
+
+    <div hidden>
+        <label asp-for="BurialId">BurialID</label>
+        <input asp-for="BurialId" />
+        <br />
+    </div>
+    <button type="submit">Add Field Note</button>
+
+</form>
 
