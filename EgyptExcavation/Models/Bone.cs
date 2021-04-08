@@ -39,8 +39,8 @@ namespace EgyptExcavation.Models
         public int? SubpubicAngle { get; set; }
         public int? VentralArc { get; set; }
         public string BasilarSuture { get; set; }
-        public byte[] PostcrainiaAtMagazine { get; set; }
-        public byte[] PostcrainiaTrauma { get; set; }
+        public bool? PostcrainiaAtMagazine { get; set; }
+        public bool? PostcrainiaTrauma { get; set; }
         public string OsteologyNotes { get; set; }
     }
 }

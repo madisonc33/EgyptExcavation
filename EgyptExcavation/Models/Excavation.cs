@@ -17,6 +17,6 @@ namespace EgyptExcavation.Models
         public int? FieldBookPageNum { get; set; }
         public string InitialsOfEntryExpert { get; set; }
         public string InitialsOfEntryChecker { get; set; }
-        public byte[] Byusample { get; set; }
+        public bool? Byusample { get; set; }
     }
 }

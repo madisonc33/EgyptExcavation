@@ -11,7 +11,7 @@ namespace EgyptExcavation.Models
     {
         public int ToothId { get; set; }
         public int? BodyId { get; set; }
-        public byte[] LinearHypoplasiaEnamel { get; set; }
+        public bool? LinearHypoplasiaEnamel { get; set; }
         public string ToothAttrition { get; set; }
         public string ToothEruption { get; set; }
         public string PathologyAnomoly { get; set; }
