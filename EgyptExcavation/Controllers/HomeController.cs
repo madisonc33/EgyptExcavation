@@ -40,6 +40,22 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult EnterFieldNotes(Burial b)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Burial.Add(b);
+                context.SaveChanges();
+                return View("BurialList", context.Burial);
+            }
+            //Otherwise
+            return View();
+        }
+
+
 
         [HttpPost]
         public IActionResult EditFieldNotes1(int BurialID)
@@ -77,9 +93,8 @@ namespace EgyptExcavation.Controllers
                 return View();
         }
 
-
         [HttpPost]
-        public IActionResult Remove(int BurialID)
+        public IActionResult RemoveFieldNotes(int BurialID)
         {
             Burial b = context.Burial.Single(x => x.BurialId == BurialID);
             context.Remove(b);
