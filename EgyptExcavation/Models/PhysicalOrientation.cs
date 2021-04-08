@@ -10,12 +10,12 @@ namespace EgyptExcavation.Models
     public partial class PhysicalOrientation
     {
         public int OrientationId { get; set; }
-        public decimal? WtoFeet { get; set; }
-        public decimal? StoFeet { get; set; }
-        public decimal? WtoHead { get; set; }
-        public decimal? StoHead { get; set; }
+        public double? WtoFeet { get; set; }
+        public double? StoFeet { get; set; }
+        public double? WtoHead { get; set; }
+        public double? StoHead { get; set; }
         public string HeadDirection { get; set; }
-        public decimal? BurialDepth { get; set; }
-        public decimal? LengthOfRemainsInMeters { get; set; }
+        public double? BurialDepth { get; set; }
+        public double? LengthOfRemainsInMeters { get; set; }
     }
 }

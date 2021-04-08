@@ -14,12 +14,12 @@ namespace EgyptExcavation.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private egyptexcavationContext context { get; set; }
+        //private egyptexcavationContext context { get; set; } , egyptexcavationContext con
 
-        public HomeController(ILogger<HomeController> logger, egyptexcavationContext con)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            context = con;
+            //context = con;
         }
 
         public IActionResult Index()

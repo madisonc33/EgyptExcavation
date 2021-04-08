@@ -18,19 +18,19 @@ namespace EgyptExcavation.Models
         public int? OrbitEdge { get; set; }
         public int? SupraorbitalRidges { get; set; }
         public int? Robust { get; set; }
-        public decimal? TibiaLength { get; set; }
-        public decimal? HumerusLength { get; set; }
-        public decimal? FemerLength { get; set; }
-        public decimal? Humerus { get; set; }
-        public decimal? FemurDiameter { get; set; }
-        public decimal? IliacCrest { get; set; }
-        public decimal? MedialClavicle { get; set; }
-        public decimal? BoneLength { get; set; }
+        public double? TibiaLength { get; set; }
+        public double? HumerusLength { get; set; }
+        public double? FemerLength { get; set; }
+        public double? Humerus { get; set; }
+        public double? FemurDiameter { get; set; }
+        public double? IliacCrest { get; set; }
+        public double? MedialClavicle { get; set; }
+        public double? BoneLength { get; set; }
         public string PubicSymphysis { get; set; }
         public string Osteophytosis { get; set; }
-        public decimal? HumerusHead { get; set; }
-        public decimal? FemurHead { get; set; }
-        public decimal? ForemanMagnum { get; set; }
+        public double? HumerusHead { get; set; }
+        public double? FemurHead { get; set; }
+        public double? ForemanMagnum { get; set; }
         public int? DorsalPitting { get; set; }
         public int? MedialIpRamus { get; set; }
         public int? PreaurSulcus { get; set; }

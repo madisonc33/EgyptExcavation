@@ -10,16 +10,16 @@ namespace EgyptExcavation.Models
     public partial class Cranial
     {
         public int CranialId { get; set; }
-        public decimal? MaxCranialLength { get; set; }
+        public double? MaxCranialLength { get; set; }
         public byte[] SkullTrauma { get; set; }
-        public decimal? MaxCranialBreadth { get; set; }
-        public decimal? BasionBergmaHeight { get; set; }
-        public decimal? BasionNasion { get; set; }
-        public decimal? BasionProsithanLength { get; set; }
-        public decimal? BizgoymaticDiameter { get; set; }
-        public decimal? NasionProsthion { get; set; }
-        public decimal? MaxNasalBreadth { get; set; }
-        public decimal? InterorbitalBreadth { get; set; }
+        public double? MaxCranialBreadth { get; set; }
+        public double? BasionBergmaHeight { get; set; }
+        public double? BasionNasion { get; set; }
+        public double? BasionProsithanLength { get; set; }
+        public double? BizgoymaticDiameter { get; set; }
+        public double? NasionProsthion { get; set; }
+        public double? MaxNasalBreadth { get; set; }
+        public double? InterorbitalBreadth { get; set; }
         public int? YearOnSkull { get; set; }
         public string MonthOnSkull { get; set; }
         public byte[] SkullAtMagazine { get; set; }
@@ -33,6 +33,6 @@ namespace EgyptExcavation.Models
         public int? DateOnSkull { get; set; }
         public string CranialSuture { get; set; }
         public string GenderKey { get; set; }
-        public decimal? GefunctionTotal { get; set; }
+        public double? GefunctionTotal { get; set; }
     }
 }

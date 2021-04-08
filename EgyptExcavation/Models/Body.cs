@@ -23,7 +23,7 @@ namespace EgyptExcavation.Models
         public byte[] SampleTaken { get; set; }
         public string AgeMethod { get; set; }
         public string GenderMethod { get; set; }
-        public decimal? EstimateLivingStature { get; set; }
+        public double? EstimateLivingStature { get; set; }
         public byte[] HairTaken { get; set; }
         public byte[] SoftTissueTaken { get; set; }
         public byte[] BoneTaken { get; set; }
