@@ -296,7 +296,6 @@ namespace EgyptExcavation.Controllers
         {
             Location l = context.Location.Single(x => x.LocId == LocID);
             return View("EditFieldLocation", l);
-
         }
 
         [HttpPost]
@@ -327,342 +326,349 @@ namespace EgyptExcavation.Controllers
         //PHYSICAL ORIENTATION
 
         [HttpPost]
-            public IActionResult EnterOrientation(Location l)
+            public IActionResult EnterOrientation(PhysicalOrientation po)
             {
                 //first check data to make sure it's good before passing to Model and DB
                 if (ModelState.IsValid)
                 {
                     //Update Database
-                    context.Location.Add(l);
+                    context.PhysicalOrientation.Add(po);
                     context.SaveChanges();
-                    return View("BurialList", context.Location);
+                    return View("BurialList", context.PhysicalOrientation);
                 }
                 //Otherwise
                 return View();
             }
-
-            [HttpPost]
-            public IActionResult EditOrientation1(int LocID)
-            {
-                Location l = context.Location.Single(x => x.LocId == LocID);
-                return View("EditFieldLocation", l);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditOrientation2(Location l, int LocID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var bur = context.Burial.SingleOrDefault(x => x.BurialId == b.BurialId);
-
-                    context.Entry(bur).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-            //FILES
-
-            [HttpPost]
-            public IActionResult EnterFiles(Files f)
-            {
-                //first check data to make sure it's good before passing to Model and DB
-                if (ModelState.IsValid)
-                {
-                    //Update Database
-                    context.Files.Add(f);
-                    context.SaveChanges();
-                    return View("BurialList", context.Files);
-                }
-                //Otherwise
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult EditFiles1(int FileID)
-            {
-                Files f = context.Files.Single(x => x.FileId == FileID);
-                return View("EditFiles", f);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditFiles2(Files f, int FileID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var fil = context.Files.SingleOrDefault(x => x.FileId == f.FileId);
-
-                    context.Entry(fil).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-            //STORAGE
-
-            [HttpPost]
-            public IActionResult EnterStorage(Storage s)
-            {
-                //first check data to make sure it's good before passing to Model and DB
-                if (ModelState.IsValid)
-                {
-                    //Update Database
-                    context.Storage.Add(s);
-                    context.SaveChanges();
-                    return View("BurialList", context.Storage);
-                }
-                //Otherwise
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult EditStorage1(int RackID)
-            {
-                Storage s = context.Storage.Single(x => x.RackId == RackID);
-                return View("EditStorage", s);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditStorage2(Storage s, int RackID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var stor = context.Storage.SingleOrDefault(x => x.RackId == s.RackId);
-
-                    context.Entry(stor).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-            //CRANIAL
-
-            [HttpPost]
-            public IActionResult EnterCranial(Cranial c)
-            {
-                //first check data to make sure it's good before passing to Model and DB
-                if (ModelState.IsValid)
-                {
-                    //Update Database
-                    context.Cranial.Add(c);
-                    context.SaveChanges();
-                    return View("BurialList", context.Cranial);
-                }
-                //Otherwise
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult EditCranial1(int CranialID)
-            {
-                Cranial c = context.Cranial.Single(x => x.CranialId == CranialID);
-                return View("EditCranial", c);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditCranial2(Cranial c, int CranialID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var cran = context.Cranial.SingleOrDefault(x => x.CranialId == c.CranialId);
-
-                    context.Entry(cran).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-            //BONE
-
-            [HttpPost]
-            public IActionResult EnterBone(Bone b)
-            {
-                //first check data to make sure it's good before passing to Model and DB
-                if (ModelState.IsValid)
-                {
-                    //Update Database
-                    context.Bone.Add(b);
-                    context.SaveChanges();
-                    return View("BurialList", context.Bone);
-                }
-                //Otherwise
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult EditBone1(int BoneID)
-            {
-                Bone b = context.Bone.Single(x => x.BoneId == BoneID);
-                return View("EditBone", b);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditBone2(Bone b, int BoneID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var bon = context.Bone.SingleOrDefault(x => x.BoneId == b.BoneId);
-
-                    context.Entry(bon).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-
-            //TOOTH
-
-            [HttpPost]
-            public IActionResult EnterTooth(Tooth t)
-            {
-                //first check data to make sure it's good before passing to Model and DB
-                if (ModelState.IsValid)
-                {
-                    //Update Database
-                    context.Tooth.Add(t);
-                    context.SaveChanges();
-                    return View("BurialList", context.Tooth);
-                }
-                //Otherwise
-                return View();
-            }
-
-            [HttpPost]
-            public IActionResult EditTooth1(int ToothID)
-            {
-                Tooth t = context.Tooth.Single(x => x.ToothId == ToothID);
-                return View("EditTeeth", t);
-
-            }
-
-            [HttpPost]
-            public IActionResult EditTooth2(Tooth t, int ToothID)
-            {
-                if (ModelState.IsValid)
-                {
-                    var tee = context.Tooth.SingleOrDefault(x => x.ToothId == t.ToothId);
-
-                    context.Entry(tee).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
-
-                    context.SaveChanges();
-
-                    return RedirectToAction("BurialList");
-                }
-                else
-                    return View();
-            }
-
-        //COMPLETE
 
         [HttpPost]
-        public IActionResult RemoveFieldNotes(int BurialID)
+        public IActionResult EditOrientation1(int POID)
         {
-            Burial b = context.Burial.Single(x => x.BurialId == BurialID);
-            context.Remove(b);
-            context.SaveChanges();
-            return RedirectToAction("BurialList");
+            PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == POID);
+            return View("EditFieldLocation", po);
+
         }
 
-        public IActionResult EditMummyInfo()
+        [HttpPost]
+        public IActionResult EditOrientation2(PhysicalOrientation po, int POID)
         {
+            if (ModelState.IsValid)
+            {
+                var ori = context.PhysicalOrientation.SingleOrDefault(x => x.OrientationId == po.OrientationId);
+
+                context.Entry(ori).Property(x => x.WtoFeet).CurrentValue = po.WtoFeet;
+                context.Entry(ori).Property(x => x.StoFeet).CurrentValue = po.StoFeet;
+                context.Entry(ori).Property(x => x.WtoHead).CurrentValue = po.WtoHead;
+                context.Entry(ori).Property(x => x.StoHead).CurrentValue = po.StoHead;
+                context.Entry(ori).Property(x => x.HeadDirection).CurrentValue = po.HeadDirection;
+                context.Entry(ori).Property(x => x.BurialDepth).CurrentValue = po.BurialDepth;
+                context.Entry(ori).Property(x => x.LengthOfRemainsInMeters).CurrentValue = po.LengthOfRemainsInMeters;
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+        //FILES
+
+        [HttpPost]
+        public IActionResult EnterFiles(Files f)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Files.Add(f);
+                context.SaveChanges();
+                return View("BurialList", context.Files);
+            }
+            //Otherwise
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult EditFiles1(int FileID)
         {
+            Files f = context.Files.Single(x => x.FileId == FileID);
+            return View("EditFiles", f);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditFiles2(Files f, int FileID)
+        {
+            if (ModelState.IsValid)
+            {
+                var fil = context.Files.SingleOrDefault(x => x.FileId == f.FileId);
+
+                context.Entry(fil).Property(x => x.BurialId).CurrentValue = fil.BurialId;
+                context.Entry(fil).Property(x => x.Photo).CurrentValue = fil.Photo;
+                context.Entry(fil).Property(x => x.FieldNote).CurrentValue = fil.OtherNote;
+                context.Entry(fil).Property(x => x.BoneBook).CurrentValue = fil.BoneBook;
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+        //STORAGE
+
+        [HttpPost]
+        public IActionResult EnterStorage(Storage s)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Storage.Add(s);
+                context.SaveChanges();
+                return View("BurialList", context.Storage);
+            }
+            //Otherwise
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult EditStorage1(int RackID)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Storage s = context.Storage.Single(x => x.RackId == RackID);
+            return View("EditStorage", s);
+
         }
+
+        [HttpPost]
+        public IActionResult EditStorage2(Storage s, int RackID)
+        {
+            if (ModelState.IsValid)
+            {
+                var stor = context.Storage.SingleOrDefault(x => x.RackId == s.RackId);
+
+                context.Entry(stor).Property(x => x.SampleId).CurrentValue = s.SampleId;
+                context.Entry(stor).Property(x => x.RackNum).CurrentValue = s.RackNum;
+                context.Entry(stor).Property(x => x.ShelfNum).CurrentValue = s.ShelfNum;
+                context.Entry(stor).Property(x => x.TubeNum).CurrentValue = s.TubeNum;
+                context.Entry(stor).Property(x => x.BagNum).CurrentValue = s.BagNum;
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+        //CRANIAL
+
+        [HttpPost]
+        public IActionResult EnterCranial(Cranial c)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Cranial.Add(c);
+                context.SaveChanges();
+                return View("BurialList", context.Cranial);
+            }
+            //Otherwise
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditCranial1(int CranialID)
+        {
+            Cranial c = context.Cranial.Single(x => x.CranialId == CranialID);
+            return View("EditCranial", c);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditCranial2(Cranial c, int CranialID)
+        {
+            if (ModelState.IsValid)
+            {
+                var cran = context.Cranial.SingleOrDefault(x => x.CranialId == c.CranialId);
+
+                context.Entry(cran).Property(x => x.MaxCranialLength).CurrentValue = c.MaxCranialLength;
+                context.Entry(cran).Property(x => x.SkullTrauma).CurrentValue = c.SkullTrauma;
+                context.Entry(cran).Property(x => x.MaxCranialBreadth).CurrentValue = c.MaxCranialBreadth;
+                context.Entry(cran).Property(x => x.BasionBergmaHeight).CurrentValue = c.BasionBergmaHeight;
+                context.Entry(cran).Property(x => x.BasionNasion).CurrentValue = c.BasionNasion;
+                context.Entry(cran).Property(x => x.BasionProsithanLength).CurrentValue = c.BasionProsithanLength;
+                context.Entry(cran).Property(x => x.BizgoymaticDiameter).CurrentValue = c.BizgoymaticDiameter;
+                context.Entry(cran).Property(x => x.NasionProsthion).CurrentValue = c.NasionProsthion;
+                context.Entry(cran).Property(x => x.MaxNasalBreadth).CurrentValue = c.MaxNasalBreadth;
+                context.Entry(cran).Property(x => x.InterorbitalBreadth).CurrentValue = c.InterorbitalBreadth;
+                context.Entry(cran).Property(x => x.YearOnSkull).CurrentValue = c.YearOnSkull;
+                context.Entry(cran).Property(x => x.MonthOnSkull).CurrentValue = c.MonthOnSkull;
+                context.Entry(cran).Property(x => x.SkullAtMagazine).CurrentValue = c.SkullAtMagazine;
+                context.Entry(cran).Property(x => x.CribraOrbitalia).CurrentValue = c.CribraOrbitalia;
+                context.Entry(cran).Property(x => x.PoroticHyperostosis).CurrentValue = c.PoroticHyperostosis;
+                context.Entry(cran).Property(x => x.PoroticHyperostosisLoc).CurrentValue = c.PoroticHyperostosisLoc;
+                context.Entry(cran).Property(x => x.MetopicSuture).CurrentValue = c.MetopicSuture;
+                context.Entry(cran).Property(x => x.ButtonOsteoma).CurrentValue = c.ButtonOsteoma;
+                context.Entry(cran).Property(x => x.OsteologyUnknownComment).CurrentValue = c.OsteologyUnknownComment;
+                context.Entry(cran).Property(x => x.Tmjoa).CurrentValue = c.Tmjoa;
+                context.Entry(cran).Property(x => x.CranialSuture).CurrentValue = c.CranialSuture;
+                context.Entry(cran).Property(x => x.GenderKey).CurrentValue = c.GenderKey;
+                context.Entry(cran).Property(x => x.GefunctionTotal).CurrentValue = c.GefunctionTotal;
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+        //BONE
+
+        [HttpPost]
+        public IActionResult EnterBone(Bone b)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Bone.Add(b);
+                context.SaveChanges();
+                return View("BurialList", context.Bone);
+            }
+            //Otherwise
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditBone1(int BoneID)
+        {
+            Bone b = context.Bone.Single(x => x.BoneId == BoneID);
+            return View("EditBone", b);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditBone2(Bone b, int BoneID)
+        {
+            if (ModelState.IsValid)
+            {
+                var bon = context.Bone.SingleOrDefault(x => x.BoneId == b.BoneId);
+
+                context.Entry(bon).Property(x => x.EpiphysealUnion).CurrentValue = b.EpiphysealUnion;
+                context.Entry(bon).Property(x => x.ZygomaticCrest).CurrentValue = b.ZygomaticCrest;
+                context.Entry(bon).Property(x => x.NuchalCrest).CurrentValue = b.NuchalCrest;
+                context.Entry(bon).Property(x => x.Gonian).CurrentValue = b.Gonian;
+                context.Entry(bon).Property(x => x.ParietalBossing).CurrentValue = b.ParietalBossing;
+                context.Entry(bon).Property(x => x.OrbitEdge).CurrentValue = b.OrbitEdge;
+                context.Entry(bon).Property(x => x.SupraorbitalRidges).CurrentValue = b.SupraorbitalRidges;
+                context.Entry(bon).Property(x => x.Robust).CurrentValue = b.Robust;
+                context.Entry(bon).Property(x => x.TibiaLength).CurrentValue = b.TibiaLength;
+                context.Entry(bon).Property(x => x.HumerusLength).CurrentValue = b.HumerusLength;
+                context.Entry(bon).Property(x => x.Humerus).CurrentValue = b.Humerus;
+                context.Entry(bon).Property(x => x.FemurDiameter).CurrentValue = b.FemurDiameter;
+                context.Entry(bon).Property(x => x.IliacCrest).CurrentValue = b.IliacCrest;
+                context.Entry(bon).Property(x => x.MedialClavicle).CurrentValue = b.MedialClavicle;
+                context.Entry(bon).Property(x => x.BoneLength).CurrentValue = b.BoneLength;
+                context.Entry(bon).Property(x => x.PubicSymphysis).CurrentValue = b.PubicSymphysis;
+                context.Entry(bon).Property(x => x.Osteophytosis).CurrentValue = b.Osteophytosis;
+                context.Entry(bon).Property(x => x.HumerusHead).CurrentValue = b.HumerusHead;
+                context.Entry(bon).Property(x => x.FemurHead).CurrentValue = b.FemurHead;
+                context.Entry(bon).Property(x => x.ForemanMagnum).CurrentValue = b.ForemanMagnum;
+                context.Entry(bon).Property(x => x.DorsalPitting).CurrentValue = b.DorsalPitting;
+                context.Entry(bon).Property(x => x.MedialIpRamus).CurrentValue = b.MedialIpRamus;
+                context.Entry(bon).Property(x => x.PreaurSulcus).CurrentValue = b.PreaurSulcus;
+                context.Entry(bon).Property(x => x.PubicBone).CurrentValue = b.PubicBone;
+                context.Entry(bon).Property(x => x.SciaticNotch).CurrentValue = b.SciaticNotch;
+                context.Entry(bon).Property(x => x.SubpubicAngle).CurrentValue = b.SubpubicAngle;
+                context.Entry(bon).Property(x => x.VentralArc).CurrentValue = b.VentralArc;
+                context.Entry(bon).Property(x => x.BasilarSuture).CurrentValue = b.BasilarSuture;
+                context.Entry(bon).Property(x => x.PostcrainiaAtMagazine).CurrentValue = b.PostcrainiaAtMagazine;
+                context.Entry(bon).Property(x => x.PostcrainiaTrauma).CurrentValue = b.PostcrainiaTrauma;
+                context.Entry(bon).Property(x => x.OsteologyNotes).CurrentValue = b.OsteologyNotes;
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+
+        //TOOTH
+
+        [HttpPost]
+        public IActionResult EnterTooth(Tooth t)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Tooth.Add(t);
+                context.SaveChanges();
+                return View("BurialList", context.Tooth);
+            }
+            //Otherwise
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditTooth1(int ToothID)
+        {
+            Tooth t = context.Tooth.Single(x => x.ToothId == ToothID);
+            return View("EditTeeth", t);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditTooth2(Tooth t, int ToothID)
+        {
+            if (ModelState.IsValid)
+            {
+                var tee = context.Tooth.SingleOrDefault(x => x.ToothId == t.ToothId);
+
+                context.Entry(tee).Property(x => x.BodyId).CurrentValue = t.BodyId;
+                context.Entry(tee).Property(x => x.LinearHypoplasiaEnamel).CurrentValue = t.LinearHypoplasiaEnamel;
+                context.Entry(tee).Property(x => x.ToothAttrition).CurrentValue = t.ToothAttrition;
+                context.Entry(tee).Property(x => x.ToothEruption).CurrentValue = t.ToothEruption;
+                context.Entry(tee).Property(x => x.PathologyAnomoly).CurrentValue = t.PathologyAnomoly;
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+    //COMPLETE
+
+    [HttpPost]
+    public IActionResult RemoveFieldNotes(int BurialID)
+    {
+        Burial b = context.Burial.Single(x => x.BurialId == BurialID);
+        context.Remove(b);
+        context.SaveChanges();
+        return RedirectToAction("BurialList");
     }
+
+    public IActionResult EditMummyInfo()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
 }
