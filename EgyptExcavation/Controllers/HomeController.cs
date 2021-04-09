@@ -110,48 +110,52 @@ namespace EgyptExcavation.Controllers
             //BODY
 
             [HttpPost]
-            public IActionResult EnterFieldBody(Burial b)
+            public IActionResult EnterFieldBody(Body b)
             {
                 //first check data to make sure it's good before passing to Model and DB
                 if (ModelState.IsValid)
                 {
                     //Update Database
-                    context.Burial.Add(b);
+                    context.Body.Add(b);
                     context.SaveChanges();
-                    return View("BurialList", context.Burial);
+                    return View("BurialList", context.Body);
                 }
                 //Otherwise
                 return View();
             }
 
             [HttpPost]
-            public IActionResult EditFieldBody1(int BurialID)
+            public IActionResult EditFieldBody1(int BodyID)
             {
-                Burial b = context.Burial.Single(x => x.BurialId == BurialID);
+                Body b = context.Body.Single(x => x.BodyId == BodyID);
                 return View("EditFieldBody", b);
 
             }
 
             [HttpPost]
-            public IActionResult EditFieldBody2(Burial b, int BurialID)
+            public IActionResult EditFieldBody2(Body b, int BodyID)
             {
                 if (ModelState.IsValid)
                 {
-                    var bur = context.Burial.SingleOrDefault(x => x.BurialId == b.BurialId);
+                    var bod = context.Body.SingleOrDefault(x => x.BodyId == b.BodyId);
 
-                    context.Entry(bur).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
-                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
-                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
-                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
-                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
-                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
-                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
-                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
+                    context.Entry(bod).Property(x => x.BurialPreservation).CurrentValue = b.BurialPreservation;
+                    context.Entry(bod).Property(x => x.PreservationIndex).CurrentValue = b.PreservationIndex;
+                    context.Entry(bod).Property(x => x.AgeAtDeath).CurrentValue = b.AgeAtDeath;
+                    context.Entry(bod).Property(x => x.SampleTaken).CurrentValue = b.SampleTaken;
+                    context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = b.AgeMethod;
+                    context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = b.GenderMethod;
+                    context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = b.EstimateLivingStature;
+                    context.Entry(bod).Property(x => x.HairTaken).CurrentValue = b.HairTaken;
+                    context.Entry(bod).Property(x => x.SoftTissueTaken).CurrentValue = b.SoftTissueTaken;
+                    context.Entry(bod).Property(x => x.BoneTaken).CurrentValue = b.BoneTaken;
+                    context.Entry(bod).Property(x => x.ToothTaken).CurrentValue = b.ToothTaken;
+                    context.Entry(bod).Property(x => x.TextileTaken).CurrentValue = b.TextileTaken;
+                    context.Entry(bod).Property(x => x.DescriptionOfTaken).CurrentValue = b.DescriptionOfTaken;
+                    context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = b.SequenceDna;
+                    context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = b.CarbonEstimatedDate;
 
-                    context.SaveChanges();
+                context.SaveChanges();
 
                     return RedirectToAction("BurialList");
                 }
