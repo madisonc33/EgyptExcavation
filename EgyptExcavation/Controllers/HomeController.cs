@@ -370,6 +370,12 @@ namespace EgyptExcavation.Controllers
 
         //FILES
 
+        [HttpGet]
+        public IActionResult EnterFiles()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult EnterFiles(Files f)
         {
@@ -414,6 +420,12 @@ namespace EgyptExcavation.Controllers
         }
 
         //STORAGE
+
+        [HttpGet]
+        public IActionResult EnterStorage()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult EnterStorage(Storage s)
@@ -460,6 +472,12 @@ namespace EgyptExcavation.Controllers
         }
 
         //CRANIAL
+
+        [HttpGet]
+        public IActionResult EnterCranial()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult EnterCranial(Cranial c)
@@ -524,6 +542,12 @@ namespace EgyptExcavation.Controllers
         }
 
         //BONE
+
+        [HttpGet]
+        public IActionResult EnterBone()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult EnterBone(Bone b)
@@ -597,6 +621,13 @@ namespace EgyptExcavation.Controllers
 
 
         //TOOTH
+
+        [HttpGet]
+        public IActionResult EnterTeeth()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult EnterTooth(Tooth t)
