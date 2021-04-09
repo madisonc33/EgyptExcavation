@@ -321,8 +321,6 @@ namespace EgyptExcavation.Controllers
                 return View();
         }
 
-        //EDIT AND CHANGE THESE TO FIT EACH MODEL//
-
         //PHYSICAL ORIENTATION
 
         [HttpPost]
