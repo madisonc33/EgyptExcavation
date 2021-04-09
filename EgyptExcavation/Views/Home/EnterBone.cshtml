@@ -1,0 +1,159 @@
+﻿@model Bone
+
+<div class="text-center">
+    <h1 class="display-4">Enter Bone Information</h1>
+</div>
+
+
+
+<form asp-action="EnterBone" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="EpiphysealUnion">Epiphyseal Union:</label>
+        <input asp-for="EpiphysealUnion" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ZygomaticCrest">Zygomatic Crest:</label>
+        <input asp-for="ZygomaticCrest" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="NunchalCrest">Nunchal Crest:</label>
+        <input asp-for="NunchalCrest" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Gonian">Gonian:</label>
+        <input asp-for="Gonian" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ParietalBossing">Parietal Bossing:</label>
+        <input asp-for="ParietalBossing" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OrbitEdge">Basian Prosithan Length:</label>
+        <input asp-for="OrbitEdge" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BizgoymaticDiameter">Bizgoymatic Diameter:</label>
+        <input asp-for="BizgoymaticDiameter" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="NasionProsthion">Nasion Prosthion:</label>
+        <input asp-for="NasionProsthion" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MaxNasalBreadth">Maximum Nasal Breath:</label>
+        <input asp-for="MaxNasalBreadth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="InterorbitalBreadth">Interorbital Breadth:</label>
+        <input asp-for="InterorbitalBreadth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="YearOnSkull">Year On Skull:</label>
+        <input asp-for="YearOnSkull" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MonthOnSkull">Month On Skull:</label>
+        <input asp-for="MonthOnSkull" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SkullAtMagazine">Skull At Magazine:</label>
+        <input asp-for="SkullAtMagazine" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="CribraOrbitalia">Cribra Orbitalia:</label>
+        <input asp-for="CribraOrbitalia" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PoroticHyperostosis">Porotic Hyperostosis:</label>
+        <input asp-for="PoroticHyperostosis" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PoroticHyperostosisLoc">Porotic Hyperostosis Location:</label>
+        <input asp-for="PoroticHyperostosisLoc" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MetopicSuture">Metopic Suture:</label>
+        <input asp-for="MetopicSuture" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Button Osteoma">Button Osteoma:</label>
+        <input asp-for="Button Osteoma" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OsteologyUnknownComment">Osteology Unknown Comments: </label>
+        <input asp-for="OsteologyUnknownComment" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="TMJOA">TMJOA: (what is real name?)</label>
+        <input asp-for="TMJOA" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="DateOnSkull">Date on Skull:</label>
+        <input asp-for="DateOnSkull" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="CranialSuture">Cranial Suture? </label>
+        <input asp-for="CranialSuture" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="GEFunctionTotal">GE Function Total:</label>
+        <input asp-for="GEFunctionTotal" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="BoneID">BoneID</label>
+        <input asp-for="BoneID" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO NEW PAGE-->
+
+
+</form>

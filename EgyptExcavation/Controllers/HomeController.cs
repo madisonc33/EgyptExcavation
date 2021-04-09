@@ -476,6 +476,59 @@ namespace EgyptExcavation.Controllers
                     return View();
             }
 
+            //CRANIAL
+
+            [HttpPost]
+            public IActionResult EnterCranial(Cranial c)
+            {
+                //first check data to make sure it's good before passing to Model and DB
+                if (ModelState.IsValid)
+                {
+                    //Update Database
+                    context.Cranial.Add(c);
+                    context.SaveChanges();
+                    return View("BurialList", context.Cranial);
+                }
+                //Otherwise
+                return View();
+            }
+
+            [HttpPost]
+            public IActionResult EditCranial1(int CranialID)
+            {
+                Cranial c = context.Cranial.Single(x => x.CranialId == CranialID);
+                return View("EditCranial", c);
+
+            }
+
+            [HttpPost]
+            public IActionResult EditCranial2(Cranial c, int CranialID)
+            {
+                if (ModelState.IsValid)
+                {
+                    var cran = context.Cranial.SingleOrDefault(x => x.CranialId == c.CranialId);
+
+                    context.Entry(cran).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
+                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
+                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
+                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
+                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
+                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
+                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
+
+                    context.SaveChanges();
+
+                    return RedirectToAction("BurialList");
+                }
+                else
+                    return View();
+            }
+
+
         //COMPLETE
 
         [HttpPost]
