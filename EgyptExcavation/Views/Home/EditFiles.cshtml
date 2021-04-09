@@ -1,0 +1,43 @@
+﻿@model Files
+
+<div class="text-center">
+    <h1 class="display-4">Enter Files</h1>
+</div>
+
+
+
+<form asp-action="EditFiles2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="Photo">Upload Photos:</label>
+        <input asp-for="Photo" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FieldNote">Upload FieldNotes:</label>
+        <input asp-for="FieldNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OtherNote">Upload Other Documents:</label>
+        <input asp-for="OtherNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneBook">Upload BoneBook:</label>
+        <input asp-for="BoneBook" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="FileID">FileID</label>
+        <input asp-for="FileID" />
+        <br />
+    </div>
+    <button type="submit">Submit Updated Files</button>
+
+</form>

@@ -1,0 +1,93 @@
+﻿@model Sample
+
+<div class="text-center">
+    <h1 class="display-4">Enter Samples</h1>
+</div>
+
+
+
+<form asp-action="EnterSamples" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="MISize">Upload Photos:</label>
+        <input asp-for="MISize" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Description">Upload FieldNotes:</label>
+        <input asp-for="Description" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Category">Upload Other Documents:</label>
+        <input asp-for="Category" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneBook">Upload BoneBook:</label>
+        <input asp-for="BoneBook" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Photo">Upload Photos:</label>
+        <input asp-for="Photo" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FieldNote">Upload FieldNotes:</label>
+        <input asp-for="FieldNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OtherNote">Upload Other Documents:</label>
+        <input asp-for="OtherNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneBook">Upload BoneBook:</label>
+        <input asp-for="BoneBook" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Photo">Upload Photos:</label>
+        <input asp-for="Photo" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FieldNote">Upload FieldNotes:</label>
+        <input asp-for="FieldNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OtherNote">Upload Other Documents:</label>
+        <input asp-for="OtherNote" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneBook">Upload BoneBook:</label>
+        <input asp-for="BoneBook" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="SampleID">SampleID</label>
+        <input asp-for="SampleID" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO NEW PAGE-->
+
+
+</form>
