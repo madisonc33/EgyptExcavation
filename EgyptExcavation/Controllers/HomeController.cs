@@ -212,42 +212,42 @@ namespace EgyptExcavation.Controllers
                     return View();
             }
 
-            //LOCATION
+            //SAMPLE
 
             [HttpPost]
-            public IActionResult EnterFieldLocation(Location l)
+            public IActionResult EnterSamples(Sample s)
             {
                 //first check data to make sure it's good before passing to Model and DB
                 if (ModelState.IsValid)
                 {
                     //Update Database
-                    context.Location.Add(l);
+                    context.Sample.Add(s);
                     context.SaveChanges();
-                    return View("BurialList", context.Location);
+                    return View("BurialList", context.Sample);
                 }
                 //Otherwise
                 return View();
             }
 
             [HttpPost]
-            public IActionResult EditLocation1(int LocID)
+            public IActionResult EditSample1(int SampleID)
             {
-                Location l = context.Location.Single(x => x.LocId == LocID);
-                return View("EditFieldLocation", l);
+                Sample s = context.Sample.Single(x => x.SampleId == SampleID);
+                return View("EditFieldLocation", s);
 
             }
 
             [HttpPost]
-            public IActionResult EditLocation2(Location l, int LocID)
+            public IActionResult EditSample2(Sample s, int SampleID)
             {
                 if (ModelState.IsValid)
                 {
-                    var bur = context.Burial.SingleOrDefault(x => x.BurialId == b.BurialId);
+                    var sam = context.Sample.SingleOrDefault(x => x.SampleId == s.SampleId);
 
-                    context.Entry(bur).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
-                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
-                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
-                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                    context.Entry(sam).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                    context.Entry(sam).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                    context.Entry(sam).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                    context.Entry(sam).Property(x => x.Cluster).CurrentValue = b.Cluster;
                     context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
                     context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
                     context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
@@ -265,9 +265,63 @@ namespace EgyptExcavation.Controllers
                     return View();
             }
 
-            //PHYSICAL ORIENTATION
+        //LOCATION
 
-            [HttpPost]
+        [HttpPost]
+        public IActionResult EnterFieldLocation(Location l)
+        {
+            //first check data to make sure it's good before passing to Model and DB
+            if (ModelState.IsValid)
+            {
+                //Update Database
+                context.Location.Add(l);
+                context.SaveChanges();
+                return View("BurialList", context.Location);
+            }
+            //Otherwise
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditLocation1(int LocID)
+        {
+            Location l = context.Location.Single(x => x.LocId == LocID);
+            return View("EditFieldLocation", l);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditLocation2(Location l, int LocID)
+        {
+            if (ModelState.IsValid)
+            {
+                var bur = context.Burial.SingleOrDefault(x => x.BurialId == b.BurialId);
+
+                context.Entry(bur).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
+                context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
+                context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
+                context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
+                context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
+                context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
+                context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
+
+
+                context.SaveChanges();
+
+                return RedirectToAction("BurialList");
+            }
+            else
+                return View();
+        }
+
+
+        //PHYSICAL ORIENTATION
+
+        [HttpPost]
             public IActionResult EnterOrientation(Location l)
             {
                 //first check data to make sure it's good before passing to Model and DB
@@ -318,6 +372,109 @@ namespace EgyptExcavation.Controllers
                     return View();
             }
 
+            //FILES
+
+            [HttpPost]
+            public IActionResult EnterFiles(Files f)
+            {
+                //first check data to make sure it's good before passing to Model and DB
+                if (ModelState.IsValid)
+                {
+                    //Update Database
+                    context.Files.Add(f);
+                    context.SaveChanges();
+                    return View("BurialList", context.Files);
+                }
+                //Otherwise
+                return View();
+            }
+
+            [HttpPost]
+            public IActionResult EditFiles1(int FileID)
+            {
+                Files f = context.Files.Single(x => x.FileId == FileID);
+                return View("EditFiles", f);
+
+            }
+
+            [HttpPost]
+            public IActionResult EditFiles2(Files f, int FileID)
+            {
+                if (ModelState.IsValid)
+                {
+                    var fil = context.Files.SingleOrDefault(x => x.FileId == f.FileId);
+
+                    context.Entry(fil).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
+                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
+                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
+                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
+                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
+                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
+                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
+
+                    context.SaveChanges();
+
+                    return RedirectToAction("BurialList");
+                }
+                else
+                    return View();
+            }
+
+            //STORAGE
+
+            [HttpPost]
+            public IActionResult EnterStorage(Storage s)
+            {
+                //first check data to make sure it's good before passing to Model and DB
+                if (ModelState.IsValid)
+                {
+                    //Update Database
+                    context.Storage.Add(s);
+                    context.SaveChanges();
+                    return View("BurialList", context.Storage);
+                }
+                //Otherwise
+                return View();
+            }
+
+            [HttpPost]
+            public IActionResult EditStorage1(int RackID)
+            {
+                Storage s = context.Storage.Single(x => x.RackId == RackID);
+                return View("EditStorage", s);
+
+            }
+
+            [HttpPost]
+            public IActionResult EditStorage2(Storage s, int RackID)
+            {
+                if (ModelState.IsValid)
+                {
+                    var stor = context.Storage.SingleOrDefault(x => x.RackId == s.RackId);
+
+                    context.Entry(stor).Property(x => x.BurialNum).CurrentValue = b.BurialNum;
+                    context.Entry(bur).Property(x => x.ArtifactFound).CurrentValue = b.ArtifactFound;
+                    context.Entry(bur).Property(x => x.ArtifactsDescription).CurrentValue = b.ArtifactsDescription;
+                    context.Entry(bur).Property(x => x.Cluster).CurrentValue = b.Cluster;
+                    context.Entry(bur).Property(x => x.Goods).CurrentValue = b.Goods;
+                    context.Entry(bur).Property(x => x.BiologicalInitials).CurrentValue = b.BiologicalInitials;
+                    context.Entry(bur).Property(x => x.BiologicalClusterNum).CurrentValue = b.BiologicalClusterNum;
+                    context.Entry(bur).Property(x => x.PreviouslySampled).CurrentValue = b.PreviouslySampled;
+                    context.Entry(bur).Property(x => x.BiologicalNotes).CurrentValue = b.BiologicalNotes;
+                    context.Entry(bur).Property(x => x.ToBeConfirmed).CurrentValue = b.ToBeConfirmed;
+                    context.Entry(bur).Property(x => x.BurialSituation).CurrentValue = b.BurialSituation;
+
+                    context.SaveChanges();
+
+                    return RedirectToAction("BurialList");
+                }
+                else
+                    return View();
+            }
 
         //COMPLETE
 
