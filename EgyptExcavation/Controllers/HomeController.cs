@@ -24,8 +24,21 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult Index()
         {
-           return View();
+            return View();
         }
+
+        //idea for storing form
+        //[HttpPost]
+        //public IActionResult EnterBurial(Burial bur, Body bod)
+        //{
+        //    context.Body.Add(bod);
+        //    context.Body.
+        //    //get most recent body ID
+        //    //add bodyID to bur
+        //    context.Burial.Add(bur);
+
+        //    return View();
+        //}
 
         public IActionResult BurialList()
         {
