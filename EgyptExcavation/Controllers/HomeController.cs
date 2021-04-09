@@ -55,6 +55,12 @@ namespace EgyptExcavation.Controllers
 
         //BURIAL
 
+        [HttpGet]
+        public IActionResult EnterFieldBurial()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult EnterFieldBurial(Burial b)
         {
@@ -108,6 +114,11 @@ namespace EgyptExcavation.Controllers
         }
 
         //BODY
+        [HttpGet]
+        public IActionResult EnterFieldBody()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult EnterFieldBody(Body b)
@@ -165,6 +176,12 @@ namespace EgyptExcavation.Controllers
 
         //EXCAVATION
 
+        [HttpGet]
+        public IActionResult EnterFieldExcavation()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult EnterFieldExcavation(Excavation e)
         {
@@ -213,6 +230,11 @@ namespace EgyptExcavation.Controllers
         }
 
         //SAMPLE
+        [HttpGet]
+        public IActionResult EnterSamples()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult EnterSamples(Sample s)
@@ -276,6 +298,12 @@ namespace EgyptExcavation.Controllers
 
         //LOCATION
 
+        [HttpGet]
+        public IActionResult EnterFieldLocation()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
@@ -322,6 +350,11 @@ namespace EgyptExcavation.Controllers
         }
 
         //PHYSICAL ORIENTATION
+        [HttpGet]
+        public IActionResult EnterOrientation()
+        {
+            return View();
+        }
 
         [HttpPost]
             public IActionResult EnterOrientation(PhysicalOrientation po)
