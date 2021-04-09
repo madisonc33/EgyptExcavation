@@ -1,12 +1,12 @@
 ﻿@model Bone
 
 <div class="text-center">
-    <h1 class="display-4">Enter Bone Information</h1>
+    <h1 class="display-4">Edit Bone Information</h1>
 </div>
 
 
 
-<form asp-action="EnterBone" method="post">
+<form asp-action="EditBone2" method="post">
     <div asp-validation-summary="All"></div>
 
     <div>
@@ -206,8 +206,7 @@
         <input asp-for="BoneID" />
         <br />
     </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO NEW PAGE-->
+    <button type="submit">Update Bone Information</button>
 
 
 </form>
