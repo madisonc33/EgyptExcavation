@@ -1,0 +1,42 @@
+﻿@model Tooth
+
+<div class="text-center">
+    <h1 class="display-4">Enter Teeth</h1>
+</div>
+
+<form asp-action="EditTooth2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="LinearHypoplasiaEnamel">Linear Hypoplasia Enamel:</label>
+        <input asp-for="LinearHypoplasiaEnamel" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ToothAttrition">Tooth Attrition:</label>
+        <input asp-for="ToothAttrition" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ToothEruption">Tooth Eruption:</label>
+        <input asp-for="ToothEruption" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PathologyAnomoly">Pathology Anomoly:</label>
+        <input asp-for="PathologyAnomoly" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="ToothID">ToothID</label>
+        <input asp-for="ToothID" />
+        <br />
+    </div>
+    <button type="submit">Update Tooth Information</button>
+
+
+</form>
