@@ -1,0 +1,63 @@
+﻿@model PhysicalOrientation
+
+<div class="text-center">
+    <h1 class="display-4">Enter Physical Orientation</h1>
+</div>
+
+
+
+<form asp-action="EditOrientation2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="WToFeet">Burial Preservation:</label>
+        <input asp-for="WToFeet" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SToFeet">Preservation Index:</label>
+        <input asp-for="SToFeet" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="WToHead">Age At Death:</label>
+        <input asp-for="WToHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SToHead">Was A Sample Taken?</label>
+        <input asp-for="SToHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HeadDirection">Age Method:</label>
+        <input asp-for="HeadDirection" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BurialDepth">Gender Method:</label>
+        <input asp-for="BurialDepth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="LengthOfRemainsInMeters">Estimated Living Stature:</label>
+        <input asp-for="LengthOfRemainsInMeters" />
+        <br />
+    </div>
+
+
+    <div hidden>
+        <label asp-for="OrientationID">BodyID</label>
+        <input asp-for="OrientationID" />
+        <br />
+    </div>
+    <button type="submit">Update Information</button>
+
+
+</form>

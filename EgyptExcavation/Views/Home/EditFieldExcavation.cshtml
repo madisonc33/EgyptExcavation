@@ -1,0 +1,68 @@
+﻿@model Excavation
+
+<div class="text-center">
+    <h1 class="display-4">Enter FieldNotes</h1>
+</div>
+
+
+<form asp-action="EnterExcavate2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="ExcYear">Excavation Year</label>
+        <input asp-for="ExcYear" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ExcMonth">Excavation Month</label>
+        <input asp-for="ExcMonth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ExcDayOfMonth">Excavation Day of Month</label>
+        <input asp-for="ExcDayOfMonth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FieldBook">Entered In FieldBook?</label>
+        <input asp-for="FieldBook" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FieldBookPageNum">FieldBook Page Number:</label>
+        <input asp-for="FieldBookPageNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="InitialsOfEntryExpert">Initials of Entry Expert: </label>
+        <input asp-for="InitialsOfEntryExpert" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="InitialsOfEntryChecker">Initials of Entry Checker: </label>
+        <input asp-for="InitialsOfEntryChecker" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BYUSample">BYU Sample</label>
+        <input asp-for="BYUSample" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="ExcavationID">ExcavationID</label>
+        <input asp-for="ExcavationID" />
+        <br />
+    </div>
+    <button type="submit">Submit Updated Data</button>
+    
+
+</form>
+
