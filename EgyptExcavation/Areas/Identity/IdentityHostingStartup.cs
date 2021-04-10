@@ -16,8 +16,15 @@ namespace EgyptExcavation.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
+                    options.UseSqlite(
+                        context.Configuration.GetConnectionString("DefaultConnection")));
+
+                //builder.ConfigureServices((context, services) => {
+                //services.AddDbContext<ApplicationDbContext>(options =>
+                //    options.UseSqlServer(
+                //        context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
+
+
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<ApplicationDbContext>();

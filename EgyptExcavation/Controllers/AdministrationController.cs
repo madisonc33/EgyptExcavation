@@ -18,6 +18,12 @@ namespace EgyptExcavation.Controllers
             this.roleManager = roleManager;
         }
 
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
