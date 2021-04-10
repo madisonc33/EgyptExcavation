@@ -445,7 +445,7 @@ namespace EgyptExcavation.Models
             modelBuilder.Entity<Tooth>(entity =>
             {
                 entity.Property(e => e.ToothId)
-                    .HasColumnName("ToothID")
+                    .HasColumnName("ToothId")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.BodyId).HasColumnName("BodyID");
