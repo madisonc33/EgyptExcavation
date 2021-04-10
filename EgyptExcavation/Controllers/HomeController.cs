@@ -9,6 +9,7 @@ using EgyptExcavation.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgyptExcavation.Controllers
 {
@@ -25,7 +26,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult Index()
         {
-           return View();
+            return View();
         }
 
         public IActionResult BurialList()
@@ -114,12 +115,14 @@ namespace EgyptExcavation.Controllers
 
         //BURIAL
 
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldBurial()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldBurial(Burial b)
         {
@@ -135,7 +138,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBurial1(int BurialID)
         {
@@ -144,6 +147,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBurial2(Burial b, int BurialID)
         {
@@ -234,7 +238,6 @@ namespace EgyptExcavation.Controllers
         }
 
         //EXCAVATION
-
         [HttpGet]
         public IActionResult EnterFieldExcavation()
         {
@@ -356,7 +359,7 @@ namespace EgyptExcavation.Controllers
         }
 
         //LOCATION
-
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldLocation()
         {
