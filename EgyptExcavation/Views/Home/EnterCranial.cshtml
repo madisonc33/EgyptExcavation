@@ -16,93 +16,195 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title></title>
 
     <!-- Icons font CSS-->
-    <link href="lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Vendor CSS-->
-    <link href="lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/main.css" rel="stylesheet" media="all">
+    <link href="~/css/main.css" rel="stylesheet" media="all">
 </head>
 
 <body>
     <div class="card card-4">
         <div class="card-body">
-            <h2 class="title">Registration Form</h2>
-            <form method="POST">
+            <h2 class="title">Enter Cranial Information</h2>
+            <form asp-action="EnterCranial" method="post">
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">first name</label>
-                            <input class="input--style-4" type="text" name="first_name">
+                            <label asp-for="MaxCranialLength">Maximum Cranial Length:</label>
+                            <input asp-for="MaxCranialLength" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">last name</label>
-                            <input class="input--style-4" type="text" name="last_name">
+                            <label asp-for="SkullTrauma">Skull Trauma:</label>
+                            <input asp-for="SkullTrauma" class="input--style-4" />
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Birthday</label>
-                            <div class="input-group-icon">
-                                <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                            </div>
+                            <label asp-for="MaxCranialBreadth">Maximum Cranial Breadth:</label>
+                            <input asp-for="MaxCranialBreadth" class="input--style-4"  />
+
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Gender</label>
-                            <div class="p-t-10">
-                                <label class="radio-container m-r-45">
-                                    Male
-                                    <input type="radio" checked="checked" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">
-                                    Female
-                                    <input type="radio" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+                            <label asp-for="BasionBergmaHeight">Basion Bergma Height:</label>
+                            <input asp-for="BasionBergmaHeight" class="input--style-4" />
+
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Email</label>
-                            <input class="input--style-4" type="email" name="email">
+                            <label asp-for="BasionNasion">Basion Nasion:</label>
+                            <input asp-for="BasionNasion" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Phone Number</label>
-                            <input class="input--style-4" type="text" name="phone">
+                            <label asp-for="BasionProsithanLength">Basian Prosithan Length:</label>
+                            <input asp-for="BasionProsithanLength" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-                <div class="input-group">
-                    <label class="label">Subject</label>
-                    <div class="rs-select2 js-select-simple select--no-search">
-                        <select name="subject">
-                            <option disabled="disabled" selected="selected">Choose option</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                        </select>
-                        <div class="select-dropdown"></div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BizgoymaticDiameter">Bizgoymatic Diameter:</label>
+                            <input asp-for="BizgoymaticDiameter" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="NasionProsthion">Nasion Prosthion:</label>
+                            <input asp-for="NasionProsthion" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MaxNasalBreadth">Maximum Nasal Breath:</label>
+                            <input asp-for="MaxNasalBreadth" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="InterorbitalBreadth">Interorbital Breadth:</label>
+                            <input asp-for="InterorbitalBreadth" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="YearOnSkull">Year On Skull:</label>
+                            <input asp-for="YearOnSkull" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MonthOnSkull">Month On Skull:</label>
+                            <input asp-for="MonthOnSkull" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SkullAtMagazine">Skull At Magazine:</label>
+                            <input asp-for="SkullAtMagazine" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="CribraOrbitalia">Cribra Orbitalia:</label>
+                            <input asp-for="CribraOrbitalia" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="PoroticHyperostosis">Porotic Hyperostosis:</label>
+                            <input asp-for="PoroticHyperostosis" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="PoroticHyperostosisLoc">Porotic Hyperostosis Location:</label>
+                            <input asp-for="PoroticHyperostosisLoc" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MetopicSuture">Metopic Suture:</label>
+                            <input asp-for="MetopicSuture" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ButtonOsteoma">Button Osteoma:</label>
+                            <input asp-for="ButtonOsteoma" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="OsteologyUnknownComment">Osteology Unknown Comments: </label>
+                            <input asp-for="OsteologyUnknownComment" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Tmjoa">TMJOA: (what is real name?)</label>
+                            <input asp-for="Tmjoa" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="DateOnSkull">Date on Skull:</label>
+                            <input asp-for="DateOnSkull" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="CranialSuture">Cranial Suture? </label>
+                            <input asp-for="CranialSuture" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="GefunctionTotal">GE Function Total:</label>
+                            <input asp-for="GefunctionTotal" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="CranialId">CranialID</label>
+                            <input asp-for="CranialId" />
+                        </div>
                     </div>
                 </div>
                 <div class="p-t-15">
@@ -113,169 +215,17 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="lib/vendor/jquery/jquery.min.js"></script>
+    <script src="~/lib/vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
-    <script src="lib/vendor/select2/select2.min.js"></script>
-    <script src="lib/vendor/datepicker/moment.min.js"></script>
-    <script src="lib/vendor/datepicker/daterangepicker.js"></script>
+    <script src="~/lib/vendor/select2/select2.min.js"></script>
+    <script src="~/lib/vendor/datepicker/moment.min.js"></script>
+    <script src="~/lib/vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="js/global.js"></script>
+    <script src="~/js/global.js"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
 <!-- end document-->
 
-
-<form asp-action="EnterCranial" method="post">
-    <div asp-validation-summary="All"></div>
-
-    <div>
-        <label asp-for="MaxCranialLength">Maximum Cranial Length:</label>
-        <input asp-for="MaxCranialLength" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SkullTrauma">Skull Trauma:</label>
-        <input asp-for="SkullTrauma" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MaxCranialBreadth">Maximum Cranial Breadth:</label>
-        <input asp-for="MaxCranialBreadth" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BasionBergmaHeight">Basion Bergma Height:</label>
-        <input asp-for="BasionBergmaHeight" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BasionNasion">Basion Nasion:</label>
-        <input asp-for="BasionNasion" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BasionProsithanLength">Basian Prosithan Length:</label>
-        <input asp-for="BasionProsithanLength" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BizgoymaticDiameter">Bizgoymatic Diameter:</label>
-        <input asp-for="BizgoymaticDiameter" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="NasionProsthion">Nasion Prosthion:</label>
-        <input asp-for="NasionProsthion" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MaxNasalBreadth">Maximum Nasal Breath:</label>
-        <input asp-for="MaxNasalBreadth" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="InterorbitalBreadth">Interorbital Breadth:</label>
-        <input asp-for="InterorbitalBreadth" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="YearOnSkull">Year On Skull:</label>
-        <input asp-for="YearOnSkull" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MonthOnSkull">Month On Skull:</label>
-        <input asp-for="MonthOnSkull" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SkullAtMagazine">Skull At Magazine:</label>
-        <input asp-for="SkullAtMagazine" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="CribraOrbitalia">Cribra Orbitalia:</label>
-        <input asp-for="CribraOrbitalia" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="PoroticHyperostosis">Porotic Hyperostosis:</label>
-        <input asp-for="PoroticHyperostosis" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="PoroticHyperostosisLoc">Porotic Hyperostosis Location:</label>
-        <input asp-for="PoroticHyperostosisLoc" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MetopicSuture">Metopic Suture:</label>
-        <input asp-for="MetopicSuture" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ButtonOsteoma">Button Osteoma:</label>
-        <input asp-for="ButtonOsteoma" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="OsteologyUnknownComment">Osteology Unknown Comments: </label>
-        <input asp-for="OsteologyUnknownComment" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Tmjoa">TMJOA: (what is real name?)</label>
-        <input asp-for="Tmjoa" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="DateOnSkull">Date on Skull:</label>
-        <input asp-for="DateOnSkull" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="CranialSuture">Cranial Suture? </label>
-        <input asp-for="CranialSuture" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="GefunctionTotal">GE Function Total:</label>
-        <input asp-for="GefunctionTotal" />
-        <br />
-    </div>
-
-    <div hidden>
-        <label asp-for="CranialId">CranialID</label>
-        <input asp-for="CranialId" />
-        <br />
-    </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO NEW PAGE-->
-
-
-</form>
