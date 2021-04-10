@@ -36,78 +36,67 @@
 <body>
     <div class="card card-4">
         <div class="card-body">
-            <h2 class="title">Enter Body Information</h2>
-            <form asp-action="EnterFieldBody" method="post">
+            <h2 class="title">Enter Physical Orientation</h2>
+            <form asp-action="EnterOrientation" method="post">
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">first name</label>
-                            <input class="input--style-4" type="text" name="first_name">
+                            <label asp-for="WtoFeet">West To Feet:</label>
+                            <input asp-for="WtoFeet" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">last name</label>
-                            <input class="input--style-4" type="text" name="last_name">
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label class="label">Birthday</label>
-                            <div class="input-group-icon">
-                                <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label class="label">Gender</label>
-                            <div class="p-t-10">
-                                <label class="radio-container m-r-45">
-                                    Male
-                                    <input type="radio" checked="checked" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">
-                                    Female
-                                    <input type="radio" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+                            <label asp-for="StoFeet">South To Feet:</label>
+                            <input asp-for="StoFeet" class="input--style-4"/>
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Email</label>
-                            <input class="input--style-4" type="email" name="email">
+                            <label asp-for="WtoHead">West To Head:</label>
+                            <input asp-for="WtoHead" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Phone Number</label>
-                            <input class="input--style-4" type="text" name="phone">
+                            <label asp-for="StoHead">South To Head:</label>
+                            <input asp-for="StoHead" class="input--style-4"/>
                         </div>
                     </div>
                 </div>
-                <div class="input-group">
-                    <label class="label">Subject</label>
-                    <div class="rs-select2 js-select-simple select--no-search">
-                        <select name="subject">
-                            <option disabled="disabled" selected="selected">Choose option</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                        </select>
-                        <div class="select-dropdown"></div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="HeadDirection">Head Direction:</label>
+                            <input asp-for="HeadDirection" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BurialDepth">Burial Depth:</label>
+                            <input asp-for="BurialDepth" class="input--style-4"/>
+                        </div>
                     </div>
                 </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="LengthOfRemainsInMeters">Length Of Remains In Meters:</label>
+                            <input asp-for="LengthOfRemainsInMeters" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="OrientationId">OrientationID</label>
+                            <input asp-for="OrientationId" />
+                        </div>
+                    </div>
+                </div>
+              
                 <div class="p-t-15">
-                    <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
             </form>
         </div>
@@ -123,64 +112,7 @@
     <!-- Main JS-->
     <script src="~/js/global.js"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
+</body>
 </html>
 <!-- end document-->
 
-<form asp-action="EnterFieldBody" method="post">
-    <div asp-validation-summary="All"></div>
-
-    <div>
-        <label asp-for="WtoFeet">Burial Preservation:</label>
-        <input asp-for="WtoFeet" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="StoFeet">Preservation Index:</label>
-        <input asp-for="StoFeet" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="WtoHead">Age At Death:</label>
-        <input asp-for="WtoHead" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="StoHead">Was A Sample Taken?</label>
-        <input asp-for="StoHead" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="HeadDirection">Age Method:</label>
-        <input asp-for="HeadDirection" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BurialDepth">Gender Method:</label>
-        <input asp-for="BurialDepth" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="LengthOfRemainsInMeters">Estimated Living Stature:</label>
-        <input asp-for="LengthOfRemainsInMeters" />
-        <br />
-    </div>
-
-
-    <div hidden>
-        <label asp-for="OrientationId">BodyID</label>
-        <input asp-for="OrientationId" />
-        <br />
-    </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO NEW PAGE-->
-
-
-</form>
