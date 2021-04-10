@@ -1,118 +1,184 @@
-﻿@model Body
+﻿
+@model Body
 
 <div class="text-center">
     <h1 class="display-4">Enter FieldNotes</h1>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-<form asp-action="EnterFieldBody" method="post">
-    <div asp-validation-summary="All"></div>
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
 
-    <div>
-        <label asp-for="BurialPreservation">Burial Preservation:</label>
-        <input asp-for="BurialPreservation" />
-        <br />
+    <!-- Icons font CSS-->
+    <link href="~/lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="~/lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="card card-4">
+        <div class="card-body">
+            <h2 class="title">Enter Body Information</h2>
+            <form asp-action="EnterFieldBody" method="post">
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BurialPreservation">Burial Preservation:</label>
+                            <input asp-for="BurialPreservation"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="PreservationIndex">Preservation Index:</label>
+                            <input asp-for="PreservationIndex"  class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="AgeAtDeath">Age At Death:</label>
+                            <input asp-for="AgeAtDeath"  class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SampleTaken">Was A Sample Taken?</label>
+                            <input asp-for="SampleTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="AgeMethod">Age Method:</label>
+                            <input asp-for="AgeMethod"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="GenderMethod">Gender Method:</label>
+                            <input asp-for="GenderMethod"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="EstimateLivingStature">Estimated Living Stature:</label>
+                            <input asp-for="EstimateLivingStature"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="HairTaken">Hair Taken?</label>
+                            <input asp-for="HairTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
+                            <input asp-for="SoftTissueTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BoneTaken">Bone Taken?</label>
+                            <input asp-for="BoneTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ToothTaken">Tooth Taken?</label>
+                            <input asp-for="ToothTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="TextileTaken">Textile Taken?</label>
+                            <input asp-for="TextileTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="DescriptionOfTaken">Description Of Taken:</label>
+                            <input asp-for="DescriptionOfTaken"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SequenceDna">Sequence DNA</label>
+                            <input asp-for="SequenceDna"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="CarbonEstimatedDate">Carbon Estimated Date</label>
+                            <input asp-for="CarbonEstimatedDate"  class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="YearAnalyzed">Year Analyzed</label>
+                            <input asp-for="YearAnalyzed"  class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="BodyId">BodyID</label>
+                            <input asp-for="BodyId" />
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="p-t-15">
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div>
-        <label asp-for="PreservationIndex">Preservation Index:</label>
-        <input asp-for="PreservationIndex" />
-        <br />
-    </div>
+    <!-- Jquery JS-->
+    <script src="lib/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="lib/vendor/select2/select2.min.js"></script>
+    <script src="lib/vendor/datepicker/moment.min.js"></script>
+    <script src="lib/vendor/datepicker/daterangepicker.js"></script>
 
-    <div>
-        <label asp-for="AgeAtDeath">Age At Death:</label>
-        <input asp-for="AgeAtDeath" />
-        <br />
-    </div>
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
 
-    <div>
-        <label asp-for="SampleTaken">Was A Sample Taken?</label>
-        <input asp-for="SampleTaken" />
-        <br />
-    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-    <div>
-        <label asp-for="AgeMethod">Age Method:</label>
-        <input asp-for="AgeMethod" />
-        <br />
-    </div>
+</html>
+<!-- end document-->
 
-    <div>
-        <label asp-for="GenderMethod">Gender Method:</label>
-        <input asp-for="GenderMethod" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="EstimateLivingStature">Estimated Living Stature:</label>
-        <input asp-for="EstimateLivingStature" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="HairTaken">Hair Taken?</label>
-        <input asp-for="HairTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
-        <input asp-for="SoftTissueTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BoneTaken">Bone Taken?</label>
-        <input asp-for="BoneTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ToothTaken">Tooth Taken?</label>
-        <input asp-for="ToothTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="TextileTaken">Textile Taken?</label>
-        <input asp-for="TextileTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="DescriptionOfTaken">Description Of Taken:</label>
-        <input asp-for="DescriptionOfTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SequenceDna">Sequence DNA</label>
-        <input asp-for="SequenceDna" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="CarbonEstimatedDate">Carbon Estimated Date</label>
-        <input asp-for="CarbonEstimatedDate" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="YearAnalyzed">Year Analyzed</label>
-        <input asp-for="YearAnalyzed" />
-        <br />
-    </div>
-
-
-    <div hidden>
-        <label asp-for="BodyId">BodyID</label>
-        <input asp-for="BodyId" />
-        <br />
-    </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO NEW PAGE-->
-
-
-</form>

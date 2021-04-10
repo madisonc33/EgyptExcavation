@@ -75,11 +75,11 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult BurialDetails(int id)
+        public IActionResult BurialDetails(int burialid)
         {
             var mummy = new MummyInfo();
 
-            mummy.burial = context.Burial.Where(x => x.BurialId == id).FirstOrDefault();
+            mummy.burial = context.Burial.Where(x => x.BurialId == burialid).FirstOrDefault();
             mummy.body = context.Body.Where(x => x.BodyId == mummy.burial.BodyId).FirstOrDefault();
             mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
             mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();

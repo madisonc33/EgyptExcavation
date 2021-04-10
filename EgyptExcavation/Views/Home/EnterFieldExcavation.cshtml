@@ -1,142 +1,122 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@model Excavation
 
-@*we will have to change this*@
-@*@model Burials*@
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="card">
-    <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">First</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Second</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">Third</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">fourth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="fifth-tab" data-toggle="tab" href="#fifth" role="tab" aria-controls="fifth" aria-selected="false">fifth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="sixth-tab" data-toggle="tab" href="#sixth" role="tab" aria-controls="sixth" aria-selected="false">sixth</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
-                <h4>my first tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <ul class="list-group">
-                                <li class="list-group-item">Location: Location.full location key</li>
-                                <li class="list-group-item">Subplot: Location.Subplot</li>
-                                <li class="list-group-item">Depth: PhysicalOrientation.BurialDepth</li>
-                                <li class="list-group-item">Head Direction: Physicalorientation.HeadDirection</li>
-                            </ul>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title></title>
+
+    <!-- Icons font CSS-->
+    <link href="~/lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="~/lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="card card-4">
+        <div class="card-body">
+            <h2 class="title">Enter Excavation Information</h2>
+            <form asp-action="EnterExcavate" method="post">
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ExcYear">Excavation Year</label>
+                            <input asp-for="ExcYear" class="input--style-4" />
                         </div>
-                        <div class="col-sm">
-                            <ul class="list-group">
-                                <li class="list-group-item">Burial Number: Burial.BurialNum</li>
-                                <li class="list-group-item">Year Excavated: Excavation.ExcYear</li>
-                                <li class="list-group-item">Body Length: PhysicalOrientation.LengthOfRemainsInMeters</li>
-                                <li class="list-group-item">Face Bundle: FaceBundleCode.Description</li>
-                            </ul>
-                        </div>
-                        <div class="col-sm">
-                            <p>cool image maybe, with a default if there isnt a unique one.</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ExcMonth">Excavation Month</label>
+                            <input asp-for="ExcMonth" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
-                <h4>my second tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ExcDayOfMonth">Excavation Day of Month</label>
+                            <input asp-for="ExcDayOfMonth" class="input--style-4" />
                         </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="FieldBook">Entered In FieldBook?</label>
+                            <input asp-for="FieldBook" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
-                <h4>my third tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="FieldBookPageNum">FieldBook Page Number:</label>
+                            <input asp-for="FieldBookPageNum" class="input--style-4"  />
                         </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="InitialsOfEntryExpert">Initials of Entry Expert: </label>
+                            <input asp-for="InitialsOfEntryExpert" class="input--style-4"  />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="fourth-tab">
-                <h4>my fourth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="InitialsOfEntryChecker">Initials of Entry Checker: </label>
+                            <input asp-for="InitialsOfEntryChecker" class="input--style-4" />
                         </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Byusample">BYU Sample</label>
+                            <input asp-for="Byusample" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="fifth" role="tabpanel" aria-labelledby="fifth-tab">
-                <h4>my fifth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="ExcavationId">ExcavationID</label>
+                            <input asp-for="ExcavationId" />
                         </div>
                     </div>
+                    
                 </div>
-            </div>
-            <div class="tab-pane fade" id="sixth" role="tabpanel" aria-labelledby="sixth-tab">
-                <h4>my sixth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
-                        </div>
-                    </div>
+                <div class="p-t-15">
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-</div>
 
+    <!-- Jquery JS-->
+    <script src="~/lib/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/lib/vendor/select2/select2.min.js"></script>
+    <script src="~/lib/vendor/datepicker/moment.min.js"></script>
+    <script src="~/lib/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/js/global.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->
