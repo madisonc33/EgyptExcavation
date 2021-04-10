@@ -225,7 +225,7 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = b.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = b.CarbonEstimatedDate;
 
-            context.SaveChanges();
+                context.SaveChanges();
 
                 return RedirectToAction("BurialList");
             }
