@@ -1,5 +1,4 @@
 ﻿
-
 @{
     ViewData["Title"] = "Enter Field Notes";
 
@@ -41,78 +40,94 @@
 <body>
     <div class="card card-4">
         <div class="card-body">
-            <h2 class="title">Registration Form</h2>
-            <form method="POST">
+            <h2 class="title">Enter Burial Information</h2>
+            <form asp-action="EnterFieldBurial" method="post">
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">first name</label>
-                            <input class="input--style-4" type="text" name="first_name">
+                            <label asp-for="BurialNum">Burial Number:</label>
+                            <input asp-for="BurialNum" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">last name</label>
-                            <input class="input--style-4" type="text" name="last_name">
+                            <label asp-for="ArtifactFound">Artifact Found:</label>
+                            <input asp-for="ArtifactFound" class="input--style-4" />
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Birthday</label>
-                            <div class="input-group-icon">
-                                <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                            </div>
+                            <label asp-for="ArtifactsDescription">Description of Artifact:</label>
+                            <input asp-for="ArtifactsDescription" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Gender</label>
-                            <div class="p-t-10">
-                                <label class="radio-container m-r-45">
-                                    Male
-                                    <input type="radio" checked="checked" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">
-                                    Female
-                                    <input type="radio" name="gender">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+                            <label asp-for="Cluster">Cluster</label>
+                            <input asp-for="Cluster" class="input--style-4" />
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Email</label>
-                            <input class="input--style-4" type="email" name="email">
+                            <label asp-for="Goods">Goods</label>
+                            <input asp-for="Goods" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label class="label">Phone Number</label>
-                            <input class="input--style-4" type="text" name="phone">
+                            <label asp-for="BiologicalInitials">Biological Initials</label>
+                            <input asp-for="BiologicalInitials" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-                <div class="input-group">
-                    <label class="label">Subject</label>
-                    <div class="rs-select2 js-select-simple select--no-search">
-                        <select name="subject">
-                            <option disabled="disabled" selected="selected">Choose option</option>
-                            <option>Subject 1</option>
-                            <option>Subject 2</option>
-                            <option>Subject 3</option>
-                        </select>
-                        <div class="select-dropdown"></div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BiologicalClusterNum">Biological Cluster Number</label>
+                            <input asp-for="BiologicalClusterNum" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="PreviouslySampled">Has The Burial Been Previously Sampled?</label>
+                            <input asp-for="PreviouslySampled" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BiologicalNotes">Biological Notes</label>
+                            <input asp-for="BiologicalNotes" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ToBeConfirmed">To Be Confirmed?</label>
+                            <input asp-for="ToBeConfirmed" class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BurialSituation">What is the Burial Situation?</label>
+                            <input asp-for="BurialSituation" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="BurialId">BurialID</label>
+                            <input asp-for="BurialId" class="input--style-4"/>
+                        </div>
                     </div>
                 </div>
                 <div class="p-t-15">
-                    <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
             </form>
         </div>
@@ -132,90 +147,3 @@
 
 </html>
 <!-- end document-->
-
-
-<div class="text-center">
-    <h1 class="display-4">Enter FieldNotes - Burial</h1>
-</div>
-
-
-<form asp-action="EnterFieldBurial" method="post">
-    <div asp-validation-summary="All"></div>
-
-    <div>
-        <label asp-for="BurialNum">Burial Number:</label>
-        <input asp-for="BurialNum" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ArtifactFound">Artifact Found:</label>
-        <input asp-for="ArtifactFound" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ArtifactsDescription">Description of Artifact:</label>
-        <input asp-for="ArtifactsDescription" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Cluster">Cluster</label>
-        <input asp-for="Cluster" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Goods">Goods</label>
-        <input asp-for="Goods" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BiologicalInitials">Biological Initials</label>
-        <input asp-for="BiologicalInitials" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BiologicalClusterNum">Biological Cluster Number</label>
-        <input asp-for="BiologicalClusterNum" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="PreviouslySampled">Has The Burial Been Previously Sampled?</label>
-        <input asp-for="PreviouslySampled" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BiologicalNotes">Biological Notes</label>
-        <input asp-for="BiologicalNotes" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ToBeConfirmed">To Be Confirmed?</label>
-        <input asp-for="ToBeConfirmed" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BurialSituation">What is the Burial Situation?</label>
-        <input asp-for="BurialSituation" />
-        <br />
-    </div>
-
-
-    <div hidden>
-        <label asp-for="BurialId">BurialID</label>
-        <input asp-for="BurialId" />
-        <br />
-    </div>
-    <button type="submit">Add Field Note</button>
-
-</form>
-
-
