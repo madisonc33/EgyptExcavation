@@ -535,9 +535,6 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult EditMummyInfo()
-        {
-            return View();
         public IActionResult EditFieldNotes()
         {
             return View();
