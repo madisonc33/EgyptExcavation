@@ -9,9 +9,6 @@ using EgyptExcavation.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
-//using Microsoft.Extensions.Configuration;
-//using Microsoft.Data.SqlClient;
-//using EgyptExcavation.Models.ViewModels;
 
 namespace EgyptExcavation.Controllers
 {
