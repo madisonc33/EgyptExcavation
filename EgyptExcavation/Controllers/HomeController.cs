@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EgyptExcavation.Models;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8fb11051a1e36ae2590f4f28c0642be902be3fc0
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 
+<<<<<<< HEAD
 =======
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 
 >>>>>>> 9f09588d973d37cfce2351831a3bd36f3246050e
+=======
+>>>>>>> 8fb11051a1e36ae2590f4f28c0642be902be3fc0
 namespace EgyptExcavation.Controllers
 {
     public class HomeController : Controller
@@ -31,6 +37,7 @@ namespace EgyptExcavation.Controllers
         }
 
         public IActionResult Index()
+<<<<<<< HEAD
 <<<<<<< HEAD
         {
            return View();
@@ -81,6 +88,9 @@ namespace EgyptExcavation.Controllers
             return View(mummies);
 =======
         {
+=======
+        {
+>>>>>>> 8fb11051a1e36ae2590f4f28c0642be902be3fc0
             return View();
 >>>>>>> 9f09588d973d37cfce2351831a3bd36f3246050e
         }
@@ -98,6 +108,7 @@ namespace EgyptExcavation.Controllers
         //    return View();
         //}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         [HttpPost]
         public IActionResult BurialDetails(int id)
@@ -506,8 +517,27 @@ namespace EgyptExcavation.Controllers
         public IActionResult BurialDetails()
         {
             return View();
+=======
+        public IActionResult BurialList()
+        {
+            var mummy = new MummyInfo();
+            foreach(var b in context.Burial)
+            {
+                
+            }
+
+            return View();
+>>>>>>> 8fb11051a1e36ae2590f4f28c0642be902be3fc0
         }
 
+        public IActionResult BurialDetails()
+        {
+            return View();
+        }
+
+        public IActionResult EditMummyInfo()
+        {
+            return View();
         public IActionResult EditFieldNotes()
         {
             return View();
