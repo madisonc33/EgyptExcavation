@@ -26,4 +26,22 @@
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Register.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Error.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+  </ItemGroup>
 </Project>
