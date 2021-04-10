@@ -481,14 +481,14 @@ namespace EgyptExcavation.Controllers
         //PHYSICAL ORIENTATION
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterOrientation()
+        public IActionResult EnterPhysicalOrientation()
         {
             return View();
         }
 
         //[Authorize]
         [HttpPost]
-            public IActionResult EnterOrientation(PhysicalOrientation po)
+            public IActionResult EnterPhysicalOrientation(PhysicalOrientation po)
             {
                 //first check data to make sure it's good before passing to Model and DB
                 if (ModelState.IsValid)
