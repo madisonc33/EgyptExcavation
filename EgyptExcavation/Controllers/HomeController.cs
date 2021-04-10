@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EgyptExcavation.Models;
+<<<<<<< HEAD
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 
+=======
+using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
+using EgyptExcavation.Models.ViewModels;
+
+>>>>>>> 9f09588d973d37cfce2351831a3bd36f3246050e
 namespace EgyptExcavation.Controllers
 {
     public class HomeController : Controller
@@ -20,6 +27,9 @@ namespace EgyptExcavation.Controllers
         private readonly ILogger<HomeController> _logger;
         //private egyptexcavationContext context { get; set; } , egyptexcavationContext con
 
+        private readonly ILogger<HomeController> _logger;
+        private egyptexcavationContext context { get; set; }
+
         public HomeController(ILogger<HomeController> logger, egyptexcavationContext con)
         {
             _logger = logger;
@@ -27,6 +37,7 @@ namespace EgyptExcavation.Controllers
         }
 
         public IActionResult Index()
+<<<<<<< HEAD
         {
            return View();
         }
@@ -74,6 +85,10 @@ namespace EgyptExcavation.Controllers
             }
 
             return View(mummies);
+=======
+        {
+            return View();
+>>>>>>> 9f09588d973d37cfce2351831a3bd36f3246050e
         }
 
         //idea for storing form
@@ -87,8 +102,18 @@ namespace EgyptExcavation.Controllers
         //    context.Burial.Add(bur);
 
         //    return View();
+        //public IActionResult EnterBurial(Burial bur, Body bod)
+        //{
+        //    context.Body.Add(bod);
+        //    context.Body.
+        //    //get most recent body ID
+        //    //add bodyID to bur
+        //    context.Burial.Add(bur);
+
+        //    return View();
         //}
 
+<<<<<<< HEAD
         [HttpPost]
         public IActionResult BurialDetails(int id)
         {
@@ -480,6 +505,9 @@ namespace EgyptExcavation.Controllers
 
         [HttpGet]
         public IActionResult EnterFiles()
+=======
+        public IActionResult BurialList()
+>>>>>>> 9f09588d973d37cfce2351831a3bd36f3246050e
         {
             return View();
         }
@@ -528,6 +556,11 @@ namespace EgyptExcavation.Controllers
         }
 
         //STORAGE
+            var mummy = new mummyinfo();
+            foreach(var b in context.Burial)
+            {
+                
+            }
 
         [HttpGet]
         public IActionResult EnterStorage()
@@ -583,6 +616,7 @@ namespace EgyptExcavation.Controllers
 
         [HttpGet]
         public IActionResult EnterCranial()
+        public IActionResult BurialDetails()
         {
             return View();
         }
@@ -653,6 +687,7 @@ namespace EgyptExcavation.Controllers
 
         [HttpGet]
         public IActionResult EnterBone()
+        public IActionResult EditFieldNotes()
         {
             return View();
         }
@@ -732,6 +767,7 @@ namespace EgyptExcavation.Controllers
 
         [HttpGet]
         public IActionResult EnterTeeth()
+        public IActionResult EditMummyInfo()
         {
             return View();
         }
@@ -739,6 +775,7 @@ namespace EgyptExcavation.Controllers
 
         [HttpPost]
         public IActionResult EnterTooth(Tooth t)
+        public IActionResult Privacy()
         {
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
@@ -754,10 +791,13 @@ namespace EgyptExcavation.Controllers
 
         [HttpPost]
         public IActionResult EditTooth1(int ToothID)
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
             Tooth t = context.Tooth.Single(x => x.ToothId == ToothID);
             return View("EditTeeth", t);
 
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         [HttpPost]
