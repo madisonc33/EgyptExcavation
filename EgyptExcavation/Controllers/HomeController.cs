@@ -43,7 +43,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList()
         {
-            var mummy = new mummyinfo();
+            var mummy = new MummyInfo();
             foreach(var b in context.Burial)
             {
                 
