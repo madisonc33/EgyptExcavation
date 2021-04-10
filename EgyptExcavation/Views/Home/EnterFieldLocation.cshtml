@@ -1,62 +1,119 @@
-﻿@model Location
+﻿
+@model Location
 
 <div class="text-center">
     <h1 class="display-4">Enter FieldNotes</h1>
 </div>
 
 
-<form asp-action="EnterFieldLocation" method="post">
-    <div asp-validation-summary="All"></div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div>
-        <label asp-for="MetersNs">Meters North South</label>
-        <input asp-for="MetersNs" />
-        <br />
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="~/lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="~/lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="card card-4">
+        <div class="card-body">
+            <h2 class="title">Enter Field Location Information</h2>
+            <form asp-action="EnterFieldLocation" method="post">
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MetersNs">Meters North South</label>
+                            <input asp-for="MetersNs" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BurialNs">Burial North South</label>
+                            <input asp-for="BurialNs" class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MetersEw">Meters East West</label>
+                            <input asp-for="MetersEw" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BurialEw">Burial East West</label>
+                            <input asp-for="BurialEw" class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Subplot">Subplot:</label>
+                            <input asp-for="Subplot" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="HillArea">Hill Area: </label>
+                            <input asp-for="HillArea" class="input--style-4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="TombNum">Tomb Number: </label>
+                            <input asp-for="TombNum" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group" hidden>
+                            <label asp-for="LocId">LocationID</label>
+                            <input asp-for="LocId" />
+                        </div>
+                    </div>
+                </div>
+                <div class="p-t-15">
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div>
-        <label asp-for="BurialNs">Burial North South</label>
-        <input asp-for="BurialNs" />
-        <br />
-    </div>
+    <!-- Jquery JS-->
+    <script src="~/lib/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/lib/vendor/select2/select2.min.js"></script>
+    <script src="~/lib/vendor/datepicker/moment.min.js"></script>
+    <script src="~/lib/vendor/datepicker/daterangepicker.js"></script>
 
-    <div>
-        <label asp-for="MetersEw">Meters East West</label>
-        <input asp-for="MetersEw" />
-        <br />
-    </div>
+    <!-- Main JS-->
+    <script src="~/js/global.js"></script>
 
-    <div>
-        <label asp-for="BurialEw">Burial East West</label>
-        <input asp-for="BurialEw" />
-        <br />
-    </div>
+</body>
 
-    <div>
-        <label asp-for="Subplot">Subplt:</label>
-        <input asp-for="Subplot" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="HillArea">Hill Area: </label>
-        <input asp-for="HillArea" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="TombNum">Tomb Number: </label>
-        <input asp-for="TombNum" />
-        <br />
-    </div>
-
-    <div hidden>
-        <label asp-for="LocId">LocationID</label>
-        <input asp-for="LocId" />
-        <br />
-    </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO X PAGE-->
-
-</form>
+</html>
+<!-- end document-->
 

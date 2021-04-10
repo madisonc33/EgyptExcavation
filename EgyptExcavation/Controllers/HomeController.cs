@@ -9,6 +9,7 @@ using EgyptExcavation.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EgyptExcavation.Controllers
 {
@@ -25,7 +26,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult Index()
         {
-           return View();
+            return View();
         }
 
         public IActionResult BurialList()
@@ -114,12 +115,14 @@ namespace EgyptExcavation.Controllers
 
         //BURIAL
 
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldBurial()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldBurial(Burial b)
         {
@@ -135,7 +138,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBurial1(int BurialID)
         {
@@ -144,6 +147,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBurial2(Burial b, int BurialID)
         {
@@ -173,12 +177,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //BODY
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldBody()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldBody(Body b)
         {
@@ -194,6 +200,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody1(int BodyID)
         {
@@ -202,6 +209,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody2(Body b, int BodyID)
         {
@@ -225,7 +233,7 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = b.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = b.CarbonEstimatedDate;
 
-            context.SaveChanges();
+                context.SaveChanges();
 
                 return RedirectToAction("BurialList");
             }
@@ -234,13 +242,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //EXCAVATION
-
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldExcavation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldExcavation(Excavation e)
         {
@@ -256,6 +265,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditExcavate1(int ExcavationID)
         {
@@ -264,6 +274,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditExcavate2(Excavation e, int ExcavationID)
         {
@@ -289,12 +300,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //SAMPLE
+        [Authorize]
         [HttpGet]
         public IActionResult EnterSamples()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterSamples(Sample s)
         {
@@ -310,6 +323,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditSample1(int SampleID)
         {
@@ -318,6 +332,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -356,13 +371,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //LOCATION
-
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldLocation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
@@ -378,6 +394,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditLocation1(int LocID)
         {
@@ -385,6 +402,7 @@ namespace EgyptExcavation.Controllers
             return View("EditFieldLocation", l);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditLocation2(Location l, int LocID)
         {
@@ -409,12 +427,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //PHYSICAL ORIENTATION
+        [Authorize]
         [HttpGet]
         public IActionResult EnterOrientation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
             public IActionResult EnterOrientation(PhysicalOrientation po)
             {
@@ -430,6 +450,7 @@ namespace EgyptExcavation.Controllers
                 return View();
             }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditOrientation1(int POID)
         {
@@ -438,6 +459,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditOrientation2(PhysicalOrientation po, int POID)
         {
@@ -462,23 +484,21 @@ namespace EgyptExcavation.Controllers
 
         //FILES
 
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFiles()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult EditFieldNotes()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult EditMummyInfo()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

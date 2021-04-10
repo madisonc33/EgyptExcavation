@@ -4,144 +4,214 @@
     <h1 class="display-4">Enter Samples</h1>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-<form asp-action="EnterSamples" method="post">
-    <div asp-validation-summary="All"></div>
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
 
-    <div>
-        <label asp-for="MlSize">ML Size: </label>
-        <input asp-for="MlSize" />
-        <br />
+    <!-- Icons font CSS-->
+    <link href="~/lib/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="~/lib/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/lib/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="card card-4">
+        <div class="card-body">
+            <h2 class="title">Registration Form</h2>
+            <form asp-action="EnterSamples" method="post">
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MlSize">ML Size: </label>
+                            <input asp-for="MlSize" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Description">Description: </label>
+                            <input asp-for="Description" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Category">Category: </label>
+                            <input asp-for="Category" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Notes">Sample Notes: </label>
+                            <input asp-for="Notes" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="HairTaken">Hair Taken?</label>
+                            <input asp-for="HairTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
+                            <input asp-for="SoftTissueTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="BoneTaken">Bone Taken?</label>
+                            <input asp-for="BoneTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="ToothTaken">Tooth Taken?</label>
+                            <input asp-for="ToothTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="TextileTaken">Textile Taken?</label>
+                            <input asp-for="TextileTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="DescriptionOfTaken">Description of Taken: </label>
+                            <input asp-for="DescriptionOfTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SampleTaken">Sample Taken? </label>
+                            <input asp-for="SampleTaken" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Foci">Foci: </label>
+                            <input asp-for="Foci" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="C14sample2017">C14 Sample 2017: </label>
+                            <input asp-for="C14sample2017" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="LocationDescription">Location Description: </label>
+                            <input asp-for="LocationDescription" class="input--style-4" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Questions">Questions:</label>
+                            <input asp-for="Questions" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="Conventional14CageBp">Conventional 14C Age BP: </label>
+                            <input asp-for="Conventional14CageBp" class="input--style-4" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="_14calDate">14 Cal Date:</label>
+                            <input asp-for="_14calDate" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MaxCalibrated95PercCalDate">Maximum Calibrated 95 Percent Calculated Date:</label>
+                            <input asp-for="MaxCalibrated95PercCalDate" class="input--style-4" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="MinCalibrated95PercCalDate">Minimum Calibrated 95 Percent Calculated Date: </label>
+                            <input asp-for="MinCalibrated95PercCalDate" class="input--style-4" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SpanCalibrated95PercCalDate">Span Calibrated 95 Percent Calculated Date: </label>
+                            <input asp-for="SpanCalibrated95PercCalDate" class="input--style-4" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="AvgCalibrated95PercCalDate">Average Calibrated 95 Percent Calculated Date:</label>
+                            <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4"/>
+                        </div>
+                    </div>
+                    <div class="col-4" hidden>
+                        <div class="input-group">
+                            <label asp-for="SampleId">SampleID</label>
+                            <input asp-for="SampleId" />
+                        </div>
+                    </div>
+                </div>
+                <div class="p-t-15">
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div>
-        <label asp-for="Description">Description: </label>
-        <input asp-for="Description" />
-        <br />
-    </div>
+    <!-- Jquery JS-->
+    <script src="~/lib/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/lib/vendor/select2/select2.min.js"></script>
+    <script src="~/lib/vendor/datepicker/moment.min.js"></script>
+    <script src="~/lib/vendor/datepicker/daterangepicker.js"></script>
 
-    <div>
-        <label asp-for="Category">Category: </label>
-        <input asp-for="Category" />
-        <br />
-    </div>
+    <!-- Main JS-->
+    <script src="~/js/global.js"></script>
 
-    <div>
-        <label asp-for="Notes">Sample Notes: </label>
-        <input asp-for="Notes" />
-        <br />
-    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-    <div>
-        <label asp-for="HairTaken">Hair Taken?</label>
-        <input asp-for="HairTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
-        <input asp-for="SoftTissueTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="BoneTaken">Bone Taken?</label>
-        <input asp-for="BoneTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="ToothTaken">Tooth Taken?</label>
-        <input asp-for="ToothTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="TextileTaken">Textile Taken?</label>
-        <input asp-for="TextileTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="DescriptionOfTaken">Description of Taken: </label>
-        <input asp-for="DescriptionOfTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SampleTaken">Sample Taken? </label>
-        <input asp-for="SampleTaken" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Foci">Foci: </label>
-        <input asp-for="Foci" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="C14sample2017">C14 Sample 2017: </label>
-        <input asp-for="C14sample2017" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="LocationDescription">Location Description: </label>
-        <input asp-for="LocationDescription" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Questions">Questions:</label>
-        <input asp-for="Questions" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="Conventional14CageBp">Conventional 14C Age BP: </label>
-        <input asp-for="Conventional14CageBp" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="_14calDate">14 Cal Date:</label>
-        <input asp-for="_14calDate" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MaxCalibrated95PercCalDate">Maximum Calibrated 95 Percent Calculated Date:</label>
-        <input asp-for="MaxCalibrated95PercCalDate" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="MinCalibrated95PercCalDate">Minimum Calibrated 95 Percent Calculated Date: </label>
-        <input asp-for="MinCalibrated95PercCalDate" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="SpanCalibrated95PercCalDate">Span Calibrated 95 Percent Calculated Date: </label>
-        <input asp-for="SpanCalibrated95PercCalDate" />
-        <br />
-    </div>
-
-    <div>
-        <label asp-for="AvgCalibrated95PercCalDate">Average Calibrated 95 Percent Calculated Date:</label>
-        <input asp-for="AvgCalibrated95PercCalDate" />
-        <br />
-    </div>
-
-    <div hidden>
-        <label asp-for="SampleId">SampleID</label>
-        <input asp-for="SampleId" />
-        <br />
-    </div>
-    <button type="submit">Next</button>
-    <!--REDIRECT TO NEW PAGE-->
-
-
-</form>
+</html>
+<!-- end document-->
