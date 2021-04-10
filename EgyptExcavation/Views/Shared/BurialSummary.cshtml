@@ -7,60 +7,67 @@
 @*we will have to change this*@
 @model MummyInfo
 
-<div class="card">
+<div class="card bg-light border-dark text-center p-3">
     <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">Mummy Burial</a>
+                @{ var reference1 = "first_" + Model.burial.BurialId;}
+                @{ var reference2 = "second_" + Model.burial.BurialId;}
+                @{ var reference3 = "third_" + Model.burial.BurialId;}
+                @{ int firstNum = (int)Model.location.MetersNs + 10;}
+                @{ int secondNum = (int)Model.location.MetersEw + 10;}
+                <a class="nav-link active" id="@reference1-tab" data-toggle="tab" href="#@reference1" role="tab" aria-controls="@reference1" aria-selected="true">Mummy Burial</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Metrics</a>
+                <a class="nav-link" id="@reference2-tab" data-toggle="tab" href="#@reference2" role="tab" aria-controls="@reference2" aria-selected="false">Metrics</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">Observations</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">fourth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="fifth-tab" data-toggle="tab" href="#fifth" role="tab" aria-controls="fifth" aria-selected="false">fifth</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="sixth-tab" data-toggle="tab" href="#sixth" role="tab" aria-controls="sixth" aria-selected="false">sixth</a>
+                <a class="nav-link" id="@reference3-tab" data-toggle="tab" href="#@reference3" role="tab" aria-controls="@reference3" aria-selected="false">Observations</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
-                <h4>@Model.location.MetersNs / @Model.location.MetersNs+10 NS @Model.location.MetersEw / @Model.location.MetersEw+10  @Model.location.Subplot #@Model.burial.BurialNum</h4>
+            <h4 class="p-2 text-center">N @Model.location.MetersNs / @firstNum E @Model.location.MetersEw / @secondNum @Model.location.Subplot #@Model.burial.BurialNum</h4>
+            <div class="tab-pane fade show active" id="@reference1" role="tabpanel" aria-labelledby="@reference1-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <ul class="list-group">
-                                <li class="list-group-item">Sex: @Model.body.GenderKey</li>
-                                <li class="list-group-item">Preservation: @Model.body.BurialPreservation</li>
+                            <ul class="list-group p-2">
+                                @{ var gender = ""; var preservation = "";}
+                                @if (@Model.body.GenderKey == "F")
+                                {
+                                    gender = "Female";
+                                }
+                                else if (@Model.body.GenderKey == "M")
+                                {
+                                    gender = "Male";
+                                }
+                                else
+                                {
+                                    gender = "Undetermined";
+                                }
+                                @if (Model.body.BurialPreservation == null || Model.body.BurialPreservation == "")
+                                {
+                                    preservation = "No current information";
+                                }
+                                else
+                                {
+                                    preservation = Model.body.BurialPreservation;
+                                }
+                                <li class="list-group-item">Sex: @gender</li>
+                                <li class="list-group-item">Preservation: @preservation</li>
                                 <li class="list-group-item">Year Excavated: @Model.excavation.ExcYear</li>
+                                <li class="list-group-item">
+                                    <form asp-action="BurialDetails" method="post" class="text-center">
+                                        <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
+                                        <input type="submit" value="More Details" class="btn btn-secondary" />
+                                    </form>
+                                </li>
                             </ul>
                         </div>
-                        <form asp-action="BurialDetails" method="post">
-                            <input type="hidden" id="Burialid" value="@Model.burial.BurialId" name="BurialId" />
-                            <input type="submit" value="More Details" />
-                        </form>
-                        @*<div class="col-sm">
-                            <ul class="list-group">
-                                <li class="list-group-item">Burial Number: Burial.BurialNum</li>
-                                <li class="list-group-item">Year Excavated: Excavation.ExcYear</li>
-                                <li class="list-group-item">Body Length: PhysicalOrientation.LengthOfRemainsInMeters</li>
-                                <li class="list-group-item">Face Bundle: FaceBundleCode.Description</li>
-                            </ul>
-                        </div>*@
-                        @*<div class="col-sm">
-                            <p>cool image maybe, with a default if there isnt a unique one.</p>
-                        </div>*@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
-                <h4>my second tab content</h4>
+            <div class="tab-pane fade" id="@reference2" role="tabpanel" aria-labelledby="@reference2-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
@@ -78,8 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab">
-                <h4>my third tab content</h4>
+            <div class="tab-pane fade" id="@reference3" role="tabpanel" aria-labelledby="@reference3-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
@@ -88,57 +94,6 @@
                         <div class="col-sm">
                             <p>Artifacts Found: @Model.burial.ArtifactFound</p>
                             <p>Artifacts Found: @Model.burial.ArtifactsDescription</p>
-                        </div>
-                        @*<div class="col-sm">
-                            <p>column three</p>
-                        </div>*@
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="fourth-tab">
-                <h4>my fourth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="fifth" role="tabpanel" aria-labelledby="fifth-tab">
-                <h4>my fifth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="sixth" role="tabpanel" aria-labelledby="sixth-tab">
-                <h4>my sixth tab content</h4>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <p>column one</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column two</p>
-                        </div>
-                        <div class="col-sm">
-                            <p>column three</p>
                         </div>
                     </div>
                 </div>

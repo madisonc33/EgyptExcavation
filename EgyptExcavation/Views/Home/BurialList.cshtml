@@ -6,21 +6,12 @@
 
 @model IEnumerable<MummyInfo>
 
-<p>
-    A paginated list of all the burials with a brief summary of the info.
-    The ability to filter the results by the relevant criteria.
-    For example, if the full data was included in the database, could you answer questions like:
-</p>
-<ul>
-    <li>Did the orientation of the mummies change over time?</li>
-    <li>Are mummies with similar hair color buried together?</li>
-    <li>Which age or gender is most likely buried with dice?</li>
-    <li>What is the average thread count of textile wrapping a mummy at a certain depth?</li>
-</ul>
+<h1 class="text-center">Burial Information on Egyption Digs</h1>
 
 
 @*this is what we will use*@
 @foreach (var b in Model)
 {
     <partial name="BurialSummary" model="b" />
+    <br />
 }
