@@ -5,19 +5,19 @@
 }
 
 @*we will have to change this*@
-@model Burial
+@model MummyInfo
 
 <div class="card">
     <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">First</a>
+                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">Mummy Burial</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Second</a>
+                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Metrics</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">Third</a>
+                <a class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="false">Observations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">fourth</a>
@@ -31,28 +31,31 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
-                <h4>Most interesting info first!</h4>
+                <h4>@Model.location.MetersNs / @Model.location.MetersNs+10 NS @Model.location.MetersEw / @Model.location.MetersEw+10  @Model.location.Subplot #@Model.burial.BurialNum</h4>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
                             <ul class="list-group">
-                                <li class="list-group-item">Location: Location.full location key</li>
-                                <li class="list-group-item">Subplot: Location.Subplot</li>
-                                <li class="list-group-item">Depth: PhysicalOrientation.BurialDepth</li>
-                                <li class="list-group-item">Head Direction: Physicalorientation.HeadDirection</li>
+                                <li class="list-group-item">Sex: @Model.body.GenderKey</li>
+                                <li class="list-group-item">Preservation: @Model.body.BurialPreservation</li>
+                                <li class="list-group-item">Year Excavated: @Model.excavation.ExcYear</li>
                             </ul>
                         </div>
-                        <div class="col-sm">
+                        <form asp-action="BurialDetails" method="post">
+                            <input type="hidden" id="Burialid" value="@Model.burial.BurialId" name="BurialId" />
+                            <input type="submit" value="More Details" />
+                        </form>
+                        @*<div class="col-sm">
                             <ul class="list-group">
                                 <li class="list-group-item">Burial Number: Burial.BurialNum</li>
                                 <li class="list-group-item">Year Excavated: Excavation.ExcYear</li>
                                 <li class="list-group-item">Body Length: PhysicalOrientation.LengthOfRemainsInMeters</li>
                                 <li class="list-group-item">Face Bundle: FaceBundleCode.Description</li>
                             </ul>
-                        </div>
-                        <div class="col-sm">
+                        </div>*@
+                        @*<div class="col-sm">
                             <p>cool image maybe, with a default if there isnt a unique one.</p>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -61,13 +64,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <p>column one</p>
+                            <p>South to Head: @Model.physicalOrientation.StoHead</p>
+                            <p>West to Head: @Model.physicalOrientation.WtoHead</p>
                         </div>
                         <div class="col-sm">
-                            <p>column two</p>
+                            <p>South to Feet: @Model.physicalOrientation.StoFeet</p>
+                            <p>West to Feet: @Model.physicalOrientation.WtoFeet</p>
                         </div>
                         <div class="col-sm">
-                            <p>column three</p>
+                            <p>Length: @Model.physicalOrientation.LengthOfRemainsInMeters</p>
+                            <p>Depth: @Model.physicalOrientation.BurialDepth</p>
                         </div>
                     </div>
                 </div>
@@ -77,14 +83,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <p>column one</p>
+                            <p>PHOTO</p>
                         </div>
                         <div class="col-sm">
-                            <p>column two</p>
+                            <p>Artifacts Found: @Model.burial.ArtifactFound</p>
+                            <p>Artifacts Found: @Model.burial.ArtifactsDescription</p>
                         </div>
-                        <div class="col-sm">
+                        @*<div class="col-sm">
                             <p>column three</p>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>

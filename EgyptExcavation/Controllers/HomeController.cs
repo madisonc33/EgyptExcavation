@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using EgyptExcavation.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using EgyptExcavation.Models.ViewModels;
 
 namespace EgyptExcavation.Controllers
 {
@@ -32,7 +33,47 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList()
         {
-            return View();
+            var mummies = new List<MummyInfo>();
+
+            foreach (var b in context.Burial)
+            {
+                var mummy = new MummyInfo();
+
+                mummy.burial = b;
+                mummy.body = context.Body.Where(x => x.BodyId == b.BodyId).FirstOrDefault();
+                mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
+                mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();
+                mummy.excavation = context.Excavation.Where(x => x.ExcavationId == b.ExcavationId).FirstOrDefault();
+                foreach (var f in context.Files)
+                {
+                    if(f.BurialId == b.BurialId)
+                    mummy.files.Add(f);
+                }
+                mummy.location = context.Location.Where(x => x.LocId == b.LocId).FirstOrDefault();
+                mummy.physicalOrientation = context.PhysicalOrientation.Where(x => x.OrientationId == b.OrientationId).FirstOrDefault();
+                foreach (Sample s in context.Sample)
+                {
+                    if (s.BodyId == mummy.body.BodyId)
+                        mummy.sample.Add(s);
+                }
+                foreach (var s in context.Storage)
+                {
+                    foreach (var sam in mummy.sample)
+                    {
+                        if (s.SampleId == sam.SampleId)
+                            mummy.storage.Add(s);
+                    }
+                }
+                foreach (var t in context.Tooth)
+                {
+                    if (t.BodyId == mummy.body.BodyId)
+                        mummy.tooth.Add(t);
+                }
+
+                mummies.Add(mummy);
+            }
+
+            return View(mummies);
         }
 
         //idea for storing form
@@ -48,9 +89,43 @@ namespace EgyptExcavation.Controllers
         //    return View();
         //}
 
-        public IActionResult BurialDetails()
+        [HttpPost]
+        public IActionResult BurialDetails(int id)
         {
-            return View();
+            var mummy = new MummyInfo();
+
+            mummy.burial = context.Burial.Where(x => x.BurialId == id).FirstOrDefault();
+            mummy.body = context.Body.Where(x => x.BodyId == mummy.burial.BodyId).FirstOrDefault();
+            mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
+            mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();
+            mummy.excavation = context.Excavation.Where(x => x.ExcavationId == mummy.burial.ExcavationId).FirstOrDefault();
+            foreach (var f in context.Files)
+            {
+                if (f.BurialId == mummy.burial.BurialId)
+                    mummy.files.Add(f);
+            }
+            mummy.location = context.Location.Where(x => x.LocId == mummy.burial.LocId).FirstOrDefault();
+            mummy.physicalOrientation = context.PhysicalOrientation.Where(x => x.OrientationId == mummy.burial.OrientationId).FirstOrDefault();
+            foreach (Sample s in context.Sample)
+            {
+                if (s.BodyId == mummy.body.BodyId)
+                    mummy.sample.Add(s);
+            }
+            foreach (var s in context.Storage)
+            {
+                foreach (var sam in mummy.sample)
+                {
+                    if (s.SampleId == sam.SampleId)
+                        mummy.storage.Add(s);
+                }
+            }
+            foreach (var t in context.Tooth)
+            {
+                if (t.BodyId == mummy.body.BodyId)
+                    mummy.tooth.Add(t);
+            }
+
+            return View(mummy);
         }
 
         //BURIAL

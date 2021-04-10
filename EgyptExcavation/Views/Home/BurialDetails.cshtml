@@ -4,6 +4,6 @@
 @{
 }
 
-<p>
-    The ability to select a specific record and pull up the details of the burial, including field notes, photographs, measurements, and any details captured about the mummy or items included in its burial.
-</p>
+@model MummyInfo
+
+<h1>@Model.location.MetersNs / @Model.location.MetersNs+10 NS @Model.location.MetersEw / @Model.location.MetersEw+10  @Model.location.Subplot #@Model.burial.BurialNum</h1>
