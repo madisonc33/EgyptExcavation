@@ -177,12 +177,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //BODY
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldBody()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldBody(Body b)
         {
@@ -198,6 +200,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody1(int BodyID)
         {
@@ -206,6 +209,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody2(Body b, int BodyID)
         {
@@ -238,12 +242,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //EXCAVATION
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFieldExcavation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldExcavation(Excavation e)
         {
@@ -259,6 +265,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditExcavate1(int ExcavationID)
         {
@@ -267,6 +274,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditExcavate2(Excavation e, int ExcavationID)
         {
@@ -292,12 +300,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //SAMPLE
+        [Authorize]
         [HttpGet]
         public IActionResult EnterSamples()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterSamples(Sample s)
         {
@@ -313,6 +323,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditSample1(int SampleID)
         {
@@ -321,6 +332,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -366,6 +378,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
@@ -381,6 +394,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditLocation1(int LocID)
         {
@@ -388,6 +402,7 @@ namespace EgyptExcavation.Controllers
             return View("EditFieldLocation", l);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditLocation2(Location l, int LocID)
         {
@@ -412,12 +427,14 @@ namespace EgyptExcavation.Controllers
         }
 
         //PHYSICAL ORIENTATION
+        [Authorize]
         [HttpGet]
         public IActionResult EnterOrientation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
             public IActionResult EnterOrientation(PhysicalOrientation po)
             {
@@ -433,6 +450,7 @@ namespace EgyptExcavation.Controllers
                 return View();
             }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditOrientation1(int POID)
         {
@@ -441,6 +459,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult EditOrientation2(PhysicalOrientation po, int POID)
         {
@@ -465,23 +484,21 @@ namespace EgyptExcavation.Controllers
 
         //FILES
 
+        [Authorize]
         [HttpGet]
         public IActionResult EnterFiles()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult EditFieldNotes()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult EditMummyInfo()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
