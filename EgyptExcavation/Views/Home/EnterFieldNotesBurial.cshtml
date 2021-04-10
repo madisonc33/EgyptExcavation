@@ -1,24 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Edit Field Notes";
+    ViewData["Title"] = "Enter Field Notes";
 
 }
 
-<p>
-    A page linked from the single burial page where a researcher can enter/edit field notes.
-</p>
-
-@{
-
-}
+@*A page linked from the single burial page where a researcher can enter/edit field notes.*@
 
 @model Burial
 
 <div class="text-center">
-    <h1 class="display-4">Enter FieldNotes</h1>
+    <h1 class="display-4">Enter FieldNotes - Burial</h1>
 </div>
 
 
-<form asp-action="EditFieldNotes2" method="post">
+<form asp-action="EnterFieldBurial" method="post">
     <div asp-validation-summary="All"></div>
 
     <div>
@@ -96,4 +90,5 @@
     <button type="submit">Add Field Note</button>
 
 </form>
+
 

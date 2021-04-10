@@ -1,0 +1,213 @@
+﻿@model Bone
+
+<div class="text-center">
+    <h1 class="display-4">Enter Bone Information</h1>
+</div>
+
+
+
+<form asp-action="EnterBone" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="EpiphysealUnion">Epiphyseal Union:</label>
+        <input asp-for="EpiphysealUnion" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ZygomaticCrest">Zygomatic Crest:</label>
+        <input asp-for="ZygomaticCrest" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="NuchalCrest">Nunchal Crest:</label>
+        <input asp-for="NuchalCrest" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Gonian">Gonian:</label>
+        <input asp-for="Gonian" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ParietalBossing">Parietal Bossing:</label>
+        <input asp-for="ParietalBossing" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OrbitEdge">Orbit Edge:</label>
+        <input asp-for="OrbitEdge" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SupraorbitalRidges">Supraorbital Ridges:</label>
+        <input asp-for="SupraorbitalRidges" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Robust">Robust:</label>
+        <input asp-for="Robust" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="TibiaLength">Tibia Length:</label>
+        <input asp-for="TibiaLength" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HumerusLength">Humerus Length:</label>
+        <input asp-for="HumerusLength" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FemerLength">Femer Length:</label>
+        <input asp-for="FemerLength" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Humerus">Humerus:</label>
+        <input asp-for="Humerus" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FemurDiameter">Femer Diameter:</label>
+        <input asp-for="FemurDiameter" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="IliacCrest">Iliac Crest:</label>
+        <input asp-for="IliacCrest" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MedialClavicle">Medial Clavicle:</label>
+        <input asp-for="MedialClavicle" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneLength">Bone Length:</label>
+        <input asp-for="BoneLength" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PubicSymphysis">Pubic Symphysis:</label>
+        <input asp-for="PubicSymphysis" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Osteophytosis">Osteophytosis:</label>
+        <input asp-for="Osteophytosis" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HumerusHead">Humerus Head: </label>
+        <input asp-for="HumerusHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="FemurHead">Femur Head: (what is real name?)</label>
+        <input asp-for="FemurHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ForemanMagnum">Foreman Magnum:</label>
+        <input asp-for="ForemanMagnum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="DorsalPitting">Dorsal Pitting? </label>
+        <input asp-for="DorsalPitting" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MedialIpRamus">Medial Ip Ramus:</label>
+        <input asp-for="MedialIpRamus" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PreaurSulcus">Preaur Sulcus:</label>
+        <input asp-for="PreaurSulcus" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PubicBone">Pubic Bone:</label>
+        <input asp-for="PubicBone" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SciaticNotch">Sciatic Notch:</label>
+        <input asp-for="SciaticNotch" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SubpubicAngle">Subpubic Angle: </label>
+        <input asp-for="SubpubicAngle" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="VentralArc">Ventral Arc:</label>
+        <input asp-for="VentralArc" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BasilarSuture">Basilar Suture:</label>
+        <input asp-for="BasilarSuture" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PostcrainiaAtMagazine">Postcrainia At Magazine? </label>
+        <input asp-for="PostcrainiaAtMagazine" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="PostcrainiaTrauma">Postcrainia Trauma:</label>
+        <input asp-for="PostcrainiaTrauma" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="OsteologyNotes">OsteologyNotes:</label>
+        <input asp-for="OsteologyNotes" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="BoneId">BoneID</label>
+        <input asp-for="BoneId" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO NEW PAGE-->
+
+
+</form>

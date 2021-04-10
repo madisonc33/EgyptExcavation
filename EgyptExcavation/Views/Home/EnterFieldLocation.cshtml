@@ -1,0 +1,62 @@
+﻿@model Location
+
+<div class="text-center">
+    <h1 class="display-4">Enter FieldNotes</h1>
+</div>
+
+
+<form asp-action="EnterFieldLocation" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="MetersNs">Meters North South</label>
+        <input asp-for="MetersNs" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BurialNs">Burial North South</label>
+        <input asp-for="BurialNs" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MetersEw">Meters East West</label>
+        <input asp-for="MetersEw" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BurialEw">Burial East West</label>
+        <input asp-for="BurialEw" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Subplot">Subplt:</label>
+        <input asp-for="Subplot" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HillArea">Hill Area: </label>
+        <input asp-for="HillArea" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="TombNum">Tomb Number: </label>
+        <input asp-for="TombNum" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="LocId">LocationID</label>
+        <input asp-for="LocId" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO X PAGE-->
+
+</form>
+

@@ -1,0 +1,45 @@
+﻿@model Storage
+
+<div class="text-center">
+    <h1 class="display-4">Enter Storage</h1>
+</div>
+
+
+
+<form asp-action="EditStorage2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="RackNum">Rack Number:</label>
+        <input asp-for="RackNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ShelfNum">Shelf Number:</label>
+        <input asp-for="ShelfNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="TubeNum">Tube Number:</label>
+        <input asp-for="TubeNum" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BagNum">Bag Number:</label>
+        <input asp-for="BagNum" />
+        <br />
+    </div>
+
+    <div hidden>
+        <label asp-for="RackId">RackID</label>
+        <input asp-for="RackId" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO NEW PAGE-->
+
+
+</form>

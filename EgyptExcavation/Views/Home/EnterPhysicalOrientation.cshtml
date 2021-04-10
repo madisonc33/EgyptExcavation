@@ -1,0 +1,64 @@
+﻿@model PhysicalOrientation
+
+<div class="text-center">
+    <h1 class="display-4">Enter Physical Orientation</h1>
+</div>
+
+
+
+<form asp-action="EnterFieldBody" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="WtoFeet">Burial Preservation:</label>
+        <input asp-for="WtoFeet" />
+        <br />
+    </div> 
+
+    <div>
+        <label asp-for="StoFeet">Preservation Index:</label>
+        <input asp-for="StoFeet" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="WtoHead">Age At Death:</label>
+        <input asp-for="WtoHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="StoHead">Was A Sample Taken?</label>
+        <input asp-for="StoHead" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HeadDirection">Age Method:</label>
+        <input asp-for="HeadDirection" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BurialDepth">Gender Method:</label>
+        <input asp-for="BurialDepth" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="LengthOfRemainsInMeters">Estimated Living Stature:</label>
+        <input asp-for="LengthOfRemainsInMeters" />
+        <br />
+    </div>
+
+
+    <div hidden>
+        <label asp-for="OrientationId">BodyID</label>
+        <input asp-for="OrientationId" />
+        <br />
+    </div>
+    <button type="submit">Next</button>
+    <!--REDIRECT TO NEW PAGE-->
+
+
+</form>

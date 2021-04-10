@@ -1,0 +1,145 @@
+﻿@model Sample
+
+<div class="text-center">
+    <h1 class="display-4">Edit Samples</h1>
+</div>
+
+
+
+<form asp-action="EditSample2" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="MlSize">ML Size: </label>
+        <input asp-for="MlSize" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Description">Description: </label>
+        <input asp-for="Description" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Category">Category: </label>
+        <input asp-for="Category" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Notes">Sample Notes: </label>
+        <input asp-for="Notes" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="HairTaken">Hair Taken?</label>
+        <input asp-for="HairTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
+        <input asp-for="SoftTissueTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="BoneTaken">Bone Taken?</label>
+        <input asp-for="BoneTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="ToothTaken">Tooth Taken?</label>
+        <input asp-for="ToothTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="TextileTaken">Textile Taken?</label>
+        <input asp-for="TextileTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="DescriptionOfTaken">Description of Taken: </label>
+        <input asp-for="DescriptionOfTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SampleTaken">Sample Taken? </label>
+        <input asp-for="SampleTaken" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Foci">Foci: </label>
+        <input asp-for="Foci" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="C14sample2017">C14 Sample 2017: </label>
+        <input asp-for="C14sample2017" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="LocationDescription">Location Description: </label>
+        <input asp-for="LocationDescription" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Questions">Questions:</label>
+        <input asp-for="Questions" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="Conventional14CageBp">Conventional 14C Age BP: </label>
+        <input asp-for="Conventional14CageBp" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="_14calDate">14 Cal Date:</label>
+        <input asp-for="_14calDate" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MaxCalibrated95PercCalDate">Maximum Calibrated 95 Percent Calculated Date:</label>
+        <input asp-for="MaxCalibrated95PercCalDate" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="MinCalibrated95PercCalDate">Minimum Calibrated 95 Percent Calculated Date: </label>
+        <input asp-for="MinCalibrated95PercCalDate" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="SpanCalibrated95PercCalDate">Span Calibrated 95 Percent Calculated Date: </label>
+        <input asp-for="SpanCalibrated95PercCalDate" />
+        <br />
+    </div>
+
+    <div>
+        <label asp-for="AvgCalibrated95PercCalDate">Average Calibrated 95 Percent Calculated Date:</label>
+        <input asp-for="AvgCalibrated95PercCalDate" />
+        <br />
+    </div>
+    <div hidden>
+        <label asp-for="SampleId"></label>
+        <input asp-for="SampleId" />
+        <br />
+    </div>
+    <button type="submit">Update Samples</button>
+
+
+</form>
