@@ -6,4 +6,7 @@
 
 @model MummyInfo
 
-<h1>@Model.location.MetersNs / @Model.location.MetersNs+10 NS @Model.location.MetersEw / @Model.location.MetersEw+10  @Model.location.Subplot #@Model.burial.BurialNum</h1>
+@{ int firstNum = (int)Model.location.MetersNs + 10;}
+@{ int secondNum = (int)Model.location.MetersEw + 10;}
+
+<h1>N @Model.location.MetersNs / @firstNum E @Model.location.MetersEw / @secondNum @Model.location.Subplot #@Model.burial.BurialNum</h1>
