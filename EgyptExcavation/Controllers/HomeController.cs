@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using EgyptExcavation.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
+using EgyptExcavation.Models.ViewModels;
 
 namespace EgyptExcavation.Controllers
 {
@@ -42,6 +43,12 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList()
         {
+            var mummy = new mummyinfo();
+            foreach(var b in context.Burial)
+            {
+                
+            }
+
             return View();
         }
 
