@@ -11,6 +11,7 @@ using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace EgyptExcavation.Controllers
 {
     public class HomeController : Controller
@@ -25,6 +26,11 @@ namespace EgyptExcavation.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult TestImage()
         {
             return View();
         }
