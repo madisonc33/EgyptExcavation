@@ -89,7 +89,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <p>PHOTO</p>
+                            @foreach (var f in Model.files)
+                            {
+                                if (f.Photo != null || f.Photo != "")
+                                {
+                                    <img src="@f.Photo" />
+                                }
+                            }
                         </div>
                         <div class="col-sm">
                             <p>Artifacts Found: @Model.burial.ArtifactFound</p>
