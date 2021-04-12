@@ -306,7 +306,7 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.OtherNote).HasColumnType("image");
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                entity.Property(e => e.Photo).HasColumnType("string");
             });
 
             modelBuilder.Entity<GenderCodeSingle>(entity =>

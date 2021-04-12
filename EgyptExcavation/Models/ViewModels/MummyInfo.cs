@@ -26,5 +26,7 @@ namespace EgyptExcavation.Models.ViewModels
         public List<Storage> storage { get; set; } = new List<Storage>();
 
         public List<Tooth> tooth { get; set; } = new List<Tooth>();
+
+        public PageNumberingInfo PageInfo { get; set; }
     }
 }
