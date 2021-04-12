@@ -27,6 +27,8 @@ namespace EgyptExcavation.Areas.Identity
 
 
                 services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddDefaultTokenProviders()
+                    .AddDefaultUI()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }
