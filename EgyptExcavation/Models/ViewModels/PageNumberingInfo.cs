@@ -6,11 +6,11 @@ namespace EgyptExcavation.Models.ViewModels
     {
         public int PageSize { get; set; }
 
-        public int TotalBowlers { get; set; }
+        public int TotalMummies { get; set; }
 
         public int CurrentPage { get; set; }
 
         //turns num into a decimal, then do the division and turn it back into an integer
-        public int TotalPages => (int)Math.Ceiling(((decimal)TotalBowlers / PageSize));
+        public int TotalPages => (int)Math.Ceiling(((decimal)TotalMummies / PageSize));
     }
 }
