@@ -39,7 +39,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult BurialList(int pagenum = 0)
+        public IActionResult BurialList(int pagenum = 1)
         {
             ItemsPerPage = 5;
 
@@ -56,7 +56,13 @@ namespace EgyptExcavation.Controllers
 
             };
 
-            foreach (var b in context.Burial)
+            var burialList = new List<Burial>();
+            burialList = context.Burial
+                .Skip((pagenum-1) * ItemsPerPage)
+                .Take(ItemsPerPage)
+                .ToList();
+
+            foreach (var b in burialList)
             {
                 var mummy = new MummyInfo();
 
