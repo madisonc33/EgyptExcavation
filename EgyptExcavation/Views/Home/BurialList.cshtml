@@ -4,14 +4,18 @@
 @{
 }
 
-@model IEnumerable<MummyInfo>
+@model MummyAndPage
 
 <h1 class="text-center">Burial Information on Egyption Digs</h1>
 
 
 @*this is what we will use*@
-@foreach (var b in Model)
+@foreach (var b in Model.Mummies)
 {
     <partial name="BurialSummary" model="b" />
     <br />
 }
+
+<div page-info="@Model.PageInfo" page-url="" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary">
+
+</div>
