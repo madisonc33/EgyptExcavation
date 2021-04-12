@@ -12,16 +12,30 @@ namespace EgyptExcavation.Models
     {
         [Key]
         public int LocId { get; set; }
-      //  [Required]
+
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        [Required(ErrorMessage = "MetersNS is required")]
         public int? MetersNs { get; set; }
-     //   [Required]
-        public string BurialNs { get; set; }
-     //   [Required]
+    
+        [Required (ErrorMessage = "BurialNS is required")]
+        public string? BurialNs { get; set; }
+
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        [Required(ErrorMessage = "MetersEW is required")]
         public int? MetersEw { get; set; }
-     //   [Required]
-        public string BurialEw { get; set; }
-        public string Subplot { get; set; }
+
+        [Required(ErrorMessage = "BurialEW is required")]
+        public string? BurialEw { get; set; }
+
+        [Required(ErrorMessage = "Subplot is required")]
+        public string? Subplot { get; set; }
+
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        [Required(ErrorMessage = "Hill area is required")]
         public int? HillArea { get; set; }
+
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        [Required(ErrorMessage = "Tomb Num is required")]
         public int? TombNum { get; set; }
     }
 }

@@ -11,17 +11,12 @@ using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
-
 namespace EgyptExcavation.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private egyptexcavationContext context { get; set; }
-
-        //creates a variable to store how many items will be displayed on each page
-        public int ItemsPerPage { get; set; }
-
 
         public HomeController(ILogger<HomeController> logger, egyptexcavationContext con)
         {
@@ -39,22 +34,9 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult BurialList(int pagenum = 0)
+        public IActionResult BurialList()
         {
-            ItemsPerPage = 5;
-
-
-            var mummies = new MummyAndPage();
-
-            mummies.PageInfo = new PageNumberingInfo
-            {
-                PageSize = ItemsPerPage,
-
-                //gets number of total mummies
-                TotalMummies = context.Burial.Count(),
-                CurrentPage = pagenum
-
-            };
+            var mummies = new List<MummyInfo>();
 
             foreach (var b in context.Burial)
             {
@@ -91,10 +73,10 @@ namespace EgyptExcavation.Controllers
                         mummy.tooth.Add(t);
                 }
 
-                mummies.Mummies.Add(mummy);
+                mummies.Add(mummy);
             }
 
-            return View("BurialList", mummies);
+            return View(mummies);
         }
 
         [HttpPost]
@@ -148,17 +130,25 @@ namespace EgyptExcavation.Controllers
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
-            //first check data to make sure it's good before passing to Model and DB
+/*            var locationid = context.Location.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault();
+            var mostrecentlocid = locationid.LocId;
+            mostrecentlocid++;
+
+            l.LocId = mostrecentlocid;*/
+
+            //Update Database
             if (ModelState.IsValid)
             {
-                //Update Database
                 context.Location.Add(l);
                 context.SaveChanges();
-                return View("EnterFieldNotesBurial", l);
+                return View("EnterFieldNotesBurial");
             }
+
             //Otherwise
-            return View("EnterFieldNotesBurial");
+            return View();
+
         }
+
 
         //[Authorize]
         [HttpPost]
@@ -170,12 +160,11 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldLocation2(Location l, int LocID)
+        public IActionResult EditFieldLocation(Location l, int LocID)
         {
             if (ModelState.IsValid)
             {
                 var loca = context.Location.SingleOrDefault(x => x.LocId == l.LocId);
-
                 context.Entry(loca).Property(x => x.MetersNs).CurrentValue = l.MetersNs;
                 context.Entry(loca).Property(x => x.BurialNs).CurrentValue = l.BurialNs;
                 context.Entry(loca).Property(x => x.MetersEw).CurrentValue = l.MetersEw;
@@ -205,19 +194,20 @@ namespace EgyptExcavation.Controllers
         [HttpPost]
         public IActionResult EnterFieldNotesBurial(Burial bu)
         {
-            //first check data to make sure it's good before passing to Model and DB
-            if (ModelState.IsValid)
-            {
-                //Update Database
-                context.Burial.Add(bu);
+            var fieldnotesid = context.Burial.Skip(context.Burial.Count() - 1).Take(1).FirstOrDefault();
+            var mostrecentfieldnotesid = fieldnotesid.BurialId;
+            mostrecentfieldnotesid++;
+
+            bu.BurialId = mostrecentfieldnotesid;
+
+            //Update Database
+            context.Burial.Add(bu);
                 context.SaveChanges();
-                return View("EnterFieldBody", bu);
-            }
-            //Otherwise
-            return View();
+                return View("EnterFieldBody");
+
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldNotesBurial(int BurialID)
         {
@@ -226,7 +216,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldNotesBurial2(Burial bu, int BurialID)
         {
@@ -249,7 +239,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialDetails");
+                return RedirectToAction("BurialList");
             }
             else
                 return View();
@@ -267,19 +257,19 @@ namespace EgyptExcavation.Controllers
         [HttpPost]
         public IActionResult EnterFieldBody(Body bo)
         {
-            //first check data to make sure it's good before passing to Model and DB
-            if (ModelState.IsValid)
-            {
-                //Update Database
-                context.Body.Add(bo);
+            var fieldbodyid = context.Body.Skip(context.Body.Count() - 1).Take(1).FirstOrDefault();
+            var mostrecentfieldbodyid = fieldbodyid.BodyId;
+            mostrecentfieldbodyid++;
+
+            bo.BodyId = mostrecentfieldbodyid;
+            //Update Database
+            context.Body.Add(bo);
                 context.SaveChanges();
-                return View("EnterTeeth", bo);
-            }
-            //Otherwise
-            return View();
+                return View("EnterTeeth");
+
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody(int BodyID)
         {
@@ -288,7 +278,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public IActionResult EditFieldBody2(Body bo, int BodyID)
         {
@@ -833,5 +823,3 @@ namespace EgyptExcavation.Controllers
 
     }
 }
-
-
