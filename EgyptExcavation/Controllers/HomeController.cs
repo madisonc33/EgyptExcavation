@@ -238,16 +238,27 @@ namespace EgyptExcavation.Controllers
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
+            if (l.TombNum == null)
+            {
+                l.TombNum = 0;
+            }
+            if (l.HillArea == null)
+            {
+                l.HillArea = 0;
+            }
+
+            //var locid = context.Location.Skip
+
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
                 //Update Database
                 context.Location.Add(l);
                 context.SaveChanges();
-                return View("EnterFieldNotesBurial", l);
+                return View("EnterFieldNotesBurial");
             }
             //Otherwise
-            return View("EnterFieldNotesBurial");
+            return View("EnterFieldLocation");
         }
 
         //[Authorize]

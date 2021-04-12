@@ -30,12 +30,8 @@ namespace EgyptExcavation.Models
         [Required(ErrorMessage = "Subplot is required")]
         public string? Subplot { get; set; }
 
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-        [Required(ErrorMessage = "Hill area is required")]
         public int? HillArea { get; set; }
 
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-        [Required(ErrorMessage = "Tomb Num is required")]
         public int? TombNum { get; set; }
     }
 }
