@@ -11,6 +11,7 @@ using Microsoft.Data.SqlClient;
 using EgyptExcavation.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace EgyptExcavation.Controllers
 {
     public class HomeController : Controller
@@ -144,7 +145,7 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldLocation(int LocID)
+        public IActionResult EditLocation1(int LocID)
         {
             Location l = context.Location.Single(x => x.LocId == LocID);
             return View("EditFieldLocation", l);
@@ -152,7 +153,7 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldLocation(Location l, int LocID)
+        public IActionResult EditLocation2(Location l, int LocID)
         {
             if (ModelState.IsValid)
             {
@@ -201,7 +202,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldNotesBurial(int BurialID)
+        public IActionResult EditFieldBurial1(int BurialID)
         {
             Burial bu = context.Burial.Single(x => x.BurialId == BurialID);
             return View("EditFieldNotesBurial", bu);
@@ -210,7 +211,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldNotesBurial2(Burial bu, int BurialID)
+        public IActionResult EditFieldBurial2(Burial bu, int BurialID)
         {
             if (ModelState.IsValid)
             {
@@ -263,7 +264,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldBody(int BodyID)
+        public IActionResult EditFieldBody1(int BodyID)
         {
             Body bo = context.Body.Single(x => x.BodyId == BodyID);
             return View("EditFieldBody", bo);
@@ -327,7 +328,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditTeeth(int ToothID)
+        public IActionResult EditTooth1(int ToothID)
         {
             Tooth t = context.Tooth.Single(x => x.ToothId == ToothID);
             return View("EditTeeth", t);
@@ -335,7 +336,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditTeeth2(Tooth t, int ToothID)
+        public IActionResult EditTooth2(Tooth t, int ToothID)
         {
             if (ModelState.IsValid)
             {
@@ -379,7 +380,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditCranial(int CranialID)
+        public IActionResult EditCranial1(int CranialID)
         {
             Cranial c = context.Cranial.Single(x => x.CranialId == CranialID);
             return View("EditCranial", c);
@@ -448,7 +449,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditBone(int BoneID)
+        public IActionResult EditBone1(int BoneID)
         {
             Bone b = context.Bone.Single(x => x.BoneId == BoneID);
             return View("EditBone", b);
@@ -528,7 +529,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditSample(int SampleID)
+        public IActionResult EditSample1(int SampleID)
         {
             Sample s = context.Sample.Single(x => x.SampleId == SampleID);
             return View("EditSample", s);
@@ -599,7 +600,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditStorage(int RackID)
+        public IActionResult EditStorage1(int RackID)
         {
             Storage s = context.Storage.Single(x => x.RackId == RackID);
             return View("EditStorage", s);
@@ -653,7 +654,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation(int POID)
+        public IActionResult EditOrientation1(int POID)
         {
             PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == POID);
             return View("EditFieldLocation", po);
@@ -662,7 +663,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
+        public IActionResult EditOrientation2(PhysicalOrientation po, int POID)
         {
             if (ModelState.IsValid)
             {
@@ -709,7 +710,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldExcavation(int ExcavationID)
+        public IActionResult EditExcavate1(int ExcavationID)
         {
             Excavation e = context.Excavation.Single(x => x.ExcavationId == ExcavationID);
             return View("EditFieldExcavation", e);
@@ -718,7 +719,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
+        public IActionResult EditExcavate2(Excavation e, int ExcavationID)
         {
             if (ModelState.IsValid)
             {
@@ -767,7 +768,7 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditFiles(int FileID)
+        public IActionResult EditFiles1(int FileID)
         {
             Files f = context.Files.Single(x => x.FileId == FileID);
             return View("EditFiles", f);
@@ -815,3 +816,5 @@ namespace EgyptExcavation.Controllers
 
     }
 }
+
+
