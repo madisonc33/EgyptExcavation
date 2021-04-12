@@ -10,6 +10,7 @@ namespace EgyptExcavation.Models
 {
     public partial class Location
     {
+        [Key]
         public int LocId { get; set; }
       //  [Required]
         public int? MetersNs { get; set; }
