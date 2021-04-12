@@ -63,7 +63,7 @@
                         </div>
                         <form asp-action="EditFieldLocation" method="post" class="text-center">
                             <input type="hidden" name="LocId" value="@Model.location.LocId" />
-                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                            <input type="submit" value="Edit Location Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         </div>
                         <form asp-action="EditFieldNotesBurial" method="post" class="text-center">
                                 <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
-                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                <input type="submit" value="Edit Burial Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         </div>
                         <form asp-action="EditFieldBody" method="post" class="text-center">
                                 <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
-                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                <input type="submit" value="Edit Body Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                         </div>
                         <form asp-action="EditCranial" method="post" class="text-center">
                                 <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
-                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                         </div>
                         <form asp-action="EditBone" method="post" class="text-center">
                             <input type="hidden" name="boneid" value="@Model.bone.BoneId" />
-                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                            <input type="submit" value="Edit Bone Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                                     <br />
                                     <form asp-action="EditTeeth" method="post" class="text-center">
                                         <input type="hidden" name="toothid" value="@t.ToothId" />
-                                        <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                        <input type="submit" value="Edit Teeth Information" class="btn btn-secondary" />
                                     </form><br />
                                     iCount++;
                                 }
@@ -249,7 +249,7 @@
                         </div>
                         <form asp-action="EditFieldExcavation" method="post" class="text-center">
                             <input type="hidden" name="excavationid" value="@Model.excavation.ExcavationId" />
-                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                            <input type="submit" value="Edit Excavation Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                         </div>
                         <form asp-action="EditPhysicalOrientation" method="post" class="text-center">
                             <input type="hidden" name="OrientationId" value="@Model.physicalOrientation.OrientationId" />
-                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                            <input type="submit" value="Edit Orientation Information" class="btn btn-secondary" />
                         </form>
                     </div>
                 </div>
@@ -289,7 +289,7 @@
                                         <br />
                                         <form asp-action="EditFiles" method="post" class="text-center">
                                             <input type="hidden" name="fileid" value="@f.FileId" />
-                                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                            <input type="submit" value="Edit Files" class="btn btn-secondary" />
                                         </form><br />
                                         iCount2++;
                                     }
@@ -333,7 +333,7 @@
                                         <br />
                                         <form asp-action="EditSample" method="post" class="text-center">
                                             <input type="hidden" name="SampleId" value="@s.SampleId" />
-                                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                            <input type="submit" value="Edit Sample Information" class="btn btn-secondary" />
                                         </form><br />
                                         iCount3++;
                                         @foreach (var st in Model.storage)
@@ -349,7 +349,7 @@
                                                 <br />
                                                 <form asp-action="EditStorage" method="post" class="text-center">
                                                     <input type="hidden" name="Rackid" value="@st.RackId" />
-                                                    <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                                    <input type="submit" value="Edit Storage Information" class="btn btn-secondary" />
                                                 </form><br />
 
                                             }
