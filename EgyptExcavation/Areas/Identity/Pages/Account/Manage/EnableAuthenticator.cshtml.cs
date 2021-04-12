@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
@@ -148,7 +148,7 @@ namespace EgyptExcavation.Areas.Identity.Pages.Account.Manage
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("EgyptExcavation"),
+                _urlEncoder.Encode("SignInTrial"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }
