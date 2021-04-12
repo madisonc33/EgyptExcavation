@@ -249,7 +249,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialDetails");
+                return RedirectToAction("BurialList");
             }
             else
                 return View();
@@ -370,7 +370,7 @@ namespace EgyptExcavation.Controllers
                 return RedirectToAction("BurialList");
             }
             else
-                return View();
+                return View("EditTeeth");
         }
 
         //CRANIAL
@@ -544,7 +544,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample(int SampleID)
         {
@@ -553,7 +553,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -669,7 +669,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation(int POID)
         {
@@ -678,7 +678,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
         {
@@ -725,7 +725,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation(int ExcavationID)
         {
@@ -734,7 +734,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {
@@ -784,7 +784,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [HttpPost]
+        //[HttpPost]
         public IActionResult EditFiles(int FileID)
         {
             Files f = context.Files.Single(x => x.FileId == FileID);
@@ -792,7 +792,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [HttpPost]
+        //[HttpPost]
         public IActionResult EditFiles2(Files f, int FileID)
         {
             if (ModelState.IsValid)
