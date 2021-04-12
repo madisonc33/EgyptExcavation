@@ -117,14 +117,14 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpGet]
-        public IActionResult EnterFieldBurial()
+        public IActionResult EnterFieldNotesBurial()
         {
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult EnterFieldBurial(Burial b)
+        public IActionResult EnterFieldNotesBurial(Burial b)
         {
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
@@ -132,24 +132,64 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Burial.Add(b);
                 context.SaveChanges();
-                return View("BurialList", context.Burial);
+
+                var mummies = new List<MummyInfo>();
+
+                foreach (var i in context.Burial)
+                {
+                    var mummy = new MummyInfo();
+
+                    mummy.burial = i;
+                    mummy.body = context.Body.Where(x => x.BodyId == i.BodyId).FirstOrDefault();
+                    mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
+                    mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();
+                    mummy.excavation = context.Excavation.Where(x => x.ExcavationId == i.ExcavationId).FirstOrDefault();
+                    foreach (var f in context.Files)
+                    {
+                        if (f.BurialId == b.BurialId)
+                            mummy.files.Add(f);
+                    }
+                    mummy.location = context.Location.Where(x => x.LocId == i.LocId).FirstOrDefault();
+                    mummy.physicalOrientation = context.PhysicalOrientation.Where(x => x.OrientationId == i.OrientationId).FirstOrDefault();
+                    foreach (Sample s in context.Sample)
+                    {
+                        if (s.BodyId == mummy.body.BodyId)
+                            mummy.sample.Add(s);
+                    }
+                    foreach (var s in context.Storage)
+                    {
+                        foreach (var sam in mummy.sample)
+                        {
+                            if (s.SampleId == sam.SampleId)
+                                mummy.storage.Add(s);
+                        }
+                    }
+                    foreach (var t in context.Tooth)
+                    {
+                        if (t.BodyId == mummy.body.BodyId)
+                            mummy.tooth.Add(t);
+                    }
+
+                    mummies.Add(mummy);
+                }
+                return View("BurialList", mummies);
             }
             //Otherwise
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldBurial1(int BurialID)
+        public IActionResult EditFieldNotesBurial(int BurialID)
         {
             Burial b = context.Burial.Single(x => x.BurialId == BurialID);
             return View("EditFieldNotesBurial", b);
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldBurial2(Burial b, int BurialID)
+        public IActionResult EditFieldNotesBurial2(Burial b, int BurialID)
         {
             if (ModelState.IsValid)
             {
@@ -202,7 +242,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditFieldBody1(int BodyID)
+        public IActionResult EditFieldBody(int BodyID)
         {
             Body b = context.Body.Single(x => x.BodyId == BodyID);
             return View("EditFieldBody", b);
@@ -267,7 +307,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditExcavate1(int ExcavationID)
+        public IActionResult EditFieldExcavation(int ExcavationID)
         {
             Excavation e = context.Excavation.Single(x => x.ExcavationId == ExcavationID);
             return View("EditFieldExcavation", e);
@@ -276,7 +316,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditExcavate2(Excavation e, int ExcavationID)
+        public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {
             if (ModelState.IsValid)
             {
@@ -325,7 +365,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditSample1(int SampleID)
+        public IActionResult EditSample(int SampleID)
         {
             Sample s = context.Sample.Single(x => x.SampleId == SampleID);
             return View("EditSample", s);
@@ -396,7 +436,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditLocation1(int LocID)
+        public IActionResult EditFieldLocation(int LocID)
         {
             Location l = context.Location.Single(x => x.LocId == LocID);
             return View("EditFieldLocation", l);
@@ -452,7 +492,7 @@ namespace EgyptExcavation.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult EditOrientation1(int POID)
+        public IActionResult EditPhysicalOrientation(int POID)
         {
             PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == POID);
             return View("EditFieldLocation", po);

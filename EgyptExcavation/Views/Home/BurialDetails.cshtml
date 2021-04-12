@@ -10,3 +10,363 @@
 @{ int secondNum = (int)Model.location.MetersEw + 10;}
 
 <h1>N @Model.location.MetersNs / @firstNum E @Model.location.MetersEw / @secondNum @Model.location.Subplot #@Model.burial.BurialNum</h1>
+
+<div class="card bg-light border-dark text-center p-3">
+        <div class="container">
+            <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="true">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="burial-tab" data-toggle="tab" href="#burial" role="tab" aria-controls="burial" aria-selected="true">Burial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="body-tab" data-toggle="tab" href="#body" role="tab" aria-controls="body" aria-selected="false">Body</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="cranial-tab" data-toggle="tab" href="#cranial" role="tab" aria-controls="cranial" aria-selected="false">Cranial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="bone-tab" data-toggle="tab" href="#bone" role="tab" aria-controls="bone" aria-selected="false">Bone</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tooth-tab" data-toggle="tab" href="#tooth" role="tab" aria-controls="tooth" aria-selected="false">Teeth</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="excavation-tab" data-toggle="tab" href="#excavation" role="tab" aria-controls="excavation" aria-selected="false">Excavation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="physicalOrientation-tab" data-toggle="tab" href="#physicalOrientation" role="tab" aria-controls="physicalOrientation" aria-selected="false">Physical Orientation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="files-tab" data-toggle="tab" href="#files" role="tab" aria-controls="files" aria-selected="false">Files</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sample-tab" data-toggle="tab" href="#sample" role="tab" aria-controls="sample" aria-selected="false">Sample</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Meters NS: @Model.location.MetersNs</p>
+                                <p>Meters EW: @Model.location.MetersEw</p>
+                                <p>Burial NS: @Model.location.BurialNs</p>
+                                <p>Burial NS: @Model.location.BurialEw</p>
+                                <p>Subplot: @Model.location.Subplot</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Hill Area: @Model.location.HillArea</p>
+                                <p>Tomb Number: @Model.location.TombNum</p>
+                            </div>
+                        </div>
+                        <form asp-action="EditFieldLocation" method="post" class="text-center">
+                            <input type="hidden" name="LocId" value="@Model.location.LocId" />
+                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="burial" role="tabpanel" aria-labelledby="burial-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Burial Number: @Model.burial.BurialNum</p>
+                                <p>Face Bundle: @Model.burial.FaceBundleKey</p>
+                                <p>Artifacts Found: @Model.burial.ArtifactFound</p>
+                                <p>Artifacts Description: @Model.burial.ArtifactsDescription</p>
+                                <p>Cluster: @Model.burial.Cluster</p>
+                                <p>Goods: @Model.burial.Goods</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Biological Initials: @Model.burial.BiologicalInitials</p>
+                                <p>Biological Cluster Number: @Model.burial.ArtifactFound</p>
+                                <p>Previously Sampled: @Model.burial.PreviouslySampled</p>
+                                <p>Biological Notes: @Model.burial.BiologicalNotes</p>
+                                <p>To be Confirmed: @Model.burial.ToBeConfirmed</p>
+                                <p>Burial Situation: @Model.burial.BurialSituation</p>
+                            </div>
+                            
+                        </div>
+                        <form asp-action="EditFieldNotesBurial" method="post" class="text-center">
+                                <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
+                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="body" role="tabpanel" aria-labelledby="body-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Hair Color: @Model.body.HairColorKey</p>
+                                <p>Sex: @Model.body.GenderKey</p>
+                                <p>Age: @Model.body.AgeKey</p>
+                                <p>Wrapping: @Model.body.WrappingKey</p>
+                                <p>Adult or Child: @Model.body.AdultChildKey</p>
+                                <p>Burial Preservation: @Model.body.BurialPreservation</p>
+                                <p>Preservation Index: @Model.body.PreservationIndex</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Sample Taken: @Model.body.SampleTaken</p>
+                                <p>Age Method: @Model.body.AgeMethod</p>
+                                <p>Gender Method: @Model.body.GenderMethod</p>
+                                <p>Estimated Living Stature : @Model.body.EstimateLivingStature</p>
+                                <p>Sequence DNA: @Model.body.SequenceDna</p>
+                                <p>Carbon Estimated Date: @Model.body.CarbonEstimatedDate</p>
+                                <p>Year Analyzed : @Model.body.YearAnalyzed</p>
+                            </div>
+                            
+                        </div>
+                        <form asp-action="EditFieldBody" method="post" class="text-center">
+                                <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
+                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="cranial" role="tabpanel" aria-labelledby="cranial-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Max Cranial Length: @Model.cranial.MaxCranialLength</p>
+                                <p>Skull Trauma: @Model.cranial.MaxCranialBreadth</p>
+                                <p>Basion Bergma Height: @Model.cranial.BasionBergmaHeight</p>
+                                <p>Basion Nasion: @Model.cranial.BasionNasion</p>
+                                <p>Basion Prosithan Length: @Model.cranial.BasionProsithanLength</p>
+                                <p>Bizgoymatic Diameter: @Model.cranial.BizgoymaticDiameter</p>
+                                <p>Nasion Prosthion: @Model.cranial.NasionProsthion</p>
+                                <p>Max Nasal Breadth: @Model.cranial.MaxNasalBreadth</p>
+                                <p>Inter Orbital Breadth: @Model.cranial.InterorbitalBreadth</p>
+                                <p>Year on Skull: @Model.cranial.YearOnSkull</p>
+                                <p>Month on Skull: @Model.cranial.MonthOnSkull</p>
+                                <p>Date on Skull: @Model.cranial.DateOnSkull</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Skull at Magazine: @Model.cranial.SkullAtMagazine</p>
+                                <p>Cribra Orbitalia: @Model.cranial.CribraOrbitalia</p>
+                                <p>Porotic Hyperostosis: @Model.cranial.PoroticHyperostosis</p>
+                                <p>Porotic Hyperostosis Location: @Model.cranial.PoroticHyperostosisLoc</p>
+                                <p>Metopic Suture: @Model.cranial.MetopicSuture</p>
+                                <p>Button Osteoma: @Model.cranial.ButtonOsteoma</p>
+                                <p>Osteology Unknown Comment: @Model.cranial.OsteologyUnknownComment</p>
+                                <p>TMJOA: @Model.cranial.Tmjoa</p>
+                                <p>Cranial Suture: @Model.cranial.CranialSuture</p>
+                                <p>GE Function Total: @Model.cranial.GefunctionTotal</p>
+
+                            </div>
+                            
+                        </div>
+                        <form asp-action="EditCranial" method="post" class="text-center">
+                                <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
+                                <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bone" role="tabpanel" aria-labelledby="bone-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Epiphyseal Union: @Model.bone.EpiphysealUnion</p>
+                                <p>Zygomatic Crest: @Model.bone.ZygomaticCrest</p>
+                                <p>Nuchal Crest: @Model.bone.NuchalCrest</p>
+                                <p>Gonian: @Model.bone.Gonian</p>
+                                <p>Parietal Bossing: @Model.bone.ParietalBossing</p>
+                                <p>Orbit Edge: @Model.bone.OrbitEdge</p>
+                                <p>Supaorbital Ridges: @Model.bone.SupraorbitalRidges</p>
+                                <p>Robust: @Model.bone.Robust</p>
+                                <p>Tibia Length: @Model.bone.TibiaLength</p>
+                                <p>Humerus Length: @Model.bone.HumerusLength</p>
+                                <p>Humerus: @Model.bone.Humerus</p>
+                                <p>Femur Diameter: @Model.bone.FemurDiameter</p>
+                                <p>Iliac Crest: @Model.bone.IliacCrest</p>
+                                <p>Medial Clavicle: @Model.bone.MedialClavicle</p>
+                                <p>Bone Length: @Model.bone.BoneLength</p>
+                                <p>Pubic Symphysis: @Model.bone.PubicSymphysis</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Osteophytosis: @Model.bone.Osteophytosis</p>
+                                <p>Humerous Head: @Model.bone.HumerusHead</p>
+                                <p>Femur Head: @Model.bone.FemurHead</p>
+                                <p>Foreman Magnum: @Model.bone.ForemanMagnum</p>
+                                <p>Dorsal Pitting: @Model.bone.DorsalPitting</p>
+                                <p>Medial IP Ramus: @Model.bone.MedialIpRamus</p>
+                                <p>Preaur Sulcus: @Model.bone.PreaurSulcus</p>
+                                <p>Public Bone: @Model.bone.PubicBone</p>
+                                <p>Sciatic Notch: @Model.bone.SciaticNotch</p>
+                                <p>Subpubic Angle: @Model.bone.SubpubicAngle</p>
+                                <p>Ventral Arc: @Model.bone.VentralArc</p>
+                                <p>Basilar Suture: @Model.bone.BasilarSuture</p>
+                                <p>Post-Crania At Magazine: @Model.bone.PostcrainiaAtMagazine</p>
+                                <p>Post-Crania Trauma: @Model.bone.PostcrainiaTrauma</p>
+                                <p>Osteology Notes: @Model.bone.OsteologyNotes</p>
+                            </div>
+                        </div>
+                        <form asp-action="EditBone" method="post" class="text-center">
+                            <input type="hidden" name="boneid" value="@Model.bone.BoneId" />
+                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tooth" role="tabpanel" aria-labelledby="tooth-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                @{ var iCount = 1;}
+                                @foreach (var t in Model.tooth)
+                                {
+                                    <h6>Tooth @iCount</h6>
+                                    <p>Linear Hypoplasia Enamel: @t.LinearHypoplasiaEnamel</p>
+                                    <p>Tooth Attrition: @t.ToothAttrition</p>
+                                    <p>Tooth Eruption: @t.ToothEruption</p>
+                                    <p>Pathology Anomoly: @t.PathologyAnomoly</p>
+                                    <br />
+                                    <form asp-action="EditTeeth" method="post" class="text-center">
+                                        <input type="hidden" name="toothid" value="@t.ToothId" />
+                                        <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                    </form><br />
+                                    iCount++;
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="excavation" role="tabpanel" aria-labelledby="excavation-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>Excavation Year: @Model.excavation.ExcYear</p>
+                                <p>Excavation Month: @Model.excavation.ExcMonth</p>
+                                <p>Excavation Day: @Model.excavation.ExcDayOfMonth</p>
+                                <p>BYU Sample: @Model.excavation.Byusample</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>Field Book: @Model.excavation.FieldBook</p>
+                                <p>Field Book Page Number(s): @Model.excavation.FieldBookPageNum</p>
+                                <p>Initials of Entry Expert: @Model.excavation.InitialsOfEntryExpert</p>
+                                <p>Initials of Entry Checker: @Model.excavation.InitialsOfEntryChecker</p>
+                            </div>
+
+                        </div>
+                        <form asp-action="EditFieldExcavation" method="post" class="text-center">
+                            <input type="hidden" name="excavationid" value="@Model.excavation.ExcavationId" />
+                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="physicalOrientation" role="tabpanel" aria-labelledby="physicalOrientation-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p>West to Feet: @Model.physicalOrientation.WtoFeet</p>
+                                <p>South to Feet: @Model.physicalOrientation.StoFeet</p>
+                                <p>West to Head: @Model.physicalOrientation.WtoHead</p>
+                                <p>South to Head: @Model.physicalOrientation.StoHead</p>
+                                <p>Head Direction: @Model.physicalOrientation.HeadDirection</p>
+                                <p>Burial Depth: @Model.physicalOrientation.BurialDepth</p>
+                                <p>Length of Remains (Meters): @Model.physicalOrientation.LengthOfRemainsInMeters</p>
+                            </div>
+                        </div>
+                        <form asp-action="EditPhysicalOrientation" method="post" class="text-center">
+                            <input type="hidden" name="OrientationId" value="@Model.physicalOrientation.OrientationId" />
+                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="files-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                @{ var iCount2 = 1;}
+                                @if (Model.files.Count() != 0)
+                                {
+                                    @foreach (var f in Model.files)
+                                    {
+                                        <h6>File @iCount2</h6>
+                                        <p>@f.Photo</p>
+                                        <p>@f.FieldNote</p>
+                                        <p>@f.OtherNote</p>
+                                        <p>@f.BoneBook</p>
+                                        <br />
+                                        <form asp-action="EditFiles" method="post" class="text-center">
+                                            <input type="hidden" name="fileid" value="@f.FileId" />
+                                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                        </form><br />
+                                        iCount2++;
+                                    }
+                                }
+                                else
+                                { <p>No files have been added for the excavation yet.</p>}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="sample" role="tabpanel" aria-labelledby="sample-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                @{ var iCount3 = 1;}
+                                @if (Model.sample.Count() != 0)
+                                {
+                                    @foreach (var s in Model.sample)
+                                    {
+                                        <h6>Sample @iCount3</h6>
+                                        <p>ML Size: @s.MlSize</p>
+                                        <p>Description: @s.Description</p>
+                                        <p>Category: @s.Category</p>
+                                        <p>Notes: @s.Notes</p>
+                                        <p>Hair Taken?: @s.HairTaken</p>
+                                        <p>Soft Tissue Taken? : @s.SoftTissueTaken</p>
+                                        <p>Bone Taken?: @s.BoneTaken</p>
+                                        <p>Tooth Taken?: @s.ToothTaken</p>
+                                        <p>Textile Taken?: @s.TextileTaken</p>
+                                        <p>Description of Taken : @s.DescriptionOfTaken</p>
+                                        <p>Sample Taken: @s.SampleTaken</p>
+                                        <p>Foci: @s.Foci</p>
+                                        <p>C14 Sample : @s.C14sample2017</p>
+                                        <p>Conventional 14 C Age BP: @s.Conventional14CageBp</p>
+                                        <p>14 Cal Date: @s._14calDate</p>
+                                        <p>Max Calibrated 95 Percent Cal Date : @s.MaxCalibrated95PercCalDate</p>
+                                        <p>Min Calibrated 95 Percent Cal Date : @s.MinCalibrated95PercCalDate</p>
+                                        <p>Span Calibrated 95 Percent Cal Date : @s.SpanCalibrated95PercCalDate</p>
+                                        <p>Avg Calibrated 95 Percent Cal Date : @s.AvgCalibrated95PercCalDate</p>
+                                        <br />
+                                        <form asp-action="EditSample" method="post" class="text-center">
+                                            <input type="hidden" name="SampleId" value="@s.SampleId" />
+                                            <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                        </form><br />
+                                        iCount3++;
+                                        @foreach (var st in Model.storage)
+                                        {
+                                            @if (s.SampleId == s.SampleId)
+                                            {
+
+                                                <h6>Storage Location:</h6>
+                                                <p>Rack Number: @st.RackNum</p>
+                                                <p>Shelf Number: @st.ShelfNum</p>
+                                                <p>Tube Number: @st.TubeNum</p>
+                                                <p>Bag Number: @st.BagNum</p>
+                                                <br />
+                                                <form asp-action="EditStorage" method="post" class="text-center">
+                                                    <input type="hidden" name="Rackid" value="@st.RackId" />
+                                                    <input type="submit" value="Edit Information" class="btn btn-secondary" />
+                                                </form><br />
+
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                { <p>No samples have been added for the excavation yet.</p>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div>
+</div>
+
+@*Add delete functionality*@

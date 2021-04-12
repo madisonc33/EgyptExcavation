@@ -33,11 +33,11 @@
                         <div class="col-sm">
                             <ul class="list-group p-2">
                                 @{ var gender = ""; var preservation = "";}
-                                @if (@Model.body.GenderKey == "F")
+                                @if (Model.body.GenderKey == "F")
                                 {
                                     gender = "Female";
                                 }
-                                else if (@Model.body.GenderKey == "M")
+                                else if (Model.body.GenderKey == "M")
                                 {
                                     gender = "Male";
                                 }
@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-sm">
                             <p>Artifacts Found: @Model.burial.ArtifactFound</p>
-                            <p>Artifacts Found: @Model.burial.ArtifactsDescription</p>
+                            <p>Artifacts Description: @Model.burial.ArtifactsDescription</p>
                         </div>
                     </div>
                 </div>
