@@ -54,7 +54,7 @@ namespace EgyptExcavation.Infrastructure
 
                 KeyValuePairs["pageNum"] = i;
 
-                individualTag.Attributes["href"] = urlHelp.Action("Index", KeyValuePairs);
+                individualTag.Attributes["href"] = urlHelp.Action("BurialList", KeyValuePairs);
 
                 //sets the up the css for the paging buttons
                 if (PageClassesEnabled)
