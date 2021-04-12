@@ -39,6 +39,7 @@
         <div class="card-body">
             <h2 class="title">Enter Field Location Information</h2>
             <form asp-action="EnterFieldLocation" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -95,12 +96,12 @@
                         </div>
                     </div>
                     <br />
-                    <div class="col-4">
+@*                    <div class="col-4">
                         <div class="input-group" hidden>
                             <label asp-for="LocId">LocationID</label>
                             <input asp-for="LocId" />
                         </div>
-                    </div>
+                    </div>*@
                     <br />
                 </div>
                 <div class="p-t-15">

@@ -11,9 +11,9 @@ namespace EgyptExcavation.Models
     {
         public int FileId { get; set; }
         public int? BurialId { get; set; }
-        public string Photo { get; set; }
-        public byte[] FieldNote { get; set; }
-        public byte[] OtherNote { get; set; }
-        public byte[] BoneBook { get; set; }
+        public string? Photo { get; set; }
+        public byte[]? FieldNote { get; set; }
+        public byte[]? OtherNote { get; set; }
+        public byte[]? BoneBook { get; set; }
     }
 }
