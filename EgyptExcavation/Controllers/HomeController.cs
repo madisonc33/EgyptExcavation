@@ -247,7 +247,9 @@ namespace EgyptExcavation.Controllers
                 l.HillArea = 0;
             }
 
-            //var locid = context.Location.Skip
+            var locid = context.Location.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().LocId;
+            locid++;
+            l.LocId = locid;
 
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
