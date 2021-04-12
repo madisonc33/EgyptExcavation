@@ -19,6 +19,10 @@ namespace EgyptExcavation.Controllers
         private readonly ILogger<HomeController> _logger;
         private egyptexcavationContext context { get; set; }
 
+        //creates a variable to store how many items will be displayed on each page
+        public int ItemsPerPage { get; set; }
+
+
         public HomeController(ILogger<HomeController> logger, egyptexcavationContext con)
         {
             _logger = logger;
@@ -35,9 +39,22 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult BurialList()
+        public IActionResult BurialList(int pagenum = 0)
         {
-            var mummies = new List<MummyInfo>();
+            ItemsPerPage = 5;
+
+
+            var mummies = new MummyAndPage();
+
+            mummies.PageInfo = new PageNumberingInfo
+            {
+                PageSize = ItemsPerPage,
+
+                //gets number of total mummies
+                TotalMummies = context.Burial.Count(),
+                CurrentPage = pagenum
+
+            };
 
             foreach (var b in context.Burial)
             {
@@ -74,10 +91,10 @@ namespace EgyptExcavation.Controllers
                         mummy.tooth.Add(t);
                 }
 
-                mummies.Add(mummy);
+                mummies.Mummies.Add(mummy);
             }
 
-            return View(mummies);
+            return View("BurialList", mummies);
         }
 
         [HttpPost]
