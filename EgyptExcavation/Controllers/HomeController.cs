@@ -42,11 +42,11 @@ namespace EgyptExcavation.Controllers
                 mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
                 mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();
                 mummy.excavation = context.Excavation.Where(x => x.ExcavationId == b.ExcavationId).FirstOrDefault();
-                /*foreach (var f in context.Files)
+                foreach (var f in context.Files)
                 {
                     if (f.BurialId == b.BurialId)
                         mummy.files.Add(f);
-                } */
+                } 
                 mummy.location = context.Location.Where(x => x.LocId == b.LocId).FirstOrDefault();
                 mummy.physicalOrientation = context.PhysicalOrientation.Where(x => x.OrientationId == b.OrientationId).FirstOrDefault();
                 foreach (Sample s in context.Sample)
@@ -84,11 +84,11 @@ namespace EgyptExcavation.Controllers
             mummy.bone = context.Bone.Where(x => x.BoneId == mummy.body.BoneId).FirstOrDefault();
             mummy.cranial = context.Cranial.Where(x => x.CranialId == mummy.body.CranialId).FirstOrDefault();
             mummy.excavation = context.Excavation.Where(x => x.ExcavationId == mummy.burial.ExcavationId).FirstOrDefault();
-           /* foreach (var f in context.Files)
+            foreach (var f in context.Files)
             {
                 if (f.BurialId == mummy.burial.BurialId)
                     mummy.files.Add(f);
-            } */
+            }
             mummy.location = context.Location.Where(x => x.LocId == mummy.burial.LocId).FirstOrDefault();
             mummy.physicalOrientation = context.PhysicalOrientation.Where(x => x.OrientationId == mummy.burial.OrientationId).FirstOrDefault();
             foreach (Sample s in context.Sample)
