@@ -200,7 +200,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldNotesBurial(int BurialID)
         {
@@ -209,7 +209,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldNotesBurial2(Burial bu, int BurialID)
         {
@@ -232,7 +232,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialList");
+                return RedirectToAction("BurialDetails");
             }
             else
                 return View();
@@ -262,7 +262,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldBody(int BodyID)
         {
@@ -271,7 +271,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldBody2(Body bo, int BodyID)
         {
