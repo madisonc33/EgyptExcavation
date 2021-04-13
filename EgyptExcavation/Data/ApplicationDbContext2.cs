@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EgyptExcavation.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext2 : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext2(DbContextOptions<ApplicationDbContext2> options)
             : base(options)
         {
         }

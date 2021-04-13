@@ -14,16 +14,18 @@ namespace EgyptExcavation.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
+            //builder.ConfigureServices((context, services) => {
+            //    services.AddDbContext<ApplicationDbContext>(options =>
+            //        options.UseSqlite(
+            //            context.Configuration.GetConnectionString("DefaultConnection")));
+
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite(
-                        context.Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseSqlServer(
+                        context.Configuration.GetConnectionString("EgyptUsersConnection")));
 
-                //builder.ConfigureServices((context, services) => {
-                //services.AddDbContext<ApplicationDbContext>(options =>
-                //    options.UseSqlServer(
-                //        context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
-
+                //services.AddDbContext<egyptexcavationContext>(options =>
+                //options.UseSqlServer(Configuration["ConnectionStrings:EgyptExcavationConnection"]));
 
 
                 services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
