@@ -38,47 +38,24 @@
         <div class="card-body">
             <h2 class="title">Edit Files</h2>
             <form asp-action="EditFiles2" method="post">
-                <div asp-validation-summary="All"></div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="Photo">Upload Photos:</label>
-                            <input asp-for="Photo" class="input--style-4" />
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="FieldNote">Upload FieldNotes:</label>
-                            <input asp-for="FieldNote" class="input--style-4" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="OtherNote">Upload Other Documents:</label>
-                            <input asp-for="OtherNote" class="input--style-4" />
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="BoneBook">Upload BoneBook:</label>
-                            <input asp-for="BoneBook" class="input--style-4" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group" hidden>
-                            <label asp-for="FileId">FileID</label>
-                            <input asp-for="FileId" />
-                        </div>
-                    </div>
-                </div>
+                <p>
+                    To submit files for upload, please send a copy of the .pdf or .jpg to <a href="mailto: evansp@byu.edu">evansp@byu.edu</a>
+                    with the following information:
+                    <br /><br />
+                    Burial ID
+                    <br />
+                    Location Number
+                    <br />
+                    Plot Number
+                    <br />
+                    Burial Number
+                    <br /><br />
 
+                </p>
                 <div class="p-t-15">
-                    <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    <button class="btn btn--radius-2 btn--blue" type="submit">Back To Burial List</button>
                 </div>
+              
             </form>
         </div>
     </div>

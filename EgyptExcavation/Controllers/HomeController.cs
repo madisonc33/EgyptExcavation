@@ -521,17 +521,17 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditFiles(int FileID)
+        public IActionResult EditFiles()
         {
-            Files f = context.Files.Single(x => x.FileId == FileID);
-            return View("EditFiles", f);
+           // Files f = context.Files.Single(x => x.FileId == FileID);
+            return View("EditFiles");
 
         }
 
         [HttpPost]
-        public IActionResult EditFiles2(Files f, int FileID)
+        public IActionResult EditFiles2()
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 var fil = context.Files.SingleOrDefault(x => x.FileId == f.FileId);
 
@@ -544,8 +544,8 @@ namespace EgyptExcavation.Controllers
 
                 return RedirectToAction("BurialList");
             }
-            else
-                return View();
+            else*/
+                return View("Index");
         }
 
         //BODY
