@@ -1047,7 +1047,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize(Roles = "Researcher")]
         public IActionResult EditMummyInfo()
         {
             return View();
@@ -1060,6 +1060,7 @@ namespace EgyptExcavation.Controllers
         }
 
         //not really used
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult RecordDeleted(int burialId)
         {
@@ -1067,6 +1068,7 @@ namespace EgyptExcavation.Controllers
         }
 
         //DELETE STUFFFF
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteEntireBurial(int burialId)
         {
@@ -1075,6 +1077,7 @@ namespace EgyptExcavation.Controllers
             return RedirectToAction("BurialList");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldBody(int burialId, int BodyId)
         {
@@ -1086,6 +1089,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldCranial(int burialId, int cranialId)
         {
@@ -1097,6 +1101,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldBone(int burialId, int boneId)
         {
@@ -1108,6 +1113,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldTooth(int burialId, int ToothId)
         {
@@ -1119,6 +1125,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldExcavation(int burialId, int ExcavationId)
         {
@@ -1130,6 +1137,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldFile(int burialId, int fileId)
         {
@@ -1141,6 +1149,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldSample(int burialId, int sampleId)
         {
@@ -1152,6 +1161,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldStorage(int burialId, int rackId)
         {
