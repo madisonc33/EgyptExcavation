@@ -8,42 +8,62 @@
 
 <a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home">Home</a>
 <br />
-
-<form asp-action="BurialList" method="Post">
     <label>Minimum Depth</label>
     <input type="number" name="depthMin" />
     <label>Maximum Depth</label>
     <input type="number" name="depthMax" />
-    <label for="age">Age</label>
-    <select id="age">
-        <option value="A">Adult</option>
-        <option value="C">Child</option>
-    </select>
-    <label for="gender">Gender</label>
-    <select id="gender">
-        <option value="F">Female</option>
-        <option value="M">Male</option>
-    </select>
-    <label>Hair Color</label>
-    <select for="hairColor">
-        <option value="B">Brown/Dark Brown/Lt Brown</option>
-        <option value="K">Black</option>
-        <option value="A">Brown-Red</option>
-        <option value="R">Red/Red-Bl</option>
-        <option value="D">Blonde</option>
-        <option value="U">Unknown</option>
-    </select>
-    <label for="headDirection">Head Direction</label>
-    <select id="headDirection">
-        <option value="East">East</option>
-        <option value="West">West</option>
-        <option value="North">North</option>
-        <option value="South">South</option>
-    </select>
-    <label>Artifacts</label>
-    <select id="artifacts">
-        <option value="True">Yes</option>
-        <option value="False">No</option>
-    </select>
-    <input type="submit" />
-</form>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="age" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Age at Death
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-age="A">Adult</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-age="C">Child</a>
+        </div>
+    </div>
+    <br />
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="gender" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gender
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-gender="F">Female</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-gender="M">Male</a>
+        </div>
+    </div>
+    <br />
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="haircolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hair Color
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="B">Brown/Dark Brown/Lt Brown</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="K">Black</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="A">Brown-Red</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="R">Red/Red-Bl</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="D">Blonde</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-haircolor="U">Unknown</a>
+        </div>
+    </div>
+    <br />
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="headdirection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Head Direction
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-headdirection="East">East</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-headdirection="West">West</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-headdirection="North">North</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-headdirection="South">South</a>
+        </div>
+    </div>
+    <br />
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="artifacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Artifacts
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-artifacts="True">Yes</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-artifacts="False">No</a>
+        </div>
+    </div>
