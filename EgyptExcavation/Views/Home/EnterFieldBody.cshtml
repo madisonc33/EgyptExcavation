@@ -38,6 +38,7 @@
         <div class="card-body">
             <h2 class="title">Enter Body Information</h2>
             <form asp-action="EnterFieldBody" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -104,7 +105,6 @@
                         <div class="input-group">
                             <label asp-for="AgeMethod">Age Method: </label>
                             <input asp-for="AgeMethod" class="input--style-4" />
-
                         </div>
                     </div>
                 </div>
@@ -120,18 +120,15 @@
                                 <option value="U">Unknown</option>
                             </select>
 
-
-                            <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
-                            <input asp-for="SoftTissueTaken"  class="input--style-4" />
-
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <label asp-for="GenderMethod">Gender Method:</label>
+                                    <input asp-for="GenderMethod" class="input--style-4" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="GenderMethod">Gender Method:</label>
-                            <input asp-for="GenderMethod" class="input--style-4" />
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
@@ -142,113 +139,49 @@
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label asp-for="SampleTaken">Was A Sample Taken? </label>
-                            <select asp-for="SampleTaken">
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-                            </select>
+                            <label asp-for="DescriptionOfTaken">Description Of Taken:</label>
+                            <input asp-for="DescriptionOfTaken" class="input--style-4" />
                         </div>
                     </div>
                 </div>
+
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label asp-for="HairTaken">Hair Taken? </label>
-                            <select asp-for="HairTaken">
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-
-                            </select>
+                            <label asp-for="SequenceDna">Sequence DNA</label>
+                            <input asp-for="SequenceDna" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label asp-for="SoftTissueTaken">Soft Tissue Taken? </label>
-                            <select asp-for="SoftTissueTaken">
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group">
-
-                            <label asp-for="BoneTaken">Bone Taken?</label>
-                            <select asp-for="BoneTaken">
-                                <option value="True">True</option>
-                                <option value="False">False</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="ToothTaken">Tooth Taken?</label>
-                                <select asp-for="ToothTaken">
-                                    <option value="True">True</option>
-                                    <option value="False">False</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="TextileTaken">Textile Taken?</label>
-                                <select asp-for="TextileTaken">
-                                    <option value="True">True</option>
-                                    <option value="False">False</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="DescriptionOfTaken">Description Of Taken:</label>
-                                <input asp-for="DescriptionOfTaken" class="input--style-4" />
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="SequenceDna">Sequence DNA</label>
-                                <input asp-for="SequenceDna" class="input--style-4" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-space">
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="CarbonEstimatedDate">Carbon Estimated Date</label>
-                                <input asp-for="CarbonEstimatedDate" class="input--style-4" />
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="input-group">
-                                <label asp-for="YearAnalyzed">Year Analyzed</label>
-                                <input asp-for="YearAnalyzed" class="input--style-4" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
-                    </div>
-                        <div>
                             <label asp-for="CarbonEstimatedDate">Carbon Estimated Date</label>
-                            <input asp-for="CarbonEstimatedDate"  class="input--style-4"value="0"/>
+                            <input asp-for="CarbonEstimatedDate" class="input--style-4" />
                         </div>
-                  
+                    </div>
+                </div>
+
+                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="YearAnalyzed">Year Analyzed</label>
-                            <input asp-for="YearAnalyzed"  class="input--style-4" value="0"/>
+                            <input asp-for="YearAnalyzed" class="input--style-4" />
                         </div>
                     </div>
-             
+
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="YearAnalyzed">Year Analyzed</label>
+                            <input asp-for="YearAnalyzed" class="input--style-4" value="0" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div>
+                        <label asp-for="CarbonEstimatedDate">Carbon Estimated Date</label>
+                        <input asp-for="CarbonEstimatedDate" class="input--style-4" value="0" />
+                    </div>
+                </div>
+
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
