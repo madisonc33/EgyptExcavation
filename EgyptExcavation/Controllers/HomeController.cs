@@ -448,7 +448,7 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                po.OrientationId = NewMummy.physicalOrientation.OrientationId;
+                NewMummy.burial.OrientationId = po.OrientationId;
                 NewMummy.physicalOrientation = po;
                 //Update Database
                 context.PhysicalOrientation.Add(po);
@@ -567,7 +567,7 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                bo.BodyId = NewMummy.body.BodyId;
+                NewMummy.burial.BodyId = bo.BodyId;
                 NewMummy.body = bo;
                 //Update Database
                 context.Body.Add(bo);
@@ -691,7 +691,7 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                c.CranialId = NewMummy.cranial.CranialId;
+                NewMummy.body.CranialId = c.CranialId;
                 NewMummy.cranial = c;
 
                 //Update Database
@@ -766,7 +766,7 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                b.BoneId = NewMummy.bone.BoneId;
+                NewMummy.body.BoneId = b.BoneId;
                 NewMummy.bone = b;
 
                 //Update Database
@@ -930,8 +930,12 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                s.SampleId = NewMummy.body.BodyId;
-                NewMummy.storage.Add(s);
+                if (NewMummy.sample.Count > 0)
+                {
+                    var item = NewMummy.sample[NewMummy.sample.Count - 1];
+                    s.SampleId = item.SampleId;
+                    NewMummy.storage.Add(s);
+                }
 
                 //Update Database
                 context.Storage.Add(s);
@@ -992,7 +996,7 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                e.ExcavationId = NewMummy.excavation.ExcavationId;
+                NewMummy.burial.ExcavationId = e.ExcavationId;
                 NewMummy.excavation = e;
 
                 //Update Database
