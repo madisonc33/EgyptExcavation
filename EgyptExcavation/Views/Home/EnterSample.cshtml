@@ -1,7 +1,7 @@
 ﻿@model Sample
 
 <div class="text-center">
-    <h1 class="display-4">Enter Samples</h1>
+    <h1 class="display-4">Enter Sample Information</h1>
 </div>
 
 <!DOCTYPE html>
@@ -35,8 +35,9 @@
 <body>
     <div class="card card-4">
         <div class="card-body">
-            <h2 class="title">Enter Sample Information</h2>
-            <form asp-action="EnterSample" method="post">
+
+            <form asp-action="EnterStorage" method="post">
+
                 <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
@@ -214,10 +215,6 @@
                             <label asp-for="AvgCalibrated95PercCalDate">Average Calibrated 95 Percent Calculated Date:</label>
                             <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4" />
                         </div>
-                    </div>
-
-                    <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                     </div>
                 </div>  
                 <div class="p-t-15">

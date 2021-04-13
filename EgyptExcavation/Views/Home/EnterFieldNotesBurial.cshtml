@@ -1,12 +1,11 @@
 ﻿
-@{
-    ViewData["Title"] = "Enter Field Notes";
-
-}
-
 @*A page linked from the single burial page where a researcher can enter/edit field notes.*@
 
 @model Burial
+
+<div class="text-center">
+    <h1 class="display-4">Enter Burial Information</h1>
+</div>
 
 
 <!DOCTYPE html>
@@ -40,7 +39,7 @@
 <body>
     <div class="card card-4">
         <div class="card-body">
-            <h2 class="title">Enter Burial Information</h2>
+           
             <form asp-action="EnterFieldNotesBurial" method="post">
                 <div asp-validation-summary="All"></div>
                 <div class="row row-space">

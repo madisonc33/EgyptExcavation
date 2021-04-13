@@ -8,8 +8,7 @@
                 <p class="card-text">Enter hair taken, textile taken, notes, and more here!</p>
                 <form asp-action="EnterSample" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="BodyId">BodyId</label>
-                        <input asp-for="BodyId" />
+                        <input name="BodyId" value="@Model.BodyId" />
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
@@ -27,8 +26,7 @@
                 <p class="card-text">Enter linear hypoplasia enamel, tooth attrition, tooth eruption, and more here!</p>
                 <form asp-action="EnterTeeth" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="BodyId">BodyId</label>
-                        <input asp-for="BodyId" />
+                        <input name="BodyId" value="@Model.BodyId" />
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
@@ -49,8 +47,7 @@
                 <p class="card-text">Enter skull trauma, max nasal breadth, cribra orbitalia, and more here!</p>
                 <form asp-action="EnterCranial" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="CranialId">CranialId</label>
-                        <input asp-for="CranialId" />
+                        <input name="CranialId" value="@Model.CranialId" />
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
@@ -68,8 +65,7 @@
                 <p class="card-text">Enter orbit edge, humerous, dorsal pitting, and more here!</p>
                 <form asp-action="EnterBone" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="BoneId">BoneId</label>
-                        <input asp-for="BoneId" />
+                        <input name="BoneId" value="@Model.BoneId" />
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
