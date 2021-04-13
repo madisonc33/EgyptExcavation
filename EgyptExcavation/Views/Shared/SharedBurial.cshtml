@@ -7,7 +7,7 @@
             <h5 class="card-header">5. Excavation</h5>
             <div class="card-body">
                 <p class="card-text">Enter year, month, and date of excavation plus more here!</p>
-                <form asp-action="EnterFieldExcavation">
+                <form asp-action="EnterFieldExcavation" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="ExcavationId">ExcavationId</label>
                         <input asp-for="ExcavationId" />
@@ -24,7 +24,7 @@
             <h5 class="card-header">6. Files</h5>
             <div class="card-body">
                 <p class="card-text">Enter photos, field notes, and  more here!</p>
-                <form asp-action="EnterFieldExcavation">
+                <form asp-action="EnterFiles" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="BurialId">BurialId</label>
                         <input asp-for="BurialId" />

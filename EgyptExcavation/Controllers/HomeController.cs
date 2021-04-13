@@ -44,16 +44,22 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult BurialList(string depthmin, string depthmax, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
+        public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
             ItemsPerPage = 5;
 
             var mummies = new MummyAndPage();
 
+            mummies.FilterCriteria.age = age;
+            mummies.FilterCriteria.haircolor = haircolor;
+            mummies.FilterCriteria.headdirection = headdirection;
+            mummies.FilterCriteria.artifacts = artifacts;
+            mummies.FilterCriteria.gender = gender;
+
             var burialList = new List<Burial>();
 
             //checks if any filtering criteria have been specified, if not, it gets the first five, if yes it gets all to start)
-            if (depthmin == null && depthmax == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
+            if (depth == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
             {
                 mummies.PageInfo = new PageNumberingInfo
                 {
@@ -123,43 +129,15 @@ namespace EgyptExcavation.Controllers
 
             //Code to remove items that don't meet the specified criteria
 
-            //if (depthmin != null)
+            //if (depth != null)
             //{
-            //    foreach (var m in mummies.Mummies.ToList())
+            //    if (depth == "small")
             //    {
-            //        if (m.physicalOrientation != null)
-            //        {
-            //            double decdepthmax = double.Parse(depthmax);
-            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
-            //            {
-            //                mummies.Mummies.Remove(m);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            mummies.Mummies.Remove(m);
-            //        }
-                    
+            //        mummies.Mummies.OrderBy(x => x.physicalOrientation.BurialDepth);
             //    }
-            //}
-            //if (depthmax != null)
-            //{
-            //    foreach (var m in mummies.Mummies.ToList())
+            //    else if (depth == "big")
             //    {
-            //        if (m.physicalOrientation != null)
-            //        {
-            //            double decdepthmax = double.Parse(depthmax);
-            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
-            //            {
-            //                mummies.Mummies.Remove(m);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            mummies.Mummies.Remove(m);
-            //        }
-                    
-                    
+            //        mummies.Mummies.OrderByDescending(x => x.physicalOrientation.BurialDepth);
             //    }
             //}
             if (age != null)
@@ -257,7 +235,7 @@ namespace EgyptExcavation.Controllers
 
             
             //if we filtered, it resets the pagination so that it shows correctly
-            if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
+            if (depth != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
                 mummies.PageInfo = new PageNumberingInfo
                 {
@@ -517,15 +495,15 @@ namespace EgyptExcavation.Controllers
         //FILES
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFiles()
+        public IActionResult EnterFiles(int BurialId)
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult EnterFiles(Files f)
+        public IActionResult EnterFiles()
         {
-            var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
+            /*var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
             filid++;
             f.FileId = filid;
 
@@ -537,9 +515,9 @@ namespace EgyptExcavation.Controllers
                 context.SaveChanges();
                 // return View("BurialList", context.Files);
                 return View("EnterTablesMenuPage");
-            }
+            } */
             //Otherwise
-            return View();
+            return View("EnterTablesMenuPage"); 
         }
 
         [HttpPost]
@@ -624,12 +602,6 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
-                context.Entry(bod).Property(x => x.HairTaken).CurrentValue = bo.HairTaken;
-                context.Entry(bod).Property(x => x.SoftTissueTaken).CurrentValue = bo.SoftTissueTaken;
-                context.Entry(bod).Property(x => x.BoneTaken).CurrentValue = bo.BoneTaken;
-                context.Entry(bod).Property(x => x.ToothTaken).CurrentValue = bo.ToothTaken;
-                context.Entry(bod).Property(x => x.TextileTaken).CurrentValue = bo.TextileTaken;
-                context.Entry(bod).Property(x => x.DescriptionOfTaken).CurrentValue = bo.DescriptionOfTaken;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
 
@@ -644,7 +616,7 @@ namespace EgyptExcavation.Controllers
         //TEETH
 
         [HttpGet]
-        public IActionResult EnterTeeth()
+        public IActionResult EnterTeeth(int BodyId)
         {
             return View();
         }
@@ -701,7 +673,7 @@ namespace EgyptExcavation.Controllers
         //CRANIAL
 
         [HttpGet]
-        public IActionResult EnterCranial()
+        public IActionResult EnterCranial(int CranialId)
         {
             return View();
         }
@@ -761,7 +733,6 @@ namespace EgyptExcavation.Controllers
                 context.Entry(cran).Property(x => x.OsteologyUnknownComment).CurrentValue = c.OsteologyUnknownComment;
                 context.Entry(cran).Property(x => x.Tmjoa).CurrentValue = c.Tmjoa;
                 context.Entry(cran).Property(x => x.CranialSuture).CurrentValue = c.CranialSuture;
-                context.Entry(cran).Property(x => x.GenderKey).CurrentValue = c.GenderKey;
                 context.Entry(cran).Property(x => x.GefunctionTotal).CurrentValue = c.GefunctionTotal;
 
                 context.SaveChanges();
@@ -774,7 +745,7 @@ namespace EgyptExcavation.Controllers
 
         //BONE
         [HttpGet]
-        public IActionResult EnterBone()
+        public IActionResult EnterBone(int BoneId)
         {
             return View();
         }
@@ -856,9 +827,9 @@ namespace EgyptExcavation.Controllers
         //SAMPLE
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterSample()
+        public IActionResult EnterSample(int BodyId)
         {
-            return View();
+            return View("EnterStorage");
         }
 
         //[Authorize]
@@ -931,7 +902,7 @@ namespace EgyptExcavation.Controllers
         //STORAGE
 
         [HttpGet]
-        public IActionResult EnterStorage()
+        public IActionResult EnterStorage(int SampleId)
         {
             return View();
         }
@@ -989,7 +960,7 @@ namespace EgyptExcavation.Controllers
         //EXCAVATION
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFieldExcavation()
+        public IActionResult EnterFieldExcavation(int ExcavationId)
         {
             return View();
         }
