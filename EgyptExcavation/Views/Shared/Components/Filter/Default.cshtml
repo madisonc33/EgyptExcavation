@@ -4,7 +4,7 @@
 @{
 }
 
-@model List<string>
+@model Filters
 
 <a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home">Home</a>
 <br />
@@ -12,6 +12,16 @@
     <input type="number" name="depthMin" />
     <label>Maximum Depth</label>
     <input type="number" name="depthMax" />
+    <br />*@
+    @*<div class="dropdown">
+        <button class="btn btn-block btn-outline-secondary dropdown-toggle" type="button" id="depth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Depth
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-depth="small">Smallest to Biggest</a>
+            <a class="dropdown-item" asp-action="BurialList" asp-controller="Home" asp-route-depth="big">Biggest to Smallest</a>
+        </div>
+    </div>
     <br />*@
     <div class="dropdown">
         <button class="btn btn-block btn-outline-secondary dropdown-toggle" type="button" id="age" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
