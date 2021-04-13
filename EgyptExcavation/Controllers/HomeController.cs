@@ -39,6 +39,11 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        public IActionResult EnterTablesMenuPage()
+        {
+            return View();
+        }
+
         public IActionResult BurialList(string depthmin, string depthmax, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
             ItemsPerPage = 5;
