@@ -62,7 +62,8 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="StoHead">South To Head:</label>
-                            <input asp-for="StoHead" class="input--style-4"/>
+                            <input asp-for="StoHead" class="input--style-4" />
+                               
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,12 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="HeadDirection">Head Direction:</label>
-                            <input asp-for="HeadDirection" class="input--style-4" />
+                            <select asp-for="HeadDirection" >
+                                <option value="West">West</option>
+                                <option value="East">East</option>
+                                <option value="North">North</option>
+                                <option value="South">South</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-4">
