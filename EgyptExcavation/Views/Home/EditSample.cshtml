@@ -37,6 +37,7 @@
         <div class="card-body">
             <h2 class="title">Edit Sample Information</h2>
             <form asp-action="EditSample2" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -213,7 +214,7 @@
                             <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4" />
                         </div>
                     </div>
-                
+
                     <div class="col-4" hidden>
                         <div class="input-group">
                             <label asp-for="SampleId">SampleID</label>
