@@ -50,16 +50,6 @@ namespace EgyptExcavation.Controllers
 
             var mummies = new MummyAndPage();
 
-            mummies.PageInfo = new PageNumberingInfo
-            {
-                PageSize = ItemsPerPage,
-
-                //gets number of total mummies
-                TotalMummies = context.Burial.Count(),
-                CurrentPage = pagenum
-
-            };
-
             var burialList = new List<Burial>();
 
             //checks if any filtering criteria have been specified, if not, it gets the first five, if yes it gets all to start)
@@ -81,8 +71,25 @@ namespace EgyptExcavation.Controllers
                 var mummy = new MummyInfo();
                 mummy.burial = b;
                 mummy.body = context.Body.FirstOrDefault(x => x.BodyId == b.BodyId);
-                mummy.bone = context.Bone.FirstOrDefault(x => x.BoneId == mummy.body.BoneId);
-                mummy.cranial = context.Cranial.FirstOrDefault(x => x.CranialId == mummy.body.CranialId);
+                
+                if (mummy.body != null)
+                {
+                    mummy.bone = context.Bone.FirstOrDefault(x => x.BoneId == mummy.body.BoneId);
+                    mummy.cranial = context.Cranial.FirstOrDefault(x => x.CranialId == mummy.body.CranialId);
+
+                    foreach (Sample s in context.Sample)
+                    {
+                        if (s.BodyId == mummy.body.BodyId)
+                            mummy.sample.Add(s);
+                    }
+
+                    foreach (var t in context.Tooth)
+                    {
+                        if (t.BodyId == mummy.body.BodyId)
+                            mummy.tooth.Add(t);
+                    }
+                }
+                
                 mummy.excavation = context.Excavation.FirstOrDefault(x => x.ExcavationId == b.ExcavationId);
                 foreach (var f in context.Files)
                 {
@@ -91,11 +98,7 @@ namespace EgyptExcavation.Controllers
                 }
                 mummy.location = context.Location.FirstOrDefault(x => x.LocId == b.LocId);
                 mummy.physicalOrientation = context.PhysicalOrientation.FirstOrDefault(x => x.OrientationId == b.OrientationId);
-                foreach (Sample s in context.Sample)
-                {
-                    if (s.BodyId == mummy.body.BodyId)
-                        mummy.sample.Add(s);
-                }
+                
                 foreach (var s in context.Storage)
                 {
                     foreach (var sam in mummy.sample)
@@ -104,18 +107,14 @@ namespace EgyptExcavation.Controllers
                             mummy.storage.Add(s);
                     }
                 }
-                foreach (var t in context.Tooth)
-                {
-                    if (t.BodyId == mummy.body.BodyId)
-                        mummy.tooth.Add(t);
-                }
+                
                 mummies.Mummies.Add(mummy);
             }
 
 
             if (depthmin != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
                     double decdepthmin = double.Parse(depthmin);
                     if (m.physicalOrientation.BurialDepth <= decdepthmin)
@@ -126,7 +125,7 @@ namespace EgyptExcavation.Controllers
             }
             if (depthmax != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
                     double decdepthmax = double.Parse(depthmax);
                     if (m.physicalOrientation.BurialDepth >= decdepthmax)
@@ -137,9 +136,9 @@ namespace EgyptExcavation.Controllers
             }
             if (age != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.AgeKey != age)
+                    if (m.body.AgeKey != age || m.body.AgeKey == null)
                     {
                         mummies.Mummies.Remove(m);
                     }
@@ -147,9 +146,9 @@ namespace EgyptExcavation.Controllers
             }
             if (haircolor != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.HairColorKey != haircolor)
+                    if (m.body.HairColorKey != haircolor || m.body.HairColorKey == null)
                     {
                         mummies.Mummies.Remove(m);
                     }
@@ -157,35 +156,61 @@ namespace EgyptExcavation.Controllers
             }
             if (headdirection != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.physicalOrientation.HeadDirection != headdirection)
+                    if (m.physicalOrientation != null)
+                    {
+                        if (m.physicalOrientation.HeadDirection != headdirection || m.physicalOrientation.HeadDirection == null)
+                            {
+                                mummies.Mummies.Remove(m);
+                            }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                    
                 }
             }
             if (artifacts != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
-                    bool artifactsBool = bool.Parse(artifacts);
-                    if (m.burial.ArtifactFound != artifactsBool)
+                    if (m.burial.ArtifactFound == null)
                     {
                         mummies.Mummies.Remove(m);
                     }
+                    else
+                    {
+                        bool artifactsBool = bool.Parse(artifacts);
+                        if (m.burial.ArtifactFound != artifactsBool)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    
                 }
             }
             if (gender != null)
             {
-                foreach (var m in mummies.Mummies)
+                foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.GenderKey != gender)
+                    if (m.body.GenderKey != gender || m.body.GenderKey == null)
                     {
                         mummies.Mummies.Remove(m);
                     }
                 }
             }
+
+            mummies.PageInfo = new PageNumberingInfo
+            {
+                PageSize = ItemsPerPage,
+
+                //gets number of total mummies
+                TotalMummies = mummies.Mummies.Count,
+                CurrentPage = pagenum
+
+            };
 
             return View("BurialList", mummies);
         }
