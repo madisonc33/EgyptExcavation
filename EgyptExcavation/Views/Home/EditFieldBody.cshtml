@@ -38,6 +38,7 @@
         <div class="card-body">
             <h2 class="title">Edit Body Information</h2>
             <form asp-action="EditFieldBody2" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -237,7 +238,7 @@
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
-               
+
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group" hidden>

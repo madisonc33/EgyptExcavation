@@ -37,6 +37,7 @@
         <div class="card-body">
             <h2 class="title">Edit Bone Information</h2>
             <form asp-action="EditBone2" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -253,7 +254,7 @@
                             <label asp-for="PostcrainiaAtMagazine">Postcrainia At Magazine? </label>
                             <select asp-for="PostcrainiaAtMagazine">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
                         </div>
                     </div>
@@ -262,7 +263,7 @@
                             <label asp-for="PostcrainiaTrauma">Postcrainia Trauma:</label>
                             <select asp-for="PostcrainiaTrauma">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
                         </div>
                     </div>

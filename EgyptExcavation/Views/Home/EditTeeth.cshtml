@@ -38,13 +38,14 @@
         <div class="card-body">
             <h2 class="title">Edit Tooth Information</h2>
             <form asp-action="EditTeeth2" method="POST">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="LinearHypoplasiaEnamel">Linear Hypoplasia Enamel:</label>
                             <select asp-for="LinearHypoplasiaEnamel">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
                         </div>
                     </div>

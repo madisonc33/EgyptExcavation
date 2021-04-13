@@ -34,6 +34,7 @@
         <div class="card-body">
             <h2 class="title">Edit Excavation Information</h2>
             <form asp-action="EditFieldExcavation2" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -136,7 +137,7 @@
                             <label asp-for="Byusample">BYU Sample</label>
                             <select asp-for="Byusample">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
                         </div>
                     </div>
