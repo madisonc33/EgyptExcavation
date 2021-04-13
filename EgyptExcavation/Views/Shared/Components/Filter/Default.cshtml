@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<string>
+
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home">Home</a>
+<br />
+
+<form asp-action="BurialList" method="Post">
+    <label>Minimum Depth</label>
+    <input type="number" name="depthMin" />
+    <label>Maximum Depth</label>
+    <input type="number" name="depthMax" />
+    <label for="age">Age</label>
+    <select id="age">
+        <option value="A">Adult</option>
+        <option value="C">Child</option>
+    </select>
+    <label for="gender">Gender</label>
+    <select id="gender">
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+    </select>
+    <label>Hair Color</label>
+    <select for="hairColor">
+        <option value="B">Brown/Dark Brown/Lt Brown</option>
+        <option value="K">Black</option>
+        <option value="A">Brown-Red</option>
+        <option value="R">Red/Red-Bl</option>
+        <option value="D">Blonde</option>
+        <option value="U">Unknown</option>
+    </select>
+    <label for="headDirection">Head Direction</label>
+    <select id="headDirection">
+        <option value="East">East</option>
+        <option value="West">West</option>
+        <option value="North">North</option>
+        <option value="South">South</option>
+    </select>
+    <label>Artifacts</label>
+    <select id="artifacts">
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+    </select>
+    <input type="submit" />
+</form>
