@@ -38,6 +38,7 @@
         <div class="card-body">
             <h2 class="title">Enter Physical Orientation</h2>
             <form asp-action="EnterPhysicalOrientation" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -48,7 +49,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="StoFeet">South To Feet:</label>
-                            <input asp-for="StoFeet" class="input--style-4"/>
+                            <input asp-for="StoFeet" class="input--style-4" />
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@
                         <div class="input-group">
                             <label asp-for="StoHead">South To Head:</label>
                             <input asp-for="StoHead" class="input--style-4" />
-                               
+
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="HeadDirection">Head Direction:</label>
-                            <select asp-for="HeadDirection" >
+                            <select asp-for="HeadDirection">
                                 <option value="West">West</option>
                                 <option value="East">East</option>
                                 <option value="North">North</option>
@@ -82,7 +83,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BurialDepth">Burial Depth:</label>
-                            <input asp-for="BurialDepth" class="input--style-4"/>
+                            <input asp-for="BurialDepth" class="input--style-4" />
                         </div>
                     </div>
                 </div>
@@ -90,11 +91,11 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="LengthOfRemainsInMeters">Length Of Remains In Meters:</label>
-                            <input asp-for="LengthOfRemainsInMeters" class="input--style-4"/>
+                            <input asp-for="LengthOfRemainsInMeters" class="input--style-4" />
                         </div>
                     </div>
                 </div>
-              
+
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
