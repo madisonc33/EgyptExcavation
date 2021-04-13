@@ -55,6 +55,16 @@ namespace EgyptExcavation.Controllers
             //checks if any filtering criteria have been specified, if not, it gets the first five, if yes it gets all to start)
             if (depthmin == null && depthmax == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
             {
+                mummies.PageInfo = new PageNumberingInfo
+                {
+                    PageSize = ItemsPerPage,
+
+                    //gets number of total mummies
+                    TotalMummies = context.Burial.Count(),
+                    CurrentPage = pagenum
+
+                };
+
                 burialList = context.Burial
                     .Skip((pagenum - 1) * ItemsPerPage)
                     .Take(ItemsPerPage)
@@ -202,15 +212,25 @@ namespace EgyptExcavation.Controllers
                 }
             }
 
-            mummies.PageInfo = new PageNumberingInfo
+            
+
+            if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
-                PageSize = ItemsPerPage,
+                mummies.PageInfo = new PageNumberingInfo
+                {
+                    PageSize = ItemsPerPage,
 
-                //gets number of total mummies
-                TotalMummies = mummies.Mummies.Count,
-                CurrentPage = pagenum
+                    //gets number of total mummies
+                    TotalMummies = mummies.Mummies.Count,
+                    CurrentPage = pagenum
 
-            };
+                };
+
+                mummies.Mummies = mummies.Mummies.Skip((pagenum - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .ToList();
+            }
+
 
             return View("BurialList", mummies);
         }
