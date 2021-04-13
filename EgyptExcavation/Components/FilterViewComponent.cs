@@ -20,7 +20,11 @@ namespace EgyptExcavation.Components
             filteringCriteria.Add("gender");
             //gets this from the URL
             //allows us to change the css style if it was selected
-            ViewBag.SelectedType = RouteData?.Values["filter"];
+            ViewBag.SelectedType = RouteData?.Values["age"];
+            ViewBag.SelectedType = RouteData?.Values["hairColor"];
+            ViewBag.SelectedType = RouteData?.Values["headDirection"];
+            ViewBag.SelectedType = RouteData?.Values["artifacts"];
+            ViewBag.SelectedType = RouteData?.Values["gender"];
 
             return View(filteringCriteria);
         }

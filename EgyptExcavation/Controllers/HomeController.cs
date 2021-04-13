@@ -122,46 +122,79 @@ namespace EgyptExcavation.Controllers
             }
 
 
-            if (depthmin != null)
-            {
-                foreach (var m in mummies.Mummies.ToList())
-                {
-                    double decdepthmin = double.Parse(depthmin);
-                    if (m.physicalOrientation.BurialDepth <= decdepthmin)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                }
-            }
-            if (depthmax != null)
-            {
-                foreach (var m in mummies.Mummies.ToList())
-                {
-                    double decdepthmax = double.Parse(depthmax);
-                    if (m.physicalOrientation.BurialDepth >= decdepthmax)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                }
-            }
+            //if (depthmin != null)
+            //{
+            //    foreach (var m in mummies.Mummies.ToList())
+            //    {
+            //        if (m.physicalOrientation != null)
+            //        {
+            //            double decdepthmax = double.Parse(depthmax);
+            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
+            //            {
+            //                mummies.Mummies.Remove(m);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            mummies.Mummies.Remove(m);
+            //        }
+                    
+            //    }
+            //}
+            //if (depthmax != null)
+            //{
+            //    foreach (var m in mummies.Mummies.ToList())
+            //    {
+            //        if (m.physicalOrientation != null)
+            //        {
+            //            double decdepthmax = double.Parse(depthmax);
+            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
+            //            {
+            //                mummies.Mummies.Remove(m);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            mummies.Mummies.Remove(m);
+            //        }
+                    
+                    
+            //    }
+            //}
             if (age != null)
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.AgeKey != age || m.body.AgeKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.AgeKey != age || m.body.AgeKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                    
                 }
             }
             if (haircolor != null)
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.HairColorKey != haircolor || m.body.HairColorKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.HairColorKey != haircolor || m.body.HairColorKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                   
                 }
             }
             if (headdirection != null)
@@ -186,18 +219,19 @@ namespace EgyptExcavation.Controllers
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.burial.ArtifactFound == null)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                    else
+                    if (m.burial != null)
                     {
                         bool artifactsBool = bool.Parse(artifacts);
-                        if (m.burial.ArtifactFound != artifactsBool)
+                        if (m.burial.ArtifactFound == null || m.burial.ArtifactFound != artifactsBool)
                         {
                             mummies.Mummies.Remove(m);
                         }
                     }
+                    else
+                    {
+                        mummies.Mummies.Remove(m);
+                    }
+                   
                     
                 }
             }
@@ -205,10 +239,18 @@ namespace EgyptExcavation.Controllers
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.GenderKey != gender || m.body.GenderKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.GenderKey != gender || m.body.GenderKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                   
                 }
             }
 
