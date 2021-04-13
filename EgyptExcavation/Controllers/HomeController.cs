@@ -422,7 +422,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialDetails");
+                return RedirectToAction("BurialList");
             }
             else
                 return View();
@@ -460,7 +460,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation(int POID)
         {
@@ -469,7 +469,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
         {
@@ -602,6 +602,12 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
+                context.Entry(bod).Property(x => x.HairTaken).CurrentValue = bo.HairTaken;
+                context.Entry(bod).Property(x => x.SoftTissueTaken).CurrentValue = bo.SoftTissueTaken;
+                context.Entry(bod).Property(x => x.BoneTaken).CurrentValue = bo.BoneTaken;
+                context.Entry(bod).Property(x => x.ToothTaken).CurrentValue = bo.ToothTaken;
+                context.Entry(bod).Property(x => x.TextileTaken).CurrentValue = bo.TextileTaken;
+                context.Entry(bod).Property(x => x.DescriptionOfTaken).CurrentValue = bo.DescriptionOfTaken;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
 
@@ -733,6 +739,7 @@ namespace EgyptExcavation.Controllers
                 context.Entry(cran).Property(x => x.OsteologyUnknownComment).CurrentValue = c.OsteologyUnknownComment;
                 context.Entry(cran).Property(x => x.Tmjoa).CurrentValue = c.Tmjoa;
                 context.Entry(cran).Property(x => x.CranialSuture).CurrentValue = c.CranialSuture;
+                context.Entry(cran).Property(x => x.GenderKey).CurrentValue = c.GenderKey;
                 context.Entry(cran).Property(x => x.GefunctionTotal).CurrentValue = c.GefunctionTotal;
 
                 context.SaveChanges();
@@ -852,7 +859,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample(int SampleID)
         {
@@ -861,7 +868,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -985,7 +992,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation(int ExcavationID)
         {
@@ -994,7 +1001,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {
@@ -1025,7 +1032,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize(Roles = "Researcher")]
         public IActionResult EditMummyInfo()
         {
             return View();
@@ -1038,6 +1045,7 @@ namespace EgyptExcavation.Controllers
         }
 
         //not really used
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult RecordDeleted(int burialId)
         {
@@ -1045,6 +1053,7 @@ namespace EgyptExcavation.Controllers
         }
 
         //DELETE STUFFFF
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteEntireBurial(int burialId)
         {
@@ -1053,6 +1062,7 @@ namespace EgyptExcavation.Controllers
             return RedirectToAction("BurialList");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldBody(int burialId, int BodyId)
         {
@@ -1064,6 +1074,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldCranial(int burialId, int cranialId)
         {
@@ -1075,6 +1086,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldBone(int burialId, int boneId)
         {
@@ -1086,6 +1098,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldTooth(int burialId, int ToothId)
         {
@@ -1097,6 +1110,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldExcavation(int burialId, int ExcavationId)
         {
@@ -1108,6 +1122,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldFile(int burialId, int fileId)
         {
@@ -1119,6 +1134,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldSample(int burialId, int sampleId)
         {
@@ -1130,6 +1146,7 @@ namespace EgyptExcavation.Controllers
             return View("RecordDeleted", burialId);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFieldStorage(int burialId, int rackId)
         {

@@ -74,9 +74,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background-color: #EAE7DC
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #EAE7DC;
+    background-image: url(../img/Desert_Background.jpg);
 }
 .footer {
   position: absolute;

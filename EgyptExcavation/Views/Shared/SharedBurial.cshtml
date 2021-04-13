@@ -1,0 +1,41 @@
+﻿
+@model Burial
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <h5 class="card-header">5. Excavation</h5>
+            <div class="card-body">
+                <p class="card-text">Enter year, month, and date of excavation plus more here!</p>
+                <form asp-action="EnterFieldExcavation">
+                    <div class="input-group" hidden>
+                        <label asp-for="ExcavationId">ExcavationId</label>
+                        <input asp-for="ExcavationId" />
+                    </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <h5 class="card-header">6. Files</h5>
+            <div class="card-body">
+                <p class="card-text">Enter photos, field notes, and  more here!</p>
+                <form asp-action="EnterFieldExcavation">
+                    <div class="input-group" hidden>
+                        <label asp-for="BurialId">BurialId</label>
+                        <input asp-for="BurialId" />
+                    </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <br />
+<br />
