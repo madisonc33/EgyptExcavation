@@ -444,7 +444,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialDetails");
+                return RedirectToAction("BurialList");
             }
             else
                 return View();
