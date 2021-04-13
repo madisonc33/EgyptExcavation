@@ -65,59 +65,85 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-4">
+                    <div class="input-group">
+                        <label asp-for="SampleTaken">Was A Sample Taken? </label>
+                        <select asp-for="SampleTaken">
+                            <option value="True">True</option>
+                            <option value="False">False</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
-                            <label asp-for="HairTaken">Hair Taken?</label>
-                            <input asp-for="HairTaken" class="input--style-4"/>
+                            <label asp-for="HairTaken">Hair Taken? </label>
+                            <select asp-for="HairTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <label asp-for="SoftTissueTaken">Soft Tissue Taken?</label>
-                            <input asp-for="SoftTissueTaken" class="input--style-4"/>
+                            <label asp-for="SoftTissueTaken">Soft Tissue Taken? </label>
+                            <select asp-for="SoftTissueTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
+
                             <label asp-for="BoneTaken">Bone Taken?</label>
-                            <input asp-for="BoneTaken" class="input--style-4"/>
+                            <select asp-for="BoneTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
+                </div>
+
+
+                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="ToothTaken">Tooth Taken?</label>
-                            <input asp-for="ToothTaken" class="input--style-4"/>
+                            <select asp-for="ToothTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="TextileTaken">Textile Taken?</label>
-                            <input asp-for="TextileTaken" class="input--style-4"/>
+                            <select asp-for="TextileTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
+
+
+                </div>
+                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="DescriptionOfTaken">Description of Taken: </label>
                             <input asp-for="DescriptionOfTaken" class="input--style-4" />
                         </div>
                     </div>
-                </div>
-                <div class="row row-space">
-                    <div class="col-4">
-                        <div class="input-group">
-                            <label asp-for="SampleTaken">Sample Taken? </label>
-                            <input asp-for="SampleTaken" class="input--style-4" />
-                        </div>
-                    </div>
+
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="Foci">Foci: </label>
-                            <input asp-for="Foci" class="input--style-4" value="0"/>
+                            <input asp-for="Foci" class="input--style-4" value="0" />
                         </div>
                     </div>
                 </div>
@@ -125,7 +151,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="C14sample2017">C14 Sample 2017: </label>
-                            <input asp-for="C14sample2017" class="input--style-4" value="0"/>
+                            <input asp-for="C14sample2017" class="input--style-4" value="0" />
                         </div>
                     </div>
                     <div class="col-4">
@@ -145,7 +171,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="Conventional14CageBp">Conventional 14C Age BP: </label>
-                            <input asp-for="Conventional14CageBp" class="input--style-4" value="0"/>
+                            <input asp-for="Conventional14CageBp" class="input--style-4" value="0" />
 
                         </div>
                     </div>
@@ -154,13 +180,13 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="_14calDate">14 Cal Date:</label>
-                            <input asp-for="_14calDate" class="input--style-4" value="0"/>
+                            <input asp-for="_14calDate" class="input--style-4" value="0" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="MaxCalibrated95PercCalDate">Maximum Calibrated 95 Percent Calculated Date:</label>
-                            <input asp-for="MaxCalibrated95PercCalDate" class="input--style-4" value="0"/>
+                            <input asp-for="MaxCalibrated95PercCalDate" class="input--style-4" value="0" />
 
                         </div>
                     </div>
@@ -169,13 +195,13 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="MinCalibrated95PercCalDate">Minimum Calibrated 95 Percent Calculated Date: </label>
-                            <input asp-for="MinCalibrated95PercCalDate" class="input--style-4" value="0"/>
+                            <input asp-for="MinCalibrated95PercCalDate" class="input--style-4" value="0" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="SpanCalibrated95PercCalDate">Span Calibrated 95 Percent Calculated Date: </label>
-                            <input asp-for="SpanCalibrated95PercCalDate" class="input--style-4" value="0"/>
+                            <input asp-for="SpanCalibrated95PercCalDate" class="input--style-4" value="0" />
 
                         </div>
                     </div>
@@ -184,7 +210,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="AvgCalibrated95PercCalDate">Average Calibrated 95 Percent Calculated Date:</label>
-                            <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4"/>
+                            <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4" />
                         </div>
                     </div>
                 </div>

@@ -124,6 +124,7 @@
                         </form>
                         <form asp-action="DeleteFieldBody" method="post" class="text-center">
                             <input type="hidden" name="BodyId" value="@Model.body.BodyId" />
+                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
                             <input type="submit" value="Delete All Body Information" class="btn btn-danger" />
                         </form>
                     </div>
@@ -166,6 +167,7 @@
                         </form>
                         <form asp-action="DeleteFieldCranial" method="post" class="text-center">
                             <input type="hidden" name="cranialId" value="@Model.cranial.CranialId" />
+                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
                             <input type="submit" value="Delete All Cranial Information" class="btn btn-danger" />
                         </form>
                     </div>
@@ -215,6 +217,7 @@
                         </form>
                         <form asp-action="DeleteFieldBone" method="post" class="text-center">
                             <input type="hidden" name="boneId" value="@Model.bone.BoneId" />
+                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
                             <input type="submit" value="Delete All Bone Information" class="btn btn-danger" />
                         </form>
                     </div>
@@ -236,6 +239,11 @@
                                         <input type="hidden" name="toothid" value="@t.ToothId" />
                                         <input type="submit" value="Edit Teeth Information" class="btn btn-secondary" />
                                     </form><br />
+                                    <form asp-action="DeleteFieldTooth" method="post" class="text-center">
+                                        <input type="hidden" name="ToothId" value="@t.ToothId" />
+                                        <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+                                        <input type="submit" value="Delete All Information for this Tooth" class="btn btn-danger" />
+                                    </form>
                                     iCount++;
                                 }
                             </div>
@@ -263,6 +271,11 @@
                         <form asp-action="EditFieldExcavation" method="post" class="text-center">
                             <input type="hidden" name="excavationid" value="@Model.excavation.ExcavationId" />
                             <input type="submit" value="Edit Excavation Information" class="btn btn-secondary" />
+                        </form>
+                        <form asp-action="DeleteFieldExcavation" method="post" class="text-center">
+                            <input type="hidden" name="ExcavationId" value="@Model.excavation.ExcavationId" />
+                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+                            <input type="submit" value="Delete All Excavation Information" class="btn btn-danger" />
                         </form>
                     </div>
                 </div>
@@ -304,6 +317,11 @@
                                             <input type="hidden" name="fileid" value="@f.FileId" />
                                             <input type="submit" value="Edit Files" class="btn btn-secondary" />
                                         </form><br />
+                                        <form asp-action="DeleteFieldFile" method="post" class="text-center">
+                                            <input type="hidden" name="fileId" value="@f.FileId" />
+                                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+                                            <input type="submit" value="Delete All File Information" class="btn btn-danger" />
+                                        </form>
                                         iCount2++;
                                     }
                                 }
@@ -348,6 +366,11 @@
                                             <input type="hidden" name="SampleId" value="@s.SampleId" />
                                             <input type="submit" value="Edit Sample Information" class="btn btn-secondary" />
                                         </form><br />
+                                        <form asp-action="DeleteFieldSample" method="post" class="text-center">
+                                            <input type="hidden" name="sampleId" value="@s.SampleId" />
+                                            <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+                                            <input type="submit" value="Delete Sample Information" class="btn btn-danger" />
+                                        </form>
                                         iCount3++;
                                         @foreach (var st in Model.storage)
                                         {
@@ -364,6 +387,11 @@
                                                     <input type="hidden" name="Rackid" value="@st.RackId" />
                                                     <input type="submit" value="Edit Storage Information" class="btn btn-secondary" />
                                                 </form><br />
+                                                <form asp-action="DeleteFieldStorage" method="post" class="text-center">
+                                                    <input type="hidden" name="rackId" value="@st.RackId" />
+                                                    <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+                                                    <input type="submit" value="Delete Rack Information" class="btn btn-danger" />
+                                                </form>
 
                                             }
                                         }
@@ -380,7 +408,7 @@
     </div>
 
 <form asp-action="DeleteEntireBurial" method="post" class="text-center">
-    <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
+    <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
     <input type="submit" value="Delete Entire Burial Information" class="btn btn-secondary" />
 </form>
 
