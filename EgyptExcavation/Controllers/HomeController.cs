@@ -44,16 +44,22 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        public IActionResult BurialList(string depthmin, string depthmax, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
+        public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
             ItemsPerPage = 5;
 
             var mummies = new MummyAndPage();
 
+            mummies.FilterCriteria.age = age;
+            mummies.FilterCriteria.haircolor = haircolor;
+            mummies.FilterCriteria.headdirection = headdirection;
+            mummies.FilterCriteria.artifacts = artifacts;
+            mummies.FilterCriteria.gender = gender;
+
             var burialList = new List<Burial>();
 
             //checks if any filtering criteria have been specified, if not, it gets the first five, if yes it gets all to start)
-            if (depthmin == null && depthmax == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
+            if (depth == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
             {
                 mummies.PageInfo = new PageNumberingInfo
                 {
@@ -123,43 +129,15 @@ namespace EgyptExcavation.Controllers
 
             //Code to remove items that don't meet the specified criteria
 
-            //if (depthmin != null)
+            //if (depth != null)
             //{
-            //    foreach (var m in mummies.Mummies.ToList())
+            //    if (depth == "small")
             //    {
-            //        if (m.physicalOrientation != null)
-            //        {
-            //            double decdepthmax = double.Parse(depthmax);
-            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
-            //            {
-            //                mummies.Mummies.Remove(m);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            mummies.Mummies.Remove(m);
-            //        }
-                    
+            //        mummies.Mummies.OrderBy(x => x.physicalOrientation.BurialDepth);
             //    }
-            //}
-            //if (depthmax != null)
-            //{
-            //    foreach (var m in mummies.Mummies.ToList())
+            //    else if (depth == "big")
             //    {
-            //        if (m.physicalOrientation != null)
-            //        {
-            //            double decdepthmax = double.Parse(depthmax);
-            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
-            //            {
-            //                mummies.Mummies.Remove(m);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            mummies.Mummies.Remove(m);
-            //        }
-                    
-                    
+            //        mummies.Mummies.OrderByDescending(x => x.physicalOrientation.BurialDepth);
             //    }
             //}
             if (age != null)
@@ -257,7 +235,7 @@ namespace EgyptExcavation.Controllers
 
             
             //if we filtered, it resets the pagination so that it shows correctly
-            if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
+            if (depth != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
                 mummies.PageInfo = new PageNumberingInfo
                 {

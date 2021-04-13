@@ -7,5 +7,6 @@ namespace EgyptExcavation.Models.ViewModels
     {
         public List<MummyInfo> Mummies { get; set; } = new List<MummyInfo>();
         public PageNumberingInfo PageInfo { get; set; }
+        public Filters FilterCriteria { get; set; } = new Filters();
     }
 }

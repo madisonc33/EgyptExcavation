@@ -69,9 +69,20 @@ namespace EgyptExcavation
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                //sets up different end points so that the URL looks nice
+                endpoints.MapControllerRoute("agepage",
+                    "{age}/{pagenum:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "{pagenum:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("age",
+                    "{age}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
         }

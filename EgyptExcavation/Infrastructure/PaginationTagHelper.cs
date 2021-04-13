@@ -38,7 +38,7 @@ namespace EgyptExcavation.Infrastructure
 
         //our own dictionary we are creating
         //group things based off a common prefix
-        //[HtmlAttributeName(DictionaryAttributePrefix = "page-url")]
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> KeyValuePairs { get; set; } = new Dictionary<string, object>();
 
         //Overriding pre-written method
