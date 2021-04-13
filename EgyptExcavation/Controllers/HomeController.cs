@@ -482,7 +482,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation(int POID)
         {
@@ -491,7 +491,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
         {
@@ -874,7 +874,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample(int SampleID)
         {
@@ -883,7 +883,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -1007,7 +1007,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation(int ExcavationID)
         {
@@ -1016,7 +1016,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {
