@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
 
 @inject SignInManager<IdentityUser> signInManager;
 
@@ -10,11 +15,17 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="
+        background-image:url(../img/Abstract1.jpeg);
+        background-size:70%;
+        background-repeat: no-repeat, repeat;
+        background-position: center;
+        opacity: 10.0;
+    ">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm border-bottom box-shadow mb-1 sticky-top" style="background-color:#D2691E">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Egypt Excavation</a>
+                <a class="navbar-brand js-scroll-trigger text-light" asp-area="" asp-controller="Home" asp-action="Index">Egypt Excavation</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,25 +34,26 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BurialList">Burials In Egypt</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="BurialList">Burials In Egypt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterFieldLocation">Enter Burial</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="EnterFieldLocation">Enter Burial</a>
                         </li>
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="ListRoles">Manage Roles</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Administration" asp-action="ListRoles">Manage Roles</a>
+                        </li>
                         }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <br /><br /><br />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
