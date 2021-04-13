@@ -51,7 +51,10 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BurialNs">Burial North South</label>
-                            <input asp-for="BurialNs" class="input--style-4"/>
+                            <select asp-for="BurialNs">
+                                <option value="N">N</option>
+                                <option value="S">S</option>
+                            </select>
                         </div>
                     </div>
                     <br />
@@ -67,7 +70,10 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BurialEw">Burial East West</label>
-                            <input asp-for="BurialEw" class="input--style-4"/>
+                            <select asp-for="BurialEw">
+                                <option value="E">E</option>
+                                <option value="W">W</option>
+                           </select>
                         </div>
                     </div>
                     <br />

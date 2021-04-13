@@ -55,8 +55,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="MaxCranialBreadth">Maximum Cranial Breadth:</label>
-                            <input asp-for="MaxCranialBreadth" class="input--style-4"  />
-
+                            <input asp-for="MaxCranialBreadth" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
@@ -119,7 +118,20 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="MonthOnSkull">Month On Skull:</label>
-                            <input asp-for="MonthOnSkull" class="input--style-4" />
+                            <select asp-for="MonthOnSkull">
+                                <option value="Jan">January</option>
+                                <option value="Feb">February</option>
+                                <option value="Mar">March</option>
+                                <option value="Apr">April</option>
+                                <option value="May">May</option>
+                                <option value="Jun">June</option>
+                                <option value="Jul">July</option>
+                                <option value="Aug">August</option>
+                                <option value="Sep">September</option>
+                                <option value="Oct">October</option>
+                                <option value="Nov">November</option>
+                                <option value="Dec">December</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -127,13 +139,20 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="SkullAtMagazine">Skull At Magazine:</label>
-                            <input asp-for="SkullAtMagazine" class="input--style-4" />
+                            <select asp-for="SkullAtMagazine">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                           
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="CribraOrbitalia">Cribra Orbitalia:</label>
-                            <input asp-for="CribraOrbitalia" class="input--style-4" />
+                            <select asp-for="CribraOrbitalia">
+                                 <option value="True">True</option>
+                                 <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -141,7 +160,10 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="PoroticHyperostosis">Porotic Hyperostosis:</label>
-                            <input asp-for="PoroticHyperostosis" class="input--style-4" />
+                            <select asp-for="PoroticHyperostosis">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-4">
@@ -155,13 +177,19 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="MetopicSuture">Metopic Suture:</label>
-                            <input asp-for="MetopicSuture" class="input--style-4" />
+                            <select asp-for="MetopicSuture">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="ButtonOsteoma">Button Osteoma:</label>
-                            <input asp-for="ButtonOsteoma" class="input--style-4" />
+                            <select asp-for="ButtonOsteoma">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -175,7 +203,10 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="Tmjoa">TMJOA: (what is real name?)</label>
-                            <input asp-for="Tmjoa" class="input--style-4" />
+                            <select asp-for="Tmjoa">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                 </div>
