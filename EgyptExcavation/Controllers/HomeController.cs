@@ -55,6 +55,16 @@ namespace EgyptExcavation.Controllers
             //checks if any filtering criteria have been specified, if not, it gets the first five, if yes it gets all to start)
             if (depthmin == null && depthmax == null && age == null && haircolor == null && headdirection == null && artifacts == null && gender == null)
             {
+                mummies.PageInfo = new PageNumberingInfo
+                {
+                    PageSize = ItemsPerPage,
+
+                    //gets number of total mummies
+                    TotalMummies = context.Burial.Count(),
+                    CurrentPage = pagenum
+
+                };
+
                 burialList = context.Burial
                     .Skip((pagenum - 1) * ItemsPerPage)
                     .Take(ItemsPerPage)
@@ -65,7 +75,7 @@ namespace EgyptExcavation.Controllers
                 burialList = context.Burial.ToList();
             }
 
-
+            //gets all the information from the database and ties it together
             foreach (var b in burialList)
             {
                 var mummy = new MummyInfo();
@@ -111,47 +121,81 @@ namespace EgyptExcavation.Controllers
                 mummies.Mummies.Add(mummy);
             }
 
+            //Code to remove items that don't meet the specified criteria
 
-            if (depthmin != null)
-            {
-                foreach (var m in mummies.Mummies.ToList())
-                {
-                    double decdepthmin = double.Parse(depthmin);
-                    if (m.physicalOrientation.BurialDepth <= decdepthmin)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                }
-            }
-            if (depthmax != null)
-            {
-                foreach (var m in mummies.Mummies.ToList())
-                {
-                    double decdepthmax = double.Parse(depthmax);
-                    if (m.physicalOrientation.BurialDepth >= decdepthmax)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                }
-            }
+            //if (depthmin != null)
+            //{
+            //    foreach (var m in mummies.Mummies.ToList())
+            //    {
+            //        if (m.physicalOrientation != null)
+            //        {
+            //            double decdepthmax = double.Parse(depthmax);
+            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
+            //            {
+            //                mummies.Mummies.Remove(m);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            mummies.Mummies.Remove(m);
+            //        }
+                    
+            //    }
+            //}
+            //if (depthmax != null)
+            //{
+            //    foreach (var m in mummies.Mummies.ToList())
+            //    {
+            //        if (m.physicalOrientation != null)
+            //        {
+            //            double decdepthmax = double.Parse(depthmax);
+            //            if (m.physicalOrientation.BurialDepth >= decdepthmax)
+            //            {
+            //                mummies.Mummies.Remove(m);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            mummies.Mummies.Remove(m);
+            //        }
+                    
+                    
+            //    }
+            //}
             if (age != null)
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.AgeKey != age || m.body.AgeKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.AgeKey != age || m.body.AgeKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                    
                 }
             }
             if (haircolor != null)
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.HairColorKey != haircolor || m.body.HairColorKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.HairColorKey != haircolor || m.body.HairColorKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                   
                 }
             }
             if (headdirection != null)
@@ -176,18 +220,19 @@ namespace EgyptExcavation.Controllers
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.burial.ArtifactFound == null)
-                    {
-                        mummies.Mummies.Remove(m);
-                    }
-                    else
+                    if (m.burial != null)
                     {
                         bool artifactsBool = bool.Parse(artifacts);
-                        if (m.burial.ArtifactFound != artifactsBool)
+                        if (m.burial.ArtifactFound == null || m.burial.ArtifactFound != artifactsBool)
                         {
                             mummies.Mummies.Remove(m);
                         }
                     }
+                    else
+                    {
+                        mummies.Mummies.Remove(m);
+                    }
+                   
                     
                 }
             }
@@ -195,29 +240,48 @@ namespace EgyptExcavation.Controllers
             {
                 foreach (var m in mummies.Mummies.ToList())
                 {
-                    if (m.body.GenderKey != gender || m.body.GenderKey == null)
+                    if (m.body != null)
+                    {
+                        if (m.body.GenderKey != gender || m.body.GenderKey == null)
+                        {
+                            mummies.Mummies.Remove(m);
+                        }
+                    }
+                    else
                     {
                         mummies.Mummies.Remove(m);
                     }
+                   
                 }
             }
 
-            mummies.PageInfo = new PageNumberingInfo
+            
+            //if we filtered, it resets the pagination so that it shows correctly
+            if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
-                PageSize = ItemsPerPage,
+                mummies.PageInfo = new PageNumberingInfo
+                {
+                    PageSize = ItemsPerPage,
 
-                //gets number of total mummies
-                TotalMummies = mummies.Mummies.Count,
-                CurrentPage = pagenum
+                    //gets number of total mummies
+                    TotalMummies = mummies.Mummies.Count,
+                    CurrentPage = pagenum
 
-            };
+                };
 
+                mummies.Mummies = mummies.Mummies.Skip((pagenum - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .ToList();
+            }
+
+            //returns the few along with the list of mummies and the pagination information
             return View("BurialList", mummies);
         }
 
         [HttpPost]
         public IActionResult BurialDetails(int burialid)
         {
+            //gets all the details for a specifc burial from the database
             var mummy = new MummyInfo();
 
             mummy.burial = context.Burial.Where(x => x.BurialId == burialid).FirstOrDefault();
