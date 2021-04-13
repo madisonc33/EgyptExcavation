@@ -12,21 +12,21 @@ namespace EgyptExcavation.Models
     {
         [Key]
         public int BodyId { get; set; }
-        public string? HairColorKey { get; set; }
-        public string? GenderKey { get; set; }
-        public string? AgeKey { get; set; }
-        public string? WrappingKey { get; set; }
-        public string? AdultChildKey { get; set; }
+        public string HairColorKey { get; set; }
+        public string GenderKey { get; set; }
+        public string AgeKey { get; set; }
+        public string WrappingKey { get; set; }
+        public string AdultChildKey { get; set; }
         public int? CranialId { get; set; }
         public int? BoneId { get; set; }
-        public string? BurialPreservation { get; set; }
-        public string? PreservationIndex { get; set; }
-        public string? AgeAtDeath { get; set; }
+        public string BurialPreservation { get; set; }
+        public string PreservationIndex { get; set; }
+        public string AgeAtDeath { get; set; }
         public bool? SampleTaken { get; set; }
-        public string? AgeMethod { get; set; }
-        public string? GenderMethod { get; set; }
+        public string AgeMethod { get; set; }
+        public string GenderMethod { get; set; }
         public double? EstimateLivingStature { get; set; }
-        public string? SequenceDna { get; set; }
+        public string SequenceDna { get; set; }
         public int? CarbonEstimatedDate { get; set; }
         public int? YearAnalyzed { get; set; }
     }

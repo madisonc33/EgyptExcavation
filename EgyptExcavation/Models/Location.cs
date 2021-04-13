@@ -18,17 +18,17 @@ namespace EgyptExcavation.Models
         public int? MetersNs { get; set; }
     
         [Required (ErrorMessage = "BurialNS is required")]
-        public string? BurialNs { get; set; }
+        public string BurialNs { get; set; }
 
 #pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
         [Required(ErrorMessage = "MetersEW is required")]
         public int? MetersEw { get; set; }
 
         [Required(ErrorMessage = "BurialEW is required")]
-        public string? BurialEw { get; set; }
+        public string BurialEw { get; set; }
 
         [Required(ErrorMessage = "Subplot is required")]
-        public string? Subplot { get; set; }
+        public string Subplot { get; set; }
 
         public int? HillArea { get; set; }
 
