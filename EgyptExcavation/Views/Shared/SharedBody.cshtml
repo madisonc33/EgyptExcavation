@@ -6,7 +6,7 @@
             <h5 class="card-header">1. Sample</h5>
             <div class="card-body">
                 <p class="card-text">Enter hair taken, textile taken, notes, and more here!</p>
-                <form asp-action="EnterSample">
+                <form asp-action="EnterSample" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="BodyId">BodyId</label>
                         <input asp-for="BodyId" />
@@ -25,7 +25,7 @@
             <h5 class="card-header">2. Tooth</h5>
             <div class="card-body">
                 <p class="card-text">Enter linear hypoplasia enamel, tooth attrition, tooth eruption, and more here!</p>
-                <form asp-action="EnterTeeth">
+                <form asp-action="EnterTeeth" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="BodyId">BodyId</label>
                         <input asp-for="BodyId" />
@@ -47,7 +47,7 @@
             <h5 class="card-header">3. Cranial</h5>
             <div class="card-body">
                 <p class="card-text">Enter skull trauma, max nasal breadth, cribra orbitalia, and more here!</p>
-                <form asp-action="EnterCranial">
+                <form asp-action="EnterCranial" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="CranialId">CranialId</label>
                         <input asp-for="CranialId" />
@@ -66,7 +66,7 @@
             <h5 class="card-header">4. Bone</h5>
             <div class="card-body">
                 <p class="card-text">Enter orbit edge, humerous, dorsal pitting, and more here!</p>
-                <form asp-action="EnterBone">
+                <form asp-action="EnterBone" method="get">
                     <div class="input-group" hidden>
                         <label asp-for="BoneId">BoneId</label>
                         <input asp-for="BoneId" />
