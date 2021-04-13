@@ -632,6 +632,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.tooth.Add(t);
+                t.BodyId = NewMummy.body.BodyId;
+
                 //Update Database
                 context.Tooth.Add(t);
                 context.SaveChanges();
@@ -688,6 +691,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.cranial = c;
+                c.CranialId = NewMummy.cranial.CranialId;
+
                 //Update Database
                 context.Cranial.Add(c);
                 context.SaveChanges();
@@ -760,6 +766,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.bone = b;
+                b.BoneId = NewMummy.bone.BoneId;
+
                 //Update Database
                 context.Bone.Add(b);
                 context.SaveChanges();
@@ -843,6 +852,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.sample.Add(s);
+                s.BodyId = NewMummy.body.BodyId;
+
                 //Update Database
                 context.Sample.Add(s);
                 context.SaveChanges();
@@ -904,11 +916,12 @@ namespace EgyptExcavation.Controllers
         [HttpGet]
         public IActionResult EnterStorage(int SampleId)
         {
-            return View("EnterTablesMenuPage");
+            return View();
         }
 
         [HttpPost]
         public IActionResult EnterStorage(Storage s)
+
         {
             var stoid = context.Storage.Skip(context.Storage.Count() - 1).Take(1).FirstOrDefault().RackId;
             stoid++;
@@ -917,6 +930,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.storage.Add(s);
+                s.SampleId = NewMummy.body.BodyId;
+
                 //Update Database
                 context.Storage.Add(s);
                 context.SaveChanges();
@@ -976,6 +992,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.excavation = e;
+                e.ExcavationId = NewMummy.excavation.ExcavationId;
+
                 //Update Database
                 context.Excavation.Add(e);
                 context.SaveChanges();
