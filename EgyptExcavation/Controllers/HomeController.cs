@@ -46,7 +46,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
-            ItemsPerPage = 5;
+            ItemsPerPage = 4;
 
             var mummies = new MummyAndPage();
 
