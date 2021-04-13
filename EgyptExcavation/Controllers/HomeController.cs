@@ -1110,14 +1110,6 @@ namespace EgyptExcavation.Controllers
         public IActionResult RecordDeleted(int burialId)
         {
             return View(burialId);
-            mummy.location = context.Location.Where(x => x.LocId == mummy.burial.LocId).FirstOrDefault();
-                    mummy.sample.Add(s);
-            }
-            foreach (var s in context.Storage)
-            {
-                foreach (var sam in mummy.sample)
-                {
-                    if (s.SampleId == sam.SampleId)
         }
 
         //DELETE STUFFFF
