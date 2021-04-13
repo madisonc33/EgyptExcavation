@@ -49,7 +49,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="ShelfNum">Shelf Number</label>
-                            <input asp-for="ShelfNum" class="input--style-4"/>
+                            <input asp-for="ShelfNum" class="input--style-4" value="0"/>
                             <br />
                         </div>
                     </div>
@@ -58,26 +58,18 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="TubeNum">Tube Number</label>
-                            <input asp-for="TubeNum" class="input--style-4" />
+                            <input asp-for="TubeNum" class="input--style-4" value="0"/>
 
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BagNum">Bag Number</label>
-                            <input asp-for="BagNum" class="input--style-4" />
+                            <input asp-for="BagNum" class="input--style-4" value="0"/>
                             <br />
                         </div>
                         
                     </div>
-                </div>
-                <div class="row row-space">
-                    <div hidden>
-                        <label asp-for="RackId">RackID</label>
-                        <input asp-for="RackId" />
-                        <br />
-                    </div>
-              
                 </div>
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>

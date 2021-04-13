@@ -8,14 +8,22 @@
 
 <h1 class="text-center">Burial Information on Egyption Digs</h1>
 
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <vc:filter />
+        </div>
+        <div class="col-10">
+            @*this is what we will use*@
+            @foreach (var b in Model.Mummies)
+            {
+                <partial name="BurialSummary" model="b" />
+                <br />
+            }
 
-@*this is what we will use*@
-@foreach (var b in Model.Mummies)
-{
-    <partial name="BurialSummary" model="b" />
-    <br />
-}
+            <div page-info="@Model.PageInfo" page-url="" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary">
 
-<div page-info="@Model.PageInfo" page-url="" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary">
-
+            </div>
+        </div>
+    </div>
 </div>

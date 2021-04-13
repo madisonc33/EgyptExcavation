@@ -29,6 +29,8 @@
     <Folder Include="Views\Administration\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Filter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Areas\Identity\Pages\Error.cshtml" />

@@ -65,6 +65,7 @@
                             <input type="hidden" name="LocId" value="@Model.location.LocId" />
                             <input type="submit" value="Edit Location Information" class="btn btn-secondary" />
                         </form>
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="burial" role="tabpanel" aria-labelledby="burial-tab">
@@ -115,11 +116,15 @@
                                 <p>Carbon Estimated Date: @Model.body.CarbonEstimatedDate</p>
                                 <p>Year Analyzed : @Model.body.YearAnalyzed</p>
                             </div>
-                            
+
                         </div>
                         <form asp-action="EditFieldBody" method="post" class="text-center">
-                                <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
-                                <input type="submit" value="Edit Body Information" class="btn btn-secondary" />
+                            <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
+                            <input type="submit" value="Edit Body Information" class="btn btn-secondary" />
+                        </form>
+                        <form asp-action="DeleteFieldBody" method="post" class="text-center">
+                            <input type="hidden" name="BodyId" value="@Model.body.BodyId" />
+                            <input type="submit" value="Delete All Body Information" class="btn btn-danger" />
                         </form>
                     </div>
                 </div>
@@ -153,11 +158,15 @@
                                 <p>GE Function Total: @Model.cranial.GefunctionTotal</p>
 
                             </div>
-                            
+
                         </div>
                         <form asp-action="EditCranial" method="post" class="text-center">
-                                <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
-                                <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
+                            <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
+                            <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
+                        </form>
+                        <form asp-action="DeleteFieldCranial" method="post" class="text-center">
+                            <input type="hidden" name="cranialId" value="@Model.cranial.CranialId" />
+                            <input type="submit" value="Delete All Cranial Information" class="btn btn-danger" />
                         </form>
                     </div>
                 </div>
@@ -203,6 +212,10 @@
                         <form asp-action="EditBone" method="post" class="text-center">
                             <input type="hidden" name="boneid" value="@Model.bone.BoneId" />
                             <input type="submit" value="Edit Bone Information" class="btn btn-secondary" />
+                        </form>
+                        <form asp-action="DeleteFieldBone" method="post" class="text-center">
+                            <input type="hidden" name="boneId" value="@Model.bone.BoneId" />
+                            <input type="submit" value="Delete All Bone Information" class="btn btn-danger" />
                         </form>
                     </div>
                 </div>
@@ -366,7 +379,9 @@
         </div>
     </div>
 
-<div>
-</div>
+<form asp-action="DeleteEntireBurial" method="post" class="text-center">
+    <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
+    <input type="submit" value="Delete Entire Burial Information" class="btn btn-secondary" />
+</form>
 
 @*Add delete functionality*@
