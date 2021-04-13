@@ -1,67 +1,7 @@
 ﻿@Model 
 
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <h5 class="card-header">1. Excavation</h5>
-            <div class="card-body">
-                <p class="card-text">Enter year, month, and date of excavation plus more here!</p>
-                <form asp-action="PAGE">Enter Info
-                    <!-- Hidden button field for fk relationship-->
-                </form>
-            </div>
-        </div>
-    </div>
+<partial name="SharedBody" />
 
-    <br />
+<partial name="SharedBurial" />
 
-    <div class="col-sm-6">
-        <div class="card">
-            <h5 class="card-header">2. Bone</h5>
-            <div class="card-body">
-                <p class="card-text">Enter orbit edge, humerous, dorsal pitting, and more here!</p>
-                <a href="#" class="btn btn-primary">Enter Info</a>
-            </div>
-        </div>
-    </div>
-
-    <br />
-
-    <div class="col-sm-6">
-        <div class="card">
-            <h5 class="card-header">3. Cranial</h5>
-            <div class="card-body">
-                <p class="card-text">Enter skull trauma, max nasal breadth, cribra orbitalia, and more here!</p>
-                <a href="#" class="btn btn-primary">Enter Info</a>
-            </div>
-        </div>
-    </div>
-
-    <br />
-
-    <div class="col-sm-6">
-        <div class="card">
-            <h5 class="card-header">4. Tooth</h5>
-            <div class="card-body">
-                <p class="card-text">Enter linear hypoplasia enamel, tooth attrition, tooth eruption, and more here!</p>
-                <a href="#" class="btn btn-primary">Enter Info</a>
-            </div>
-        </div>
-    </div>
-
-
-    <br />
-
-    <div class="col-sm-6">
-        <div class="card">
-            <h5 class="card-header">5. Sample</h5>
-            <div class="card-body">
-                <p class="card-text">Enter hair taken, textile taken, notes, and more here!</p>
-                <a href="#" class="btn btn-primary">Enter Info</a> 
-                <!-- Add ability to enter Storage information after they submit sample information. -->
-            </div>
-        </div>
-    </div>
-
-</div>
 

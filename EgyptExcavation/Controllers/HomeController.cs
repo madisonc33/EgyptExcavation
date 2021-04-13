@@ -624,6 +624,12 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
+                context.Entry(bod).Property(x => x.HairTaken).CurrentValue = bo.HairTaken;
+                context.Entry(bod).Property(x => x.SoftTissueTaken).CurrentValue = bo.SoftTissueTaken;
+                context.Entry(bod).Property(x => x.BoneTaken).CurrentValue = bo.BoneTaken;
+                context.Entry(bod).Property(x => x.ToothTaken).CurrentValue = bo.ToothTaken;
+                context.Entry(bod).Property(x => x.TextileTaken).CurrentValue = bo.TextileTaken;
+                context.Entry(bod).Property(x => x.DescriptionOfTaken).CurrentValue = bo.DescriptionOfTaken;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
 
@@ -755,6 +761,7 @@ namespace EgyptExcavation.Controllers
                 context.Entry(cran).Property(x => x.OsteologyUnknownComment).CurrentValue = c.OsteologyUnknownComment;
                 context.Entry(cran).Property(x => x.Tmjoa).CurrentValue = c.Tmjoa;
                 context.Entry(cran).Property(x => x.CranialSuture).CurrentValue = c.CranialSuture;
+                context.Entry(cran).Property(x => x.GenderKey).CurrentValue = c.GenderKey;
                 context.Entry(cran).Property(x => x.GefunctionTotal).CurrentValue = c.GefunctionTotal;
 
                 context.SaveChanges();
