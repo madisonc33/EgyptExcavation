@@ -75,7 +75,7 @@ namespace EgyptExcavation.Controllers
                 burialList = context.Burial.ToList();
             }
 
-
+            //gets all the information from the database and ties it together
             foreach (var b in burialList)
             {
                 var mummy = new MummyInfo();
@@ -121,6 +121,7 @@ namespace EgyptExcavation.Controllers
                 mummies.Mummies.Add(mummy);
             }
 
+            //Code to remove items that don't meet the specified criteria
 
             //if (depthmin != null)
             //{
@@ -255,7 +256,7 @@ namespace EgyptExcavation.Controllers
             }
 
             
-
+            //if we filtered, it resets the pagination so that it shows correctly
             if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
                 mummies.PageInfo = new PageNumberingInfo
@@ -273,13 +274,14 @@ namespace EgyptExcavation.Controllers
                     .ToList();
             }
 
-
+            //returns the few along with the list of mummies and the pagination information
             return View("BurialList", mummies);
         }
 
         [HttpPost]
         public IActionResult BurialDetails(int burialid)
         {
+            //gets all the details for a specifc burial from the database
             var mummy = new MummyInfo();
 
             mummy.burial = context.Burial.Where(x => x.BurialId == burialid).FirstOrDefault();
@@ -338,6 +340,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Location.Add(l);
                 context.SaveChanges();
+                ViewBag.LocationId = l.LocId;
                 return View("EnterFieldNotesBurial");
             }
             //Otherwise
@@ -396,10 +399,14 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                bu.LocId = ViewBag.LocationId;
                 //Update Database
                 context.Burial.Add(bu);
                 context.SaveChanges();
-                return View("PhysicalOrientation");
+                ViewBag.LocationId = null;
+                ViewBag.OrientId = bu.OrientationId;
+                ViewBag.BodId = bu.BodyId;
+                return View("EnterPhysicalOrientation");
             }
             //Otherwise
             return View();
@@ -437,7 +444,7 @@ namespace EgyptExcavation.Controllers
 
                 context.SaveChanges();
 
-                return RedirectToAction("BurialDetails");
+                return RedirectToAction("BurialList");
             }
             else
                 return View();
@@ -462,16 +469,20 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                po.OrientationId = ViewBag.OrientId;
                 //Update Database
                 context.PhysicalOrientation.Add(po);
                 context.SaveChanges();
-                return View("Files");
+                ViewBag.OrientId = null;
+
+                return View("EnterFieldBody");
+
             }
             //Otherwise
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation(int POID)
         {
@@ -480,7 +491,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
         {
@@ -578,9 +589,11 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                bo.BodyId = ViewBag.BodId;
                 //Update Database
                 context.Body.Add(bo);
                 context.SaveChanges();
+                ViewBag.BodId = null;
                 return View("EnterTablesMenuPage");
             }
             //Otherwise
@@ -611,12 +624,6 @@ namespace EgyptExcavation.Controllers
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
-                context.Entry(bod).Property(x => x.HairTaken).CurrentValue = bo.HairTaken;
-                context.Entry(bod).Property(x => x.SoftTissueTaken).CurrentValue = bo.SoftTissueTaken;
-                context.Entry(bod).Property(x => x.BoneTaken).CurrentValue = bo.BoneTaken;
-                context.Entry(bod).Property(x => x.ToothTaken).CurrentValue = bo.ToothTaken;
-                context.Entry(bod).Property(x => x.TextileTaken).CurrentValue = bo.TextileTaken;
-                context.Entry(bod).Property(x => x.DescriptionOfTaken).CurrentValue = bo.DescriptionOfTaken;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
 
@@ -748,7 +755,6 @@ namespace EgyptExcavation.Controllers
                 context.Entry(cran).Property(x => x.OsteologyUnknownComment).CurrentValue = c.OsteologyUnknownComment;
                 context.Entry(cran).Property(x => x.Tmjoa).CurrentValue = c.Tmjoa;
                 context.Entry(cran).Property(x => x.CranialSuture).CurrentValue = c.CranialSuture;
-                context.Entry(cran).Property(x => x.GenderKey).CurrentValue = c.GenderKey;
                 context.Entry(cran).Property(x => x.GefunctionTotal).CurrentValue = c.GefunctionTotal;
 
                 context.SaveChanges();
@@ -868,7 +874,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample(int SampleID)
         {
@@ -877,7 +883,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -1001,7 +1007,7 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation(int ExcavationID)
         {
@@ -1010,7 +1016,7 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {

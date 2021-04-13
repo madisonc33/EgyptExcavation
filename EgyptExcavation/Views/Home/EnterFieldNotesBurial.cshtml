@@ -42,24 +42,21 @@
         <div class="card-body">
             <h2 class="title">Enter Burial Information</h2>
             <form asp-action="EnterFieldNotesBurial" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BurialNum">Burial Number:</label>
-                            <input asp-for="BurialNum" class="input--style-4" value="0"/>
+                            <input asp-for="BurialNum" class="input--style-4" value="0" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="ArtifactFound">Artifact Found:</label>
-<<<<<<< HEAD
                             <select asp-for="ArtifactFound">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
-=======
-                            <input asp-for="ArtifactFound" class="input--style-4"/>
->>>>>>> 1d2ad712a36456eb18d149ca9934d54bbfceb44e
                         </div>
                     </div>
                 </div>
@@ -81,7 +78,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="Goods">Goods</label>
-                            <input asp-for="Goods" class="input--style-4" />
+                            <input asp-for="Goods" class="input--style-4" maxlength="1"  />
                         </div>
                     </div>
                     <div class="col-4">
@@ -95,20 +92,16 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BiologicalClusterNum">Biological Cluster Number</label>
-                            <input asp-for="BiologicalClusterNum" class="input--style-4" value="0"/>
+                            <input asp-for="BiologicalClusterNum" class="input--style-4" value="0" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="PreviouslySampled">Has The Burial Been Previously Sampled?</label>
-<<<<<<< HEAD
                             <select asp-for="PreviouslySampled">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
-=======
-                            <input asp-for="PreviouslySampled" class="input--style-4"/>
->>>>>>> 1d2ad712a36456eb18d149ca9934d54bbfceb44e
                         </div>
                     </div>
                 </div>
@@ -116,7 +109,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BiologicalNotes">Biological Notes</label>
-                            <input asp-for="BiologicalNotes" class="input--style-4"/>
+                            <input asp-for="BiologicalNotes" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
@@ -124,7 +117,7 @@
                             <label asp-for="ToBeConfirmed">To Be Confirmed?</label>
                             <select asp-for="ToBeConfirmed">
                                 <option value="True">True</option>
-                                <option value="False">True</option>
+                                <option value="False">False</option>
                             </select>
                         </div>
                     </div>
@@ -133,13 +126,9 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BurialSituation">What is the Burial Situation?</label>
-                            <input asp-for="BurialSituation" class="input--style-4"/>
+                            <input asp-for="BurialSituation" class="input--style-4" />
                         </div>
                     </div>
-<<<<<<< HEAD
-                    
-=======
->>>>>>> 1d2ad712a36456eb18d149ca9934d54bbfceb44e
                 </div>
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>

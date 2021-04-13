@@ -37,6 +37,7 @@
         <div class="card-body">
             <h2 class="title">Enter Sample Information</h2>
             <form asp-action="EnterSample" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -65,17 +66,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="input-group">
-                        <label asp-for="SampleTaken">Was A Sample Taken? </label>
-                        <select asp-for="SampleTaken">
-                            <option value="True">True</option>
-                            <option value="False">False</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div class="row row-space">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label asp-for="SampleTaken">Was A Sample Taken? </label>
+                            <select asp-for="SampleTaken">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                        </div>
+                    </div>
+
+
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="HairTaken">Hair Taken? </label>
@@ -86,6 +88,8 @@
                             </select>
                         </div>
                     </div>
+                </div>
+                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="SoftTissueTaken">Soft Tissue Taken? </label>
@@ -95,8 +99,6 @@
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
 
@@ -213,10 +215,10 @@
                             <input asp-for="AvgCalibrated95PercCalDate" class="input--style-4" />
                         </div>
                     </div>
-                </div>
-                <div class="p-t-15">
-                    <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
-                </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
+                    </div>
+                </div>  
             </form>
         </div>
     </div>
