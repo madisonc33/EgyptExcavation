@@ -63,11 +63,13 @@
                             <p>Tomb Number: @Model.location.TombNum</p>
                         </div>
                     </div>
-                    <form asp-action="EditFieldLocation" method="post" class="text-center">
-                        <input type="hidden" name="LocId" value="@Model.location.LocId" />
-                        <input type="submit" value="Edit Location Information" class="btn btn-secondary" />
-                    </form>
-
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditFieldLocation" method="post" class="text-center">
+                            <input type="hidden" name="LocId" value="@Model.location.LocId" />
+                            <input type="submit" value="Edit Location Information" class="btn btn-secondary" />
+                        </form>
+                    }
                 </div>
             </div>
             <div class="tab-pane fade" id="burial" role="tabpanel" aria-labelledby="burial-tab">
@@ -91,10 +93,13 @@
                         </div>
 
                     </div>
-                    <form asp-action="EditFieldNotesBurial" method="post" class="text-center">
-                        <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
-                        <input type="submit" value="Edit Burial Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditFieldNotesBurial" method="post" class="text-center">
+                            <input type="hidden" name="BurialId" value="@Model.burial.BurialId" />
+                            <input type="submit" value="Edit Burial Information" class="btn btn-secondary" />
+                        </form>
+                    }
                 </div>
             </div>
             <div class="tab-pane fade" id="body" role="tabpanel" aria-labelledby="body-tab">
@@ -120,10 +125,13 @@
                         </div>
 
                     </div>
-                    <form asp-action="EditFieldBody" method="post" class="text-center">
-                        <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
-                        <input type="submit" value="Edit Body Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditFieldBody" method="post" class="text-center">
+                            <input type="hidden" name="bodyid" value="@Model.body.BodyId" />
+                            <input type="submit" value="Edit Body Information" class="btn btn-secondary" />
+                        </form>
+                    }
                 </div>
             </div>
             <div class="tab-pane fade" id="cranial" role="tabpanel" aria-labelledby="cranial-tab">
@@ -158,10 +166,13 @@
                         </div>
 
                     </div>
-                    <form asp-action="EditCranial" method="post" class="text-center">
-                        <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
-                        <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditCranial" method="post" class="text-center">
+                            <input type="hidden" name="cranialid" value="@Model.cranial.CranialId" />
+                            <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
+                        </form>
+                    }
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldCranial" method="post" class="text-center">
@@ -211,10 +222,13 @@
                             <p>Osteology Notes: @Model.bone.OsteologyNotes</p>
                         </div>
                     </div>
-                    <form asp-action="EditBone" method="post" class="text-center">
-                        <input type="hidden" name="boneid" value="@Model.bone.BoneId" />
-                        <input type="submit" value="Edit Bone Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditBone" method="post" class="text-center">
+                            <input type="hidden" name="boneid" value="@Model.bone.BoneId" />
+                            <input type="submit" value="Edit Bone Information" class="btn btn-secondary" />
+                        </form>
+                    }
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldBone" method="post" class="text-center">
@@ -238,10 +252,14 @@
                                 <p>Tooth Eruption: @t.ToothEruption</p>
                                 <p>Pathology Anomoly: @t.PathologyAnomoly</p>
                                 <br />
-                                <form asp-action="EditTeeth" method="post" class="text-center">
-                                    <input type="hidden" name="toothid" value="@t.ToothId" />
-                                    <input type="submit" value="Edit Teeth Information" class="btn btn-secondary" />
-                                </form><br />
+                                @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                                {
+                                    <form asp-action="EditTeeth" method="post" class="text-center">
+                                        <input type="hidden" name="toothid" value="@t.ToothId" />
+                                        <input type="submit" value="Edit Teeth Information" class="btn btn-secondary" />
+                                    </form>
+                                }
+                                <br />
                                 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                 {
                                     <form asp-action="DeleteFieldTooth" method="post" class="text-center">
@@ -274,10 +292,13 @@
                         </div>
 
                     </div>
-                    <form asp-action="EditFieldExcavation" method="post" class="text-center">
-                        <input type="hidden" name="excavationid" value="@Model.excavation.ExcavationId" />
-                        <input type="submit" value="Edit Excavation Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditFieldExcavation" method="post" class="text-center">
+                            <input type="hidden" name="excavationid" value="@Model.excavation.ExcavationId" />
+                            <input type="submit" value="Edit Excavation Information" class="btn btn-secondary" />
+                        </form>
+                    }
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldExcavation" method="post" class="text-center">
@@ -301,10 +322,13 @@
                             <p>Length of Remains (Meters): @Model.physicalOrientation.LengthOfRemainsInMeters</p>
                         </div>
                     </div>
-                    <form asp-action="EditPhysicalOrientation" method="post" class="text-center">
-                        <input type="hidden" name="OrientationId" value="@Model.physicalOrientation.OrientationId" />
-                        <input type="submit" value="Edit Orientation Information" class="btn btn-secondary" />
-                    </form>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                    {
+                        <form asp-action="EditPhysicalOrientation" method="post" class="text-center">
+                            <input type="hidden" name="OrientationId" value="@Model.physicalOrientation.OrientationId" />
+                            <input type="submit" value="Edit Orientation Information" class="btn btn-secondary" />
+                        </form>
+                    }
                 </div>
             </div>
             <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="files-tab">
@@ -322,10 +346,14 @@
                                     <p>@f.OtherNote</p>
                                     <p>@f.BoneBook</p>
                                     <br />
-                                    <form asp-action="EditFiles" method="post" class="text-center">
-                                        <input type="hidden" name="fileid" value="@f.FileId" />
-                                        <input type="submit" value="Edit Files" class="btn btn-secondary" />
-                                    </form><br />
+                                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                                    {
+                                        <form asp-action="EditFiles" method="post" class="text-center">
+                                            <input type="hidden" name="fileid" value="@f.FileId" />
+                                            <input type="submit" value="Edit Files" class="btn btn-secondary" />
+                                        </form>
+                                    }
+                                    <br />
                                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                     {
                                         <form asp-action="DeleteFieldFile" method="post" class="text-center">
@@ -374,10 +402,14 @@
                                     <p>Span Calibrated 95 Percent Cal Date : @s.SpanCalibrated95PercCalDate</p>
                                     <p>Avg Calibrated 95 Percent Cal Date : @s.AvgCalibrated95PercCalDate</p>
                                     <br />
-                                    <form asp-action="EditSample" method="post" class="text-center">
-                                        <input type="hidden" name="SampleId" value="@s.SampleId" />
-                                        <input type="submit" value="Edit Sample Information" class="btn btn-secondary" />
-                                    </form><br />
+                                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                                    {
+                                        <form asp-action="EditSample" method="post" class="text-center">
+                                            <input type="hidden" name="SampleId" value="@s.SampleId" />
+                                            <input type="submit" value="Edit Sample Information" class="btn btn-secondary" />
+                                        </form>
+                                    }
+                                    <br />
                                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                     {
                                         <form asp-action="DeleteFieldSample" method="post" class="text-center">
@@ -398,10 +430,14 @@
                                             <p>Tube Number: @st.TubeNum</p>
                                             <p>Bag Number: @st.BagNum</p>
                                             <br />
-                                            <form asp-action="EditStorage" method="post" class="text-center">
-                                                <input type="hidden" name="Rackid" value="@st.RackId" />
-                                                <input type="submit" value="Edit Storage Information" class="btn btn-secondary" />
-                                            </form><br />
+                                            @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
+                                            {
+                                                <form asp-action="EditStorage" method="post" class="text-center">
+                                                    <input type="hidden" name="Rackid" value="@st.RackId" />
+                                                    <input type="submit" value="Edit Storage Information" class="btn btn-secondary" />
+                                                </form>
+                                            }
+                                            <br />
                                             @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                             {
                                                 <form asp-action="DeleteFieldStorage" method="post" class="text-center">
@@ -427,9 +463,17 @@
 <br />
 @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
-    <form asp-action="DeleteEntireBurial" method="post" class="text-center">
-        <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
-        <input type="submit" value="Delete Entire Burial Information" class="btn btn-secondary" />
-    </form>
+<form asp-action="DeleteEntireBurial" method="post" class="text-center">
+    <input type="hidden" name="burialId" value="@Model.burial.BurialId" />
+    <input type="hidden" name="bodyId" value="@Model.body.BodyId" />
+    <input type="hidden" name="boneId" value="@Model.bone.BoneId" />
+    <input type="hidden" name="cranialId" value="@Model.cranial.CranialId" />
+    <input type="hidden" name="excavationId" value="@Model.excavation.ExcavationId" />
+    <input type="hidden" name="physicalOrientationId" value="@Model.physicalOrientation.OrientationId" />
+    <input type="hidden" name="sampleList" value="@Model.sample" />
+    <input type="hidden" name="storageList" value="@Model.storage" />
+    <input type="hidden" name="toothList" value="@Model.tooth" />
+    <input type="hidden" name="fileList" value="@Model.files" />
+    <input type="submit" value="Delete Entire Burial Information" class="btn btn-secondary" />
+</form>
 }
-@*Add delete functionality*@
