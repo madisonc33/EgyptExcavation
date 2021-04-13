@@ -1,7 +1,8 @@
-﻿@Model
+﻿
+@model MummyInfo 
+  
+<partial name="SharedBody" model="@Model.body"/>
 
-<partial name="SharedBody" />
-
-<partial name="SharedBurial" />
+<partial name="SharedBurial" model="@Model.burial" />
 
 

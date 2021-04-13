@@ -9,11 +9,10 @@
                 <p class="card-text">Enter year, month, and date of excavation plus more here!</p>
                 <form asp-action="EnterFieldExcavation" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="ExcavationId">ExcavationId</label>
-                        <input asp-for="ExcavationId" />
+                        <input name="BurialId" value="@Model.BurialId" />
                     </div>
                     <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
+                        <button class="btn btn--radius-2 btn-blue" type="submit">Add</button>
                     </div>
                 </form>
             </div>
@@ -26,11 +25,10 @@
                 <p class="card-text">Enter photos, field notes, and  more here!</p>
                 <form asp-action="EnterFiles" method="get">
                     <div class="input-group" hidden>
-                        <label asp-for="BurialId">BurialId</label>
-                        <input asp-for="BurialId" />
+                        <input name="BurialId" value="@Model.BurialId" />
                     </div>
                     <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
+                        <button class="btn btn--radius-2 btn-blue" type="submit">Add</button>
                     </div>
                 </form>
             </div>
