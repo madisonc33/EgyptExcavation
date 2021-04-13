@@ -17,16 +17,16 @@ namespace EgyptExcavation.Models
         public int? LocId { get; set; }
         public int? BodyId { get; set; }
         public int? ExcavationId { get; set; }
-        public string? FaceBundleKey { get; set; }
+        public string FaceBundleKey { get; set; }
         public bool? ArtifactFound { get; set; }
-        public string? ArtifactsDescription { get; set; }
-        public string? Cluster { get; set; }
-        public string? Goods { get; set; }
-        public string? BiologicalInitials { get; set; }
+        public string ArtifactsDescription { get; set; }
+        public string Cluster { get; set; }
+        public string Goods { get; set; }
+        public string BiologicalInitials { get; set; }
         public int? BiologicalClusterNum { get; set; }
         public bool? PreviouslySampled { get; set; }
-        public string? BiologicalNotes { get; set; }
+        public string BiologicalNotes { get; set; }
         public bool? ToBeConfirmed { get; set; }
-        public string? BurialSituation { get; set; }
+        public string BurialSituation { get; set; }
     }
 }

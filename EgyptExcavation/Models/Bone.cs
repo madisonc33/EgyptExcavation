@@ -12,7 +12,7 @@ namespace EgyptExcavation.Models
     {
         [Key]
         public int BoneId { get; set; }
-        public string? EpiphysealUnion { get; set; }
+        public string EpiphysealUnion { get; set; }
         public int? ZygomaticCrest { get; set; }
         public int? NuchalCrest { get; set; }
         public int? Gonian { get; set; }
@@ -43,6 +43,6 @@ namespace EgyptExcavation.Models
         public string BasilarSuture { get; set; }
         public bool? PostcrainiaAtMagazine { get; set; }
         public bool? PostcrainiaTrauma { get; set; }
-        public string? OsteologyNotes { get; set; }
+        public string OsteologyNotes { get; set; }
     }
 }

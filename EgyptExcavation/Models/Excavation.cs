@@ -13,12 +13,12 @@ namespace EgyptExcavation.Models
         [Key]
         public int ExcavationId { get; set; }
         public int? ExcYear { get; set; }
-        public string? ExcMonth { get; set; }
+        public string ExcMonth { get; set; }
         public int? ExcDayOfMonth { get; set; }
-        public string? FieldBook { get; set; }
+        public string FieldBook { get; set; }
         public int? FieldBookPageNum { get; set; }
-        public string? InitialsOfEntryExpert { get; set; }
-        public string? InitialsOfEntryChecker { get; set; }
+        public string InitialsOfEntryExpert { get; set; }
+        public string InitialsOfEntryChecker { get; set; }
         public bool? Byusample { get; set; }
     }
 }

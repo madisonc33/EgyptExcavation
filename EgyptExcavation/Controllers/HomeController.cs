@@ -47,7 +47,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
-            ItemsPerPage = 5;
+            ItemsPerPage = 4;
 
             var mummies = new MummyAndPage();
 
@@ -501,9 +501,9 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EnterFiles(Files f)
+        public IActionResult EnterFiles()
         {
-            var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
+            /*var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
             filid++;
             f.FileId = filid;
 
@@ -515,23 +515,23 @@ namespace EgyptExcavation.Controllers
                 context.SaveChanges();
                 // return View("BurialList", context.Files);
                 return View("EnterTablesMenuPage");
-            }
+            } */
             //Otherwise
-            return View();
+            return View("EnterTablesMenuPage"); 
         }
 
         [HttpPost]
-        public IActionResult EditFiles(int FileID)
+        public IActionResult EditFiles()
         {
-            Files f = context.Files.Single(x => x.FileId == FileID);
-            return View("EditFiles", f);
+           // Files f = context.Files.Single(x => x.FileId == FileID);
+            return View("EditFiles");
 
         }
 
         [HttpPost]
-        public IActionResult EditFiles2(Files f, int FileID)
+        public IActionResult EditFiles2()
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 var fil = context.Files.SingleOrDefault(x => x.FileId == f.FileId);
 
@@ -544,8 +544,8 @@ namespace EgyptExcavation.Controllers
 
                 return RedirectToAction("BurialList");
             }
-            else
-                return View();
+            else*/
+                return View("Index");
         }
 
         //BODY
@@ -1055,17 +1055,18 @@ namespace EgyptExcavation.Controllers
             return RedirectToAction("BurialList");
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult DeleteFieldBody(int burialId, int BodyId)
-        {
-            //delete row in this table
-            var body = context.Body.FirstOrDefault(x => x.BodyId == BodyId);
-            context.Body.Remove(body);
-            context.SaveChanges();
+        //not in use
+        //[Authorize(Roles = "Admin")]
+        //[HttpPost]
+        //public IActionResult DeleteFieldBody(int burialId, int BodyId)
+        //{
+        //    //delete row in this table
+        //    var body = context.Body.FirstOrDefault(x => x.BodyId == BodyId);
+        //    context.Body.Remove(body);
+        //    context.SaveChanges();
 
-            return View("RecordDeleted", burialId);
-        }
+        //    return View("RecordDeleted", burialId);
+        //}
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
