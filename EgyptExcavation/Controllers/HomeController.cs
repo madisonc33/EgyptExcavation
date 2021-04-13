@@ -75,7 +75,7 @@ namespace EgyptExcavation.Controllers
                 burialList = context.Burial.ToList();
             }
 
-
+            //gets all the information from the database and ties it together
             foreach (var b in burialList)
             {
                 var mummy = new MummyInfo();
@@ -121,6 +121,7 @@ namespace EgyptExcavation.Controllers
                 mummies.Mummies.Add(mummy);
             }
 
+            //Code to remove items that don't meet the specified criteria
 
             //if (depthmin != null)
             //{
@@ -255,7 +256,7 @@ namespace EgyptExcavation.Controllers
             }
 
             
-
+            //if we filtered, it resets the pagination so that it shows correctly
             if (depthmin != null || depthmax != null || age != null || haircolor != null || headdirection != null || artifacts != null || gender != null)
             {
                 mummies.PageInfo = new PageNumberingInfo
@@ -273,13 +274,14 @@ namespace EgyptExcavation.Controllers
                     .ToList();
             }
 
-
+            //returns the few along with the list of mummies and the pagination information
             return View("BurialList", mummies);
         }
 
         [HttpPost]
         public IActionResult BurialDetails(int burialid)
         {
+            //gets all the details for a specifc burial from the database
             var mummy = new MummyInfo();
 
             mummy.burial = context.Burial.Where(x => x.BurialId == burialid).FirstOrDefault();
