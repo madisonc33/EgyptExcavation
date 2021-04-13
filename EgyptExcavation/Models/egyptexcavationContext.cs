@@ -92,10 +92,6 @@ namespace EgyptExcavation.Models
 
                 entity.Property(e => e.CranialId).HasColumnName("CranialID");
 
-                entity.Property(e => e.DescriptionOfTaken)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.GenderKey)
                     .HasMaxLength(1)
                     .IsUnicode(false);
@@ -230,10 +226,6 @@ namespace EgyptExcavation.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.GefunctionTotal).HasColumnName("GEFunctionTotal");
-
-                entity.Property(e => e.GenderKey)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.MonthOnSkull)
                     .HasMaxLength(15)

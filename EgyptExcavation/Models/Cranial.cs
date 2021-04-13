@@ -34,7 +34,6 @@ namespace EgyptExcavation.Models
         public bool? Tmjoa { get; set; }
         public int? DateOnSkull { get; set; }
         public string? CranialSuture { get; set; }
-        public string? GenderKey { get; set; }
         public double? GefunctionTotal { get; set; }
     }
 }
