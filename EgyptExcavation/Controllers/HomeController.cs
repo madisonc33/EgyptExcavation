@@ -46,7 +46,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
         {
-            ItemsPerPage = 5;
+            ItemsPerPage = 4;
 
             var mummies = new MummyAndPage();
 
@@ -1055,17 +1055,18 @@ namespace EgyptExcavation.Controllers
             return RedirectToAction("BurialList");
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult DeleteFieldBody(int burialId, int BodyId)
-        {
-            //delete row in this table
-            var body = context.Body.FirstOrDefault(x => x.BodyId == BodyId);
-            context.Body.Remove(body);
-            context.SaveChanges();
+        //not in use
+        //[Authorize(Roles = "Admin")]
+        //[HttpPost]
+        //public IActionResult DeleteFieldBody(int burialId, int BodyId)
+        //{
+        //    //delete row in this table
+        //    var body = context.Body.FirstOrDefault(x => x.BodyId == BodyId);
+        //    context.Body.Remove(body);
+        //    context.SaveChanges();
 
-            return View("RecordDeleted", burialId);
-        }
+        //    return View("RecordDeleted", burialId);
+        //}
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
