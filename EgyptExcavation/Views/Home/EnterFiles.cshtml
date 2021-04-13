@@ -38,6 +38,7 @@
         <div class="card-body">
             <h2 class="title">Enter Files</h2>
             <form asp-action="EnterFiles" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="row row-space">
                     <div class="col-4">
                         <div class="input-group">
@@ -56,16 +57,16 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="OtherNote">Upload Other Documents:</label>
-                            <input asp-for="OtherNote" class="input--style-4"/>
+                            <input asp-for="OtherNote" class="input--style-4" />
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="BoneBook">Upload BoneBook:</label>
-                            <input asp-for="BoneBook" class="input--style-4"/>
+                            <input asp-for="BoneBook" class="input--style-4" />
                         </div>
                     </div>
-                </div>               
+                </div>
                 <div class="p-t-15">
                     <button class="btn btn--radius-2 btn--blue" type="submit">Next</button>
                 </div>
