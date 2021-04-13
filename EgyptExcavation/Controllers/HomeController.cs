@@ -495,7 +495,7 @@ namespace EgyptExcavation.Controllers
         //FILES
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFiles()
+        public IActionResult EnterFiles(int BurialId)
         {
             return View();
         }
@@ -616,7 +616,7 @@ namespace EgyptExcavation.Controllers
         //TEETH
 
         [HttpGet]
-        public IActionResult EnterTeeth()
+        public IActionResult EnterTeeth(int BodyId)
         {
             return View();
         }
@@ -673,7 +673,7 @@ namespace EgyptExcavation.Controllers
         //CRANIAL
 
         [HttpGet]
-        public IActionResult EnterCranial()
+        public IActionResult EnterCranial(int CranialId)
         {
             return View();
         }
@@ -745,7 +745,7 @@ namespace EgyptExcavation.Controllers
 
         //BONE
         [HttpGet]
-        public IActionResult EnterBone()
+        public IActionResult EnterBone(int BoneId)
         {
             return View();
         }
@@ -827,9 +827,9 @@ namespace EgyptExcavation.Controllers
         //SAMPLE
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterSample()
+        public IActionResult EnterSample(int BodyId)
         {
-            return View();
+            return View("EnterStorage");
         }
 
         //[Authorize]
@@ -902,7 +902,7 @@ namespace EgyptExcavation.Controllers
         //STORAGE
 
         [HttpGet]
-        public IActionResult EnterStorage()
+        public IActionResult EnterStorage(int SampleId)
         {
             return View();
         }
@@ -960,7 +960,7 @@ namespace EgyptExcavation.Controllers
         //EXCAVATION
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFieldExcavation()
+        public IActionResult EnterFieldExcavation(int ExcavationId)
         {
             return View();
         }
