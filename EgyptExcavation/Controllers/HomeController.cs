@@ -448,8 +448,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.physicalOrientation = po;
                 po.OrientationId = NewMummy.physicalOrientation.OrientationId;
+                NewMummy.physicalOrientation = po;
                 //Update Database
                 context.PhysicalOrientation.Add(po);
                 context.SaveChanges();
@@ -567,8 +567,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.body = bo;
                 bo.BodyId = NewMummy.body.BodyId;
+                NewMummy.body = bo;
                 //Update Database
                 context.Body.Add(bo);
                 context.SaveChanges();
@@ -632,8 +632,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.tooth.Add(t);
                 t.BodyId = NewMummy.body.BodyId;
+                NewMummy.tooth.Add(t);
 
                 //Update Database
                 context.Tooth.Add(t);
@@ -691,8 +691,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.cranial = c;
                 c.CranialId = NewMummy.cranial.CranialId;
+                NewMummy.cranial = c;
 
                 //Update Database
                 context.Cranial.Add(c);
@@ -766,8 +766,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.bone = b;
                 b.BoneId = NewMummy.bone.BoneId;
+                NewMummy.bone = b;
 
                 //Update Database
                 context.Bone.Add(b);
@@ -852,13 +852,13 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.sample.Add(s);
                 s.BodyId = NewMummy.body.BodyId;
+                NewMummy.sample.Add(s);
 
                 //Update Database
                 context.Sample.Add(s);
                 context.SaveChanges();
-                return View("EnterStorage");
+                return View("EnterStorage", s.SampleId);
             }
             //Otherwise
             return View();
@@ -930,8 +930,8 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.storage.Add(s);
                 s.SampleId = NewMummy.body.BodyId;
+                NewMummy.storage.Add(s);
 
                 //Update Database
                 context.Storage.Add(s);
@@ -992,8 +992,9 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                NewMummy.excavation = e;
                 e.ExcavationId = NewMummy.excavation.ExcavationId;
+                NewMummy.excavation = e;
+
                 //Update Database
                 context.Excavation.Add(e);
                 context.SaveChanges();
