@@ -22,6 +22,7 @@ namespace EgyptExcavation.Controllers
         //creates a variable to store how many items will be displayed on each page
         public int ItemsPerPage { get; set; }
 
+        public static MummyInfo NewMummy { get; set; } = new MummyInfo(); 
 
         public HomeController(ILogger<HomeController> logger, egyptexcavationContext con)
         {
@@ -41,7 +42,7 @@ namespace EgyptExcavation.Controllers
 
         public IActionResult EnterTablesMenuPage()
         {
-            return View();
+            return View(NewMummy.body);
         }
 
         public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
@@ -304,21 +305,22 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+
         // [Authorize]
+
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
             var locid = context.Location.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().LocId;
             locid++;
             l.LocId = locid;
-
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                NewMummy.location = l;
                 //Update Database
                 context.Location.Add(l);
                 context.SaveChanges();
-                ViewBag.LocationId = l.LocId;
                 return View("EnterFieldNotesBurial");
             }
             //Otherwise
@@ -377,13 +379,12 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                bu.LocId = ViewBag.LocationId;
+                bu.LocId = NewMummy.location.LocId;
+                NewMummy.burial = bu;
+
                 //Update Database
                 context.Burial.Add(bu);
                 context.SaveChanges();
-                ViewBag.LocationId = null;
-                ViewBag.OrientId = bu.OrientationId;
-                ViewBag.BodId = bu.BodyId;
                 return View("EnterPhysicalOrientation");
             }
             //Otherwise
@@ -447,12 +448,11 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                po.OrientationId = ViewBag.OrientId;
+                NewMummy.physicalOrientation = po;
+                po.OrientationId = NewMummy.physicalOrientation.OrientationId;
                 //Update Database
                 context.PhysicalOrientation.Add(po);
                 context.SaveChanges();
-                ViewBag.OrientId = null;
-
                 return View("EnterFieldBody");
 
             }
@@ -567,12 +567,12 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
-                bo.BodyId = ViewBag.BodId;
+                NewMummy.body = bo;
+                bo.BodyId = NewMummy.body.BodyId;
                 //Update Database
                 context.Body.Add(bo);
                 context.SaveChanges();
-                ViewBag.BodId = null;
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
             }
             //Otherwise
             return View();
@@ -829,7 +829,7 @@ namespace EgyptExcavation.Controllers
         [HttpGet]
         public IActionResult EnterSample(int BodyId)
         {
-            return View("EnterStorage");
+            return View();
         }
 
         //[Authorize]
@@ -846,7 +846,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Sample.Add(s);
                 context.SaveChanges();
-                return View("EnterTablesMenuPage");
+                return View("EnterStorage");
             }
             //Otherwise
             return View();
@@ -904,7 +904,7 @@ namespace EgyptExcavation.Controllers
         [HttpGet]
         public IActionResult EnterStorage(int SampleId)
         {
-            return View();
+            return View("EnterTablesMenuPage");
         }
 
         [HttpPost]
@@ -960,7 +960,7 @@ namespace EgyptExcavation.Controllers
         //EXCAVATION
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFieldExcavation(int ExcavationId)
+        public IActionResult EnterFieldExcavation(int BurialId)
         {
             return View();
         }

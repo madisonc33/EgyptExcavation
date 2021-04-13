@@ -23,17 +23,17 @@ namespace EgyptExcavation.Models
         public double? MaxNasalBreadth { get; set; }
         public double? InterorbitalBreadth { get; set; }
         public int? YearOnSkull { get; set; }
-        public string? MonthOnSkull { get; set; }
+        public string MonthOnSkull { get; set; }
         public bool? SkullAtMagazine { get; set; }
         public bool? CribraOrbitalia { get; set; }
         public bool? PoroticHyperostosis { get; set; }
-        public string? PoroticHyperostosisLoc { get; set; }
+        public string PoroticHyperostosisLoc { get; set; }
         public bool? MetopicSuture { get; set; }
         public bool? ButtonOsteoma { get; set; }
-        public string? OsteologyUnknownComment { get; set; }
+        public string OsteologyUnknownComment { get; set; }
         public bool? Tmjoa { get; set; }
         public int? DateOnSkull { get; set; }
-        public string? CranialSuture { get; set; }
+        public string CranialSuture { get; set; }
         public double? GefunctionTotal { get; set; }
     }
 }
