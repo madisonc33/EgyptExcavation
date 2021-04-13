@@ -517,7 +517,7 @@ namespace EgyptExcavation.Controllers
                 return View("EnterTablesMenuPage");
             } */
             //Otherwise
-            return View("EnterTablesMenuPage"); 
+            return View("EnterTablesMenuPage", NewMummy); 
         }
 
         [HttpPost]
@@ -638,7 +638,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Tooth.Add(t);
                 context.SaveChanges();
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
             }
             //Otherwise
             return View();
@@ -697,7 +697,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Cranial.Add(c);
                 context.SaveChanges();
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
             }
             //Otherwise
             return View();
@@ -772,7 +772,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Bone.Add(b);
                 context.SaveChanges();
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
             }
             //Otherwise
             return View();
@@ -937,7 +937,7 @@ namespace EgyptExcavation.Controllers
                 context.Storage.Add(s);
                 context.SaveChanges();
                 // return View("EnterPhysicalOrientation", context.Storage);
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
 
             }
             //Otherwise
@@ -997,7 +997,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Excavation.Add(e);
                 context.SaveChanges();
-                return View("EnterTablesMenuPage");
+                return View("EnterTablesMenuPage", NewMummy);
             }
             //Otherwise
             return View();
