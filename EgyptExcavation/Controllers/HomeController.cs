@@ -340,6 +340,7 @@ namespace EgyptExcavation.Controllers
                 //Update Database
                 context.Location.Add(l);
                 context.SaveChanges();
+                ViewBag.LocationId = l.LocId;
                 return View("EnterFieldNotesBurial");
             }
             //Otherwise
@@ -398,10 +399,14 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                bu.LocId = ViewBag.LocationId;
                 //Update Database
                 context.Burial.Add(bu);
                 context.SaveChanges();
-                return View("PhysicalOrientation");
+                ViewBag.LocationId = null;
+                ViewBag.OrientId = bu.OrientationId;
+                ViewBag.BodId = bu.BodyId;
+                return View("EnterPhysicalOrientation");
             }
             //Otherwise
             return View();
@@ -464,10 +469,14 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                po.OrientationId = ViewBag.OrientId;
                 //Update Database
                 context.PhysicalOrientation.Add(po);
                 context.SaveChanges();
-                return View("Files");
+                ViewBag.OrientId = null;
+
+                return View("EnterFieldBody");
+
             }
             //Otherwise
             return View();
@@ -580,9 +589,11 @@ namespace EgyptExcavation.Controllers
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                bo.BodyId = ViewBag.BodId;
                 //Update Database
                 context.Body.Add(bo);
                 context.SaveChanges();
+                ViewBag.BodId = null;
                 return View("EnterTablesMenuPage");
             }
             //Otherwise
