@@ -501,9 +501,9 @@ namespace EgyptExcavation.Controllers
         }
 
         [HttpPost]
-        public IActionResult EnterFiles(Files f)
+        public IActionResult EnterFiles()
         {
-            var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
+            /*var filid = context.Files.Skip(context.Location.Count() - 1).Take(1).FirstOrDefault().FileId;
             filid++;
             f.FileId = filid;
 
@@ -515,9 +515,9 @@ namespace EgyptExcavation.Controllers
                 context.SaveChanges();
                 // return View("BurialList", context.Files);
                 return View("EnterTablesMenuPage");
-            }
+            } */
             //Otherwise
-            return View();
+            return View("EnterTablesMenuPage"); 
         }
 
         [HttpPost]
