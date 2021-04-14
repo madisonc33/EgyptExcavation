@@ -305,7 +305,8 @@ namespace EgyptExcavation.Controllers
         }
 
         //LOCATION
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterFieldLocation()
         {
@@ -315,6 +316,8 @@ namespace EgyptExcavation.Controllers
 
         // [Authorize]
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterFieldLocation(Location l)
         {
@@ -334,7 +337,8 @@ namespace EgyptExcavation.Controllers
             return View("EnterFieldLocation");
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldLocation(int LocID)
         {
@@ -342,7 +346,8 @@ namespace EgyptExcavation.Controllers
             return View("EditFieldLocation", l);
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldLocation2(Location l, int LocID)
         {
@@ -368,14 +373,16 @@ namespace EgyptExcavation.Controllers
 
         //BURIAL
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterFieldNotesBurial()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterFieldNotesBurial(Burial bu)
         {
@@ -398,7 +405,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldNotesBurial(int BurialID)
         {
@@ -407,7 +415,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldNotesBurial2(Burial bu, int BurialID)
         {
@@ -437,14 +446,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //PHYSICAL ORIENTATION
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterPhysicalOrientation()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterPhysicalOrientation(PhysicalOrientation po)
         {
@@ -467,7 +478,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditPhysicalOrientation(int OrientationId)
         {
@@ -476,7 +488,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditPhysicalOrientation2(PhysicalOrientation po)
         {
@@ -500,13 +513,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //FILES
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterFiles(int BurialId)
         {
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterFiles()
         {
@@ -527,6 +543,8 @@ namespace EgyptExcavation.Controllers
             return View("EnterTablesMenuPage", NewMummy); 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFiles()
         {
@@ -535,6 +553,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFiles2()
         {
@@ -556,14 +576,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //BODY
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterFieldBody()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterFieldBody(Body bo)
         {
@@ -585,33 +607,38 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult EditFieldBody(int BodyID)
+        public IActionResult EditFieldBody(int bodyid)
         {
-            Body bo = context.Body.Single(x => x.BodyId == BodyID);
-            return View("EditFieldBody", bo);
+            Body bo = context.Body.Single(x => x.BodyId == bodyid);
+            return View(bo);
 
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult EditFieldBody2(Body bo, int BodyID)
+        public IActionResult EditFieldBody2(Body bo)
         {
             if (ModelState.IsValid)
             {
                 var bod = context.Body.SingleOrDefault(x => x.BodyId == bo.BodyId);
 
-                context.Entry(bod).Property(x => x.BurialPreservation).CurrentValue = bo.BurialPreservation;
+                context.Entry(bod).Property(x => x.HairColorKey).CurrentValue = bo.HairColorKey;
                 context.Entry(bod).Property(x => x.PreservationIndex).CurrentValue = bo.PreservationIndex;
+                context.Entry(bod).Property(x => x.WrappingKey).CurrentValue = bo.WrappingKey;
+                context.Entry(bod).Property(x => x.BurialPreservation).CurrentValue = bo.BurialPreservation;
                 context.Entry(bod).Property(x => x.AgeAtDeath).CurrentValue = bo.AgeAtDeath;
-                context.Entry(bod).Property(x => x.SampleTaken).CurrentValue = bo.SampleTaken;
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
+                context.Entry(bod).Property(x => x.GenderKey).CurrentValue = bo.GenderKey;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
-
+                context.Entry(bod).Property(x => x.YearAnalyzed).CurrentValue = bo.YearAnalyzed;
+                
                 context.SaveChanges();
 
                 return RedirectToAction("BurialList");
@@ -622,6 +649,8 @@ namespace EgyptExcavation.Controllers
 
         //TEETH
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterTeeth(int BodyId)
         {
@@ -629,6 +658,8 @@ namespace EgyptExcavation.Controllers
         }
 
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterTeeth(Tooth t)
         {
@@ -651,6 +682,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditTeeth(int ToothID)
         {
@@ -659,6 +692,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditTeeth2(Tooth t, int ToothID)
         {
@@ -681,12 +716,16 @@ namespace EgyptExcavation.Controllers
 
         //CRANIAL
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterCranial()
         {
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterCranial(Cranial c)
         {
@@ -709,6 +748,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditCranial(int CranialID)
         {
@@ -717,6 +758,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditCranial2(Cranial c, int CranialID)
         {
@@ -756,12 +799,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //BONE
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterBone()
         {
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterBone(Bone b)
         {
@@ -784,6 +831,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditBone(int BoneID)
         {
@@ -792,6 +841,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditBone2(Bone b, int BoneID)
         {
@@ -840,14 +891,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //SAMPLE
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterSample(int BodyId)
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterSample(Sample s)
         {
@@ -876,7 +929,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditSample(int SampleID)
         {
@@ -884,7 +938,8 @@ namespace EgyptExcavation.Controllers
             return View("EditSample", s);
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditSample2(Sample s, int SampleID)
         {
@@ -924,12 +979,16 @@ namespace EgyptExcavation.Controllers
 
         //STORAGE
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterStorage(int SampleId)
         {
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterStorage(Storage s)
 
@@ -959,6 +1018,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditStorage(int RackID)
         {
@@ -967,6 +1028,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditStorage2(Storage s, int RackID)
         {
@@ -989,14 +1052,16 @@ namespace EgyptExcavation.Controllers
         }
 
         //EXCAVATION
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EnterFieldExcavation()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EnterFieldExcavation(Excavation e)
         {
@@ -1019,7 +1084,8 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldExcavation(int ExcavationID)
         {
@@ -1028,7 +1094,8 @@ namespace EgyptExcavation.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditFieldExcavation2(Excavation e, int ExcavationID)
         {
@@ -1053,13 +1120,15 @@ namespace EgyptExcavation.Controllers
                 return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditFieldNotes()
         {
             return View();
         }
 
-        //[Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Researcher")]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditMummyInfo()
         {
             return View();
