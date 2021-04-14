@@ -587,16 +587,16 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldBody(int BodyID)
+        public IActionResult EditFieldBody(int bodyid)
         {
-            Body bo = context.Body.Single(x => x.BodyId == BodyID);
-            return View("EditFieldBody", bo);
+            Body bo = context.Body.Single(x => x.BodyId == bodyid);
+            return View(bo);
 
         }
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditFieldBody2(Body bo, int BodyID)
+        public IActionResult EditFieldBody2(Body bo)
         {
             if (ModelState.IsValid)
             {
