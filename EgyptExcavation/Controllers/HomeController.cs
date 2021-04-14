@@ -666,7 +666,6 @@ namespace EgyptExcavation.Controllers
             {
                 var tee = context.Tooth.SingleOrDefault(x => x.ToothId == t.ToothId);
 
-                context.Entry(tee).Property(x => x.BodyId).CurrentValue = t.BodyId;
                 context.Entry(tee).Property(x => x.LinearHypoplasiaEnamel).CurrentValue = t.LinearHypoplasiaEnamel;
                 context.Entry(tee).Property(x => x.ToothAttrition).CurrentValue = t.ToothAttrition;
                 context.Entry(tee).Property(x => x.ToothEruption).CurrentValue = t.ToothEruption;
