@@ -70,17 +70,55 @@ namespace EgyptExcavation
             app.UseEndpoints(endpoints =>
             {
                 //sets up different end points so that the URL looks nice
+
+                //age routes and pag
                 endpoints.MapControllerRoute("agepage",
-                    "{age}/{pagenum:int}",
-                    new { Controller = "Home", action = "Index" });
+                    "age/{age}/{pagenum:int}",
+                    new { Controller = "Home", action = "BurialList" });
 
                 endpoints.MapControllerRoute("page",
                     "{pagenum:int}",
-                    new { Controller = "Home", action = "Index" });
+                    new { Controller = "Home", action = "BurialList" });
 
                 endpoints.MapControllerRoute("age",
-                    "{age}",
-                    new { Controller = "Home", action = "Index", page = 1 });
+                    "age/{age}",
+                    new { Controller = "Home", action = "BurialList", pagenum = 1 });
+
+                //gender routes
+                endpoints.MapControllerRoute("genderpage",
+                    "gender/{gender}/{pagenum:int}",
+                    new { Controller = "Home", action = "BurialList" });
+
+                endpoints.MapControllerRoute("gender",
+                    "gender/{gender}",
+                    new { Controller = "Home", action = "BurialList", pagenum = 1 });
+
+                //headdirection routes
+                endpoints.MapControllerRoute("headdirectionpage",
+                    "headdirection/{headdirection}/{pagenum:int}",
+                    new { Controller = "Home", action = "BurialList" });
+
+                endpoints.MapControllerRoute("headdirection",
+                    "headdirection/{headdirection}",
+                    new { Controller = "Home", action = "BurialList", pagenum = 1 });
+
+                //haircolor routes
+                endpoints.MapControllerRoute("haircolorpage",
+                    "haircolor/{haircolor}/{pagenum:int}",
+                    new { Controller = "Home", action = "BurialList" });
+
+                endpoints.MapControllerRoute("haircolor",
+                    "haircolor/{haircolor}",
+                    new { Controller = "Home", action = "BurialList", pagenum = 1 });
+
+                //artifacts routes
+                endpoints.MapControllerRoute("artifactspage",
+                    "artifacts/{artifacts}/{pagenum:int}",
+                    new { Controller = "Home", action = "BurialList" });
+
+                endpoints.MapControllerRoute("artifacts",
+                    "artifacts/{artifacts}",
+                    new { Controller = "Home", action = "BurialList", pagenum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
