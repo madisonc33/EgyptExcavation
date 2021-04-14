@@ -42,7 +42,7 @@
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Researcher"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="EnterTablesMenuPage">Enter Burial</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="EnterFieldLocation">Enter Burial</a>
                             </li>
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))

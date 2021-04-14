@@ -40,9 +40,16 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult EnterTablesMenuPage()
         {
             return View(NewMummy.body);
+        }
+
+        [HttpPost]
+        public IActionResult EnterTablesMenuPage2()
+        {
+            return View("Index");
         }
 
         public IActionResult BurialList(string depth, string age, string haircolor, string headdirection, string artifacts, string gender, int pagenum = 1)
@@ -676,7 +683,7 @@ namespace EgyptExcavation.Controllers
         //CRANIAL
 
         [HttpGet]
-        public IActionResult EnterCranial(int CranialId)
+        public IActionResult EnterCranial()
         {
             return View();
         }
@@ -751,7 +758,7 @@ namespace EgyptExcavation.Controllers
 
         //BONE
         [HttpGet]
-        public IActionResult EnterBone(int BoneId)
+        public IActionResult EnterBone()
         {
             return View();
         }
@@ -985,7 +992,7 @@ namespace EgyptExcavation.Controllers
         //EXCAVATION
         //[Authorize]
         [HttpGet]
-        public IActionResult EnterFieldExcavation(int BurialId)
+        public IActionResult EnterFieldExcavation()
         {
             return View();
         }
