@@ -469,16 +469,16 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation(int POID)
+        public IActionResult EditPhysicalOrientation(int OrientationId)
         {
-            PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == POID);
-            return View("EditFieldLocation", po);
+            PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == OrientationId);
+            return View(po);
 
         }
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
+        public IActionResult EditPhysicalOrientation2(PhysicalOrientation po)
         {
             if (ModelState.IsValid)
             {
@@ -669,7 +669,6 @@ namespace EgyptExcavation.Controllers
             {
                 var tee = context.Tooth.SingleOrDefault(x => x.ToothId == t.ToothId);
 
-                context.Entry(tee).Property(x => x.BodyId).CurrentValue = t.BodyId;
                 context.Entry(tee).Property(x => x.LinearHypoplasiaEnamel).CurrentValue = t.LinearHypoplasiaEnamel;
                 context.Entry(tee).Property(x => x.ToothAttrition).CurrentValue = t.ToothAttrition;
                 context.Entry(tee).Property(x => x.ToothEruption).CurrentValue = t.ToothEruption;
