@@ -48,7 +48,10 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="SkullTrauma">Skull Trauma:</label>
-                            <input asp-for="SkullTrauma" class="input--style-4" />
+                            <select asp-for="SkullTrauma">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -170,7 +173,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="PoroticHyperostosisLoc">Porotic Hyperostosis Location:</label>
-                            <input asp-for="PoroticHyperostosisLoc" class="input--style-4" />
+                            <input asp-for="PoroticHyperostosisLoc" class="input--style-4" maxlength="10"/>
                         </div>
                     </div>
                 </div>
@@ -200,7 +203,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="OsteologyUnknownComment">Osteology Unknown Comments: </label>
-                            <input asp-for="OsteologyUnknownComment" class="input--style-4" />
+                            <input asp-for="OsteologyUnknownComment" class="input--style-4" maxlength="2" />
                         </div>
                     </div>
                     <div class="col-4">
@@ -223,7 +226,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="CranialSuture">Cranial Suture? </label>
-                            <input asp-for="CranialSuture" class="input--style-4" />
+                            <input asp-for="CranialSuture" class="input--style-4" maxlength="20" />
                         </div>
                     </div>
                 </div>
