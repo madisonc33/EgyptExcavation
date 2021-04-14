@@ -469,16 +469,16 @@ namespace EgyptExcavation.Controllers
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation(int POID)
+        public IActionResult EditPhysicalOrientation(int OrientationId)
         {
-            PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == POID);
-            return View("EditFieldLocation", po);
+            PhysicalOrientation po = context.PhysicalOrientation.Single(x => x.OrientationId == OrientationId);
+            return View(po);
 
         }
 
         //[Authorize]
         [HttpPost]
-        public IActionResult EditPhysicalOrientation2(PhysicalOrientation po, int POID)
+        public IActionResult EditPhysicalOrientation2(PhysicalOrientation po)
         {
             if (ModelState.IsValid)
             {
