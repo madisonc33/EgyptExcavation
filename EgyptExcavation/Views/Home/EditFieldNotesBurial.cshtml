@@ -78,7 +78,11 @@
                     <div class="col-4">
                         <div class="input-group">
                             <label asp-for="Goods">Goods</label>
-                            <input asp-for="Goods" class="input--style-4" maxlength="1" />
+                            <select asp-for="Goods">
+                                <options value="Y">Yes</options>
+                                <options value="N">No</options>
+                                <options value="U">Undetermined</options>
+                            </select>
                         </div>
                     </div>
                     <div class="col-4">
