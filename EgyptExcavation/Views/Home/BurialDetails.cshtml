@@ -173,6 +173,7 @@
                             <input type="submit" value="Edit Cranial Information" class="btn btn-secondary" />
                         </form>
                     }
+                    <br />
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldCranial" method="post" class="text-center">
@@ -229,6 +230,7 @@
                             <input type="submit" value="Edit Bone Information" class="btn btn-secondary" />
                         </form>
                     }
+                    <br />
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldBone" method="post" class="text-center">
@@ -299,6 +301,7 @@
                             <input type="submit" value="Edit Excavation Information" class="btn btn-secondary" />
                         </form>
                     }
+                    <br />
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
                         <form asp-action="DeleteFieldExcavation" method="post" class="text-center">
