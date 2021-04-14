@@ -47,7 +47,7 @@
                 <p class="card-text">Enter skull trauma, max nasal breadth, cribra orbitalia, and more here!</p>
                 <form asp-action="EnterCranial" method="get">
                     <div class="input-group" hidden>
-                        <input name="CranialId" value="@Model.CranialId" />
+                        <input name="CranialId"/>
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
@@ -65,7 +65,7 @@
                 <p class="card-text">Enter orbit edge, humerous, dorsal pitting, and more here!</p>
                 <form asp-action="EnterBone" method="get">
                     <div class="input-group" hidden>
-                        <input name="BoneId" value="@Model.BoneId" />
+                        <input name="BoneId" />
                     </div>
                     <div class="p-t-15">
                         <button class="btn btn--radius-2 btn--blue" type="submit">Add</button>
