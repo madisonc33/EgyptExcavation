@@ -849,16 +849,22 @@ namespace EgyptExcavation.Controllers
             samid++;
             s.SampleId = samid;
 
+
             //first check data to make sure it's good before passing to Model and DB
             if (ModelState.IsValid)
             {
+                var storage = new Storage();
+                storage.SampleId = s.SampleId;
+
                 s.BodyId = NewMummy.body.BodyId;
                 NewMummy.sample.Add(s);
 
                 //Update Database
                 context.Sample.Add(s);
                 context.SaveChanges();
-                return View("EnterStorage", s.SampleId);
+                return View("EnterStorage", storage);
+
+
             }
             //Otherwise
             return View();
@@ -870,7 +876,6 @@ namespace EgyptExcavation.Controllers
         {
             Sample s = context.Sample.Single(x => x.SampleId == SampleID);
             return View("EditSample", s);
-
         }
 
         //[Authorize]
