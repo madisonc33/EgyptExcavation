@@ -602,16 +602,19 @@ namespace EgyptExcavation.Controllers
             {
                 var bod = context.Body.SingleOrDefault(x => x.BodyId == bo.BodyId);
 
-                context.Entry(bod).Property(x => x.BurialPreservation).CurrentValue = bo.BurialPreservation;
+                context.Entry(bod).Property(x => x.HairColorKey).CurrentValue = bo.HairColorKey;
                 context.Entry(bod).Property(x => x.PreservationIndex).CurrentValue = bo.PreservationIndex;
+                context.Entry(bod).Property(x => x.WrappingKey).CurrentValue = bo.WrappingKey;
+                context.Entry(bod).Property(x => x.BurialPreservation).CurrentValue = bo.BurialPreservation;
                 context.Entry(bod).Property(x => x.AgeAtDeath).CurrentValue = bo.AgeAtDeath;
-                context.Entry(bod).Property(x => x.SampleTaken).CurrentValue = bo.SampleTaken;
                 context.Entry(bod).Property(x => x.AgeMethod).CurrentValue = bo.AgeMethod;
+                context.Entry(bod).Property(x => x.GenderKey).CurrentValue = bo.GenderKey;
                 context.Entry(bod).Property(x => x.GenderMethod).CurrentValue = bo.GenderMethod;
                 context.Entry(bod).Property(x => x.EstimateLivingStature).CurrentValue = bo.EstimateLivingStature;
                 context.Entry(bod).Property(x => x.SequenceDna).CurrentValue = bo.SequenceDna;
                 context.Entry(bod).Property(x => x.CarbonEstimatedDate).CurrentValue = bo.CarbonEstimatedDate;
-
+                context.Entry(bod).Property(x => x.YearAnalyzed).CurrentValue = bo.YearAnalyzed;
+                
                 context.SaveChanges();
 
                 return RedirectToAction("BurialList");
