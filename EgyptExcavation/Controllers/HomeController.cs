@@ -40,13 +40,6 @@ namespace EgyptExcavation.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult EnterTablesMenuPage()
-        {
-            return View();
-        }
-
-        [HttpPost]
         public IActionResult EnterTablesMenuPage()
         {
             return View(NewMummy.body);
